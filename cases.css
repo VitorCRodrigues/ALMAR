@@ -79,7 +79,7 @@ button, input, optgroup, select, textarea {
 	color: #000;
 	font-size: 16px;
 	font-weight: 400;
-	transition: color 0.3s ease;
+	transition: color 0.5s ease;
 	white-space: nowrap;
 }
 
@@ -197,7 +197,7 @@ button, input, optgroup, select, textarea {
 	width:100vw;
 }
 
-.footer-bottom{max-width:1200px;margin:0 auto;padding-top:12px;padding-bottom:18px}
+.footer-bottom{max-width:1200px;padding: 0 4vw;padding-top:12px;padding-bottom:18px}
 .credit{color:var(--muted);font-size:13px;font-weight:400}
 .credit strong{color:var(--text);font-weight:400}
 
