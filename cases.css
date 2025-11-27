@@ -1,16 +1,53 @@
+@font-face {
+	font-family: 'Avenir Next';
+	src: url('styles/fonts/avenir-next-regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Avenir Next', 'Montserrat', "Helvetica Neue", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+button, input, optgroup, select, textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
 
 :root{
 	--bg:#000;
 	--text:#fff;
 	--muted:#cfcfcf;
 	--gold:#c89b1a;
-}
-
-html,body{
-	font-family: 'Montserrat', "Avenir Next", "Avenir", "Helvetica Neue", Arial, sans-serif;
-	-webkit-font-smoothing:antialiased;
-	-moz-osx-font-smoothing:grayscale;
-	overflow-x: hidden; /* evita barra horizontal indesejada */
 }
 
 .site-footer{
@@ -23,7 +60,7 @@ html,body{
 
 .footer-inner{
 	display:flex;
-	gap:20rem; /*espaçamento entre colunas*/
+	gap:2rem; /*espaçamento entre colunas*/
 	align-items:flex-start;
 	max-width:1200px;
 	margin:0 auto;
@@ -31,9 +68,9 @@ html,body{
 }
 
 .footer-col{flex:1}
-.footer-left { flex: 0.9; min-width: 220px; display:flex; flex-direction:column; align-items:flex-start; }
-.footer-center { flex: 1.2; }
-.footer-right { min-width: 140px; text-align: right; }
+.footer-left { flex: 4; min-width: 220px; display:flex; flex-direction:column; align-items:flex-start; }
+.footer-center { flex: 0.8; }
+.footer-right { flex: 0.5; min-width: 140px; text-align: right; }
 
 
 .brand .logo{
@@ -50,7 +87,9 @@ html,body{
 	max-width:100%;
 	height:auto;
 	display:block;
-	margin:0; /* garante alinhamento à esquerda com o bloco de contato */
+	margin:-21px; /*garante alinhamento à esquerda com o bloco de contato*/
+	position:relative;
+	top:-38px; /*sobe a logo para alinhar com o texto Home*/
 }
 
 .contact{margin-top:0}
@@ -90,7 +129,7 @@ html,body{
 .footer-divider{
 	height:1px;
 	background:var(--gold);
-	/* mais espaço abaixo da linha antes do crédito */
+	/*mais espaço abaixo da linha*/
 	margin:28px 0 40px;
 	position:relative;
 	left:50%;
