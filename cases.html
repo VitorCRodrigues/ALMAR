@@ -52,65 +52,61 @@
 				<p class="description">Soluções customizadas às marcas de ponta a ponta. Da concepção de projetos ao acompanhamento de performance e resultados planejados.</p>
 			</div>
 			<div class="numbers-right">
-				<div class="stats-grid">
-					<div class="stat-item">
-						<div class="stat-card">
-							<div class="stat-image" style="background-image: url('stat1.jpg')">
-								<div class="stat-overlay">
-									<p class="stat-text">Aumento de<br><span class="stat-number">150%</span> do<br><span class="stat-highlight">ticket médio</span> em<br>vendas</p>
-								</div>
-							</div>
+			<div class="stats-grid">
+				<div class="stat-item">
+					<div class="pillar-image-container">
+						<img src="img-resultados.png" alt="Resultado" class="pillar-image">
+						<div class="pillar-text-overlay">
+							<p class="stat-text">Aumento de<br><span class="stat-number">150%</span> do<br><span class="stat-highlight">ticket médio</span> em<br>vendas</p>
 						</div>
-						<div class="pillar">
-							<div class="pillar-title">RESULTADO</div>
+					</div>
+					<div class="pillar">
+						<div class="pillar-title">RESULTADO</div>
 							<div class="pillar-content">
 								<h3>RESULTADO</h3>
 								<p>Com base em dados e comportamento de consumo, geramos cross-selling estratégico que amplia o ticket médio, melhora a jornada do cliente e consolida o vínculo com a marca ao oferecer soluções mais completas aos projetos.</p>
 							</div>
 						</div>
 					</div>
-					<div class="stat-item">
-						<div class="stat-card">
-							<div class="stat-image" style="background-image: url('stat2.jpg')">
-								<div class="stat-overlay">
-									<p class="stat-text">Já atingimos<br><span class="stat-number">30%</span> do<br><span class="stat-highlight">faturamento<br>global</span> passando<br>por nossos<br>programas</p>
-								</div>
-							</div>
+				<div class="stat-item">
+					<div class="pillar-image-container">
+						<img src="img-engajamento.png" alt="Engajamento" class="pillar-image">
+						<div class="pillar-text-overlay">
+							<p class="stat-text">Já atingimos<br><span class="stat-number">30%</span> do<br><span class="stat-highlight">faturamento<br>global</span> passando<br>por nossos<br>programas</p>
 						</div>
-						<div class="pillar">
-							<div class="pillar-title">ENGAJAMENTO</div>
+					</div>
+					<div class="pillar">
+						<div class="pillar-title">ENGAJAMENTO</div>
 							<div class="pillar-content">
 								<h3>ENGAJAMENTO</h3>
 								<p>Cada nicho de clientes é mapeado e associado a métricas de resultados e comportamento, gerando maiores índices de reincidência de compra e impulsionando o desempenho das marcas por meio de suas comunidades.</p>
 							</div>
 						</div>
 					</div>
-					<div class="stat-item">
-						<div class="stat-card">
-							<div class="stat-image" style="background-image: url('stat3.jpg')">
-								<div class="stat-overlay">
-									<p class="stat-text">Mais de<br><span class="stat-number">120 mil</span><br>consumidores<br>finais impactados<br>por <span class="stat-highlight">experiências<br>e ações</span></p>
-								</div>
-							</div>
+				<div class="stat-item">
+					<div class="pillar-image-container">
+						<img src="img-fidelização.png" alt="Fidelização" class="pillar-image">
+						<div class="pillar-text-overlay">
+							<p class="stat-text">Mais de<br><span class="stat-number">120 mil</span><br>consumidores<br>finais impactados<br>por <span class="stat-highlight">experiências<br>e ações</span></p>
 						</div>
-						<div class="pillar">
-							<div class="pillar-title">FIDELIZAÇÃO</div>
+					</div>
+					<div class="pillar">
+						<div class="pillar-title">FIDELIZAÇÃO</div>
 							<div class="pillar-content">
 								<h3>FIDELIZAÇÃO</h3>
 								<p>Com nosso modelo de gestão informacional, transformamos dados em insights que revelam oportunidades e transformam estratégia em performance e crescimento para a marca.</p>
 							</div>
 						</div>
 					</div>
-					<div class="stat-item">
-						<div class="stat-card">
-							<div class="stat-image" style="background-image: url('stat4.jpg')">
-								<div class="stat-overlay">
-									<p class="stat-text">Mais de<br><span class="stat-number">3,2 MM</span><br>de estímulos de comunicação<br><span class="stat-highlight">planejados e<br>entregues</span></p>
-								</div>
-							</div>
+				<div class="stat-item">
+					<div class="pillar-image-container">
+						<img src="img-encantamento.png" alt="Encantamento" class="pillar-image">
+						<div class="pillar-text-overlay">
+							<p class="stat-text">Mais de<br><span class="stat-number">3,2 MM</span><br>de estímulos de comunicação<br><span class="stat-highlight">planejados e<br>entregues</span></p>
 						</div>
-						<div class="pillar">
-							<div class="pillar-title">ENCANTAMENTO</div>
+					</div>
+					<div class="pillar">
+						<div class="pillar-title">ENCANTAMENTO</div>
 							<div class="pillar-content">
 								<h3>ENCANTAMENTO</h3>
 								<p>Ao conectar dados, inteligência e comportamento do cliente identificamos oportunidades personalizadas de experiências e benefícios a serem ofertados via comunicações por ciclo de vida de clientes.</p>
@@ -206,13 +202,19 @@
 			<div class="contact-form-background">
 				<img src="img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
 				<div class="contact-form-container">
-					<form class="contact-form">
-						<input type="text" placeholder="Nome" required>
-						<input type="text" placeholder="Sobrenome" required>
-						<input type="email" placeholder="Email" required>
-						<input type="text" placeholder="O que você busca?" required>
-						<input type="text" placeholder="Empresa">
-						<textarea placeholder="Como podemos ajudar?" rows="4"></textarea>
+					<form class="contact-form" onsubmit="return validateForm(event)">
+						<input type="text" name="nome" placeholder="Nome" required>
+						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
+						<input type="email" name="email" placeholder="Email" required>
+						<input type="text" name="busca" placeholder="O que você busca?" required>
+						<input type="text" name="empresa" placeholder="Empresa">
+						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
+						<div class="recaptcha-container">
+							<label class="recaptcha-label">
+								<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
+								<span>Não sou um robô</span>
+							</label>
+						</div>
 						<button type="submit" class="submit-btn">Enviar</button>
 					</form>
 					<div class="contact-message">
@@ -223,13 +225,12 @@
 		</section>
 
 		<script>
-			let currentPosition = 17; // Começa no segundo conjunto
+			let currentPosition = 17;
 			const track = document.querySelector('.carousel-track');
 			const logoWidth = 270; // 150px logo + 120px gap
 			const totalLogos = 17;
 			let isTransitioning = false;
 			
-			// Posiciona inicialmente no segundo conjunto (sem animação)
 			track.style.transform = `translateX(-${currentPosition * logoWidth}px)`;
 
 			function moveCarousel(direction) {
@@ -257,6 +258,40 @@
 					isTransitioning = false;
 				}, 500);
 			}
+
+			function validateForm(event) {
+				event.preventDefault();
+				
+				const checkbox = document.getElementById('robotCheck');
+				if (!checkbox.checked) {
+					alert('Por favor, confirme que você não é um robô.');
+					return false;
+				}
+
+				// Coletando os dados do formulário
+				const form = event.target;
+				const nome = form.nome.value;
+				const sobrenome = form.sobrenome.value;
+				const email = form.email.value;
+				const busca = form.busca.value;
+				const empresa = form.empresa.value;
+				const mensagem = form.mensagem.value;
+
+				// Montando o corpo do email
+				const assunto = encodeURIComponent(`Contato do site - ${nome} ${sobrenome}`);
+				const corpo = encodeURIComponent(
+					`Nome: ${nome}\n` +
+					`Sobrenome: ${sobrenome}\n` +
+					`Email: ${email}\n` +
+					`O que busca: ${busca}\n` +
+					`Empresa: ${empresa}\n\n` +
+					`Mensagem:\n${mensagem}`
+				);
+
+				window.location.href = `mailto:atendimento@almarvm.com.br?subject=${assunto}&body=${corpo}`;
+				
+				return false;
+			}
 		</script>
 	</main>
     
@@ -275,7 +310,7 @@
 					</div>
 					<div class="contact-item">
 						<img src="mail.svg" alt="mail" class="mail-icon" />
-						<a href="mailto:contato@almarvm.com.br">contato@almarvm.com.br</a>
+						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
 					</div>
 				</div>
 			</div>
