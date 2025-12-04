@@ -20,7 +20,6 @@
 			</nav>
 		</div>
 	</header>
-
 	<main>
 		<section class="hero-section">
 			<div class="hero-left">
@@ -120,20 +119,21 @@
 			</div>
 		</section>
 
-		<section class="clients-section">
-			<div class="clients-background">
-				<img src="img-nossos-clientes.png" alt="Nossos Clientes" class="clients-image">
-				<div class="clients-overlay"></div>
-				<div class="clients-content">
-					<h2>NOSSOS CLIENTES</h2>
+		<div class="clients-carousel-wrapper">
+			<section class="clients-section">
+				<div class="clients-background">
+					<img src="img-nossos-clientes.png" alt="Nossos Clientes" class="clients-image">
+					<div class="clients-overlay"></div>
+					<div class="clients-content">
+						<h2>NOSSOS CLIENTES</h2>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 
-		<section class="carousel-section">
-			<button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
-			<div class="carousel-container">
-				<div class="carousel-track">
+			<section class="carousel-section">
+				<button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)">‹</button>
+				<div class="carousel-container">
+					<div class="carousel-track">
 					<div class="carousel-logos">
 						<img src="logo-4U.svg" alt="4U">
 						<img src="logo-ac.svg" alt="AC">
@@ -195,6 +195,7 @@
 			</div>
 			<button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)">›</button>
 		</section>
+		</div>
 
 		<section class="contact-intro-section">
 			<h2>CONTATO</h2>
@@ -228,9 +229,33 @@
 		</section>
 
 		<script>
+			// Controle de som do vídeo
+			const heroVideo = document.querySelector('.hero-video');
+			const heroSection = document.querySelector('.hero-section');
+			let soundEnabled = false;
+			
+			// Ativar som no primeiro clique
+			document.addEventListener('click', () => {
+				if (!soundEnabled) {
+					heroVideo.muted = false;
+					soundEnabled = true;
+				}
+			}, { once: true });
+			
+			// Controlar som baseado no scroll (só funciona se o som já foi ativado)
+			window.addEventListener('scroll', () => {
+				if (soundEnabled) {
+					const heroRect = heroSection.getBoundingClientRect();
+					const windowHeight = window.innerHeight;
+					const isHeroVisible = heroRect.bottom > windowHeight * 0.5;
+					
+					heroVideo.muted = !isHeroVisible;
+				}
+			});
+
 			let currentPosition = 17;
 			const track = document.querySelector('.carousel-track');
-			const logoWidth = 270; // 150px logo + 120px gap
+			const logoWidth = 270; 
 			const totalLogos = 17;
 			let isTransitioning = false;
 			
