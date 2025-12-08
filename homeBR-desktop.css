@@ -140,6 +140,8 @@ button, input, optgroup, select, textarea {
 	top: 0;
 	left: 0;
 	transform: scale(1.058);
+	-webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 30%, transparent);
+	mask-image: linear-gradient(to right, black 30%, transparent);
 }
 
 .logo-container {
