@@ -23,6 +23,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
+	background: #000;
 }
 
 img, picture, video, canvas, svg {
@@ -52,7 +53,7 @@ button, input, optgroup, select, textarea {
 .site-header {
 	background: transparent;
 	padding: 1.4rem 4vw;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -117,12 +118,14 @@ button, input, optgroup, select, textarea {
 	width: 100%;
 	height: 100vh;
 	min-height: 600px;
-	position: relative;
+	position: sticky;
+	top: 0;
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
 	padding-top: 120px;
 	padding-left: 70px;
+	z-index: 1;
 }
 
 .hero-cases-background {
@@ -184,7 +187,9 @@ button, input, optgroup, select, textarea {
 	color: #fff;
 	padding: 150px 4vw;
 	text-align: center;
-	position: relative;
+	position: sticky;
+	top: 0;
+	z-index: 2;
 }
 
 .cases-intro::before {
@@ -227,14 +232,15 @@ button, input, optgroup, select, textarea {
 
 .cases-grid {
 	background: #fff;
-	padding: 80px 4vw;
+	padding: 80px calc((100% - 900px) / 2);
+	border-radius: 100px 100px 0 0;
+	position: relative;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: 30px;
-	max-width: 900px;
-	margin: 0 auto;
-	border-radius: 200px 200px 0 0;
-	position: relative;
+	gap: 20px;
+	max-width: 100%;
+	margin: 0;
+	z-index: 3;
 }
 
 .cases-grid::before {
@@ -306,7 +312,7 @@ button, input, optgroup, select, textarea {
 
 .case-overlay h3 {
 	color: #fff;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 400;
 	line-height: 1.4;
 	margin: 0 0 20px 0;
@@ -317,13 +323,12 @@ button, input, optgroup, select, textarea {
 	background: #c89b1a;
 	color: #000;
 	border: none;
-	padding: 10px 24px;
-	font-size: 12px;
-	font-weight: 600;
-	border-radius: 4px;
+	padding: 12px 24px;
+	font-size: 16px;
+	font-weight: 550;
+	border-radius: 13px;
 	cursor: pointer;
 	transition: background 0.3s ease;
-	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
 
@@ -347,11 +352,20 @@ button, input, optgroup, select, textarea {
 
 .case-text h3 {
 	color: #fff;
-	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.4;
 	margin: 0;
 	letter-spacing: 0.5px;
+}
+
+.case-title {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.case-subtitle {
+	font-size: 16px;
+	font-weight: 300;
 }
 
 @media (max-width: 768px) {
@@ -361,12 +375,21 @@ button, input, optgroup, select, textarea {
 		padding: 60px 30px;
 	}
 	
+	.case-overlay {
+		padding: 20px;
+	}
+	
 	.case-overlay h3 {
-		font-size: 12px;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+	
+	.case-button {
+		font-size: 14px;
+		padding: 10px 20px;
 	}
 }
 
-/* Footer - copiado do homeBR-desktop.css */
 .site-footer{
 	background:var(--bg);
 	color:var(--text);
