@@ -302,6 +302,72 @@ body {
   object-fit: cover;
 }
 
+.invited {
+  background: #E7E6E6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  border-radius: 28px 28px 0 0; /* bordas arredondadas superiores */
+}
+
+.invited-container {
+  max-width: 900px;
+  width: 100%;
+  color: #000;
+}
+
+.invited-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+/* CARDS */
+.invited-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.invited-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.invited-text {
+  flex: 2;
+}
+
+.invited-text h3 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.invited-text p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #333;
+}
+
+.invited-photo {
+  flex: 1;
+  max-width: 260px;
+}
+
+.invited-photo img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
 /* RESPONSIVO PARA CONSULTORAS */
 @media (max-width: 900px) {
   .consultants {
@@ -317,6 +383,23 @@ body {
   }
 
   .consultant-photo {
+    max-width: 100%;
+  }
+
+  .invited {
+    padding: 40px 20px;
+  }
+
+  .invited-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .invited-card:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .invited-photo {
     max-width: 100%;
   }
 }
