@@ -431,3 +431,8 @@ body {
     max-width: 100%;
   }
 }
+
+#intro video::-webkit-media-controls,
+#intro video::-webkit-media-controls-enclosure {
+  display: none !important;
+}

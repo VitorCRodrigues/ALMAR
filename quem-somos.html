@@ -18,16 +18,20 @@
 </head>
 <body>
   <div id="intro">
-      <video
-        id="introVideo"
-        playsinline
-        muted
-        autoplay
-      >
-        <source src="videos/valores e visão .mp4" type="video/mp4" />
-        Seu navegador não suporta vídeo HTML5.
-      </video>
-    </div>
+    <video
+      id="introVideo"
+      playsinline
+      muted
+      autoplay
+      preload="auto"
+      disablepictureinpicture
+      disableremoteplayback
+      controlslist="nodownload noplaybackrate noremoteplayback"
+    >
+      <source src="videos/quem-somos.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+  </div>
 
   <!-- WRAPPER QUE O fullPage.js VAI CONTROLAR -->
   <div id="fullpage">
