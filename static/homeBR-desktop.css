@@ -961,13 +961,11 @@ button, input, optgroup, select, textarea {
   }
 
   .logo-container{
-    margin-top: 12px;    
-    margin-left: 0;
-    padding: 16px;
+    margin-top: -48px;   /* sobe a logo */
+    margin-left: -12px;
   }
 
   .hero-logo{
     width: 220px;        
   }
 }
-

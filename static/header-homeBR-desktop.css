@@ -140,3 +140,28 @@
 	}
 
 }
+
+.site-header.is-dark .header-nav a{
+  color: #000;
+}
+
+.site-header.is-dark .header-nav a:hover{
+  color: var(--gold);
+}
+
+.site-header.is-dark .menu-toggle span{
+  background: #000;
+}
+
+.site-header.is-dark{
+  background: rgba(245,245,245,0.65);
+  backdrop-filter: blur(6px);
+}
+
+.site-header.is-dark:hover{
+  background: rgba(245,245,245,0.85);
+}
+
+.site-header.is-dark:hover .header-nav a{
+  color: #000;
+}
