@@ -215,7 +215,7 @@
 			<div class="contact-form-background">
 				<img src="images/img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
 				<div class="contact-form-container">
-					<form class="contact-form" onsubmit="return validateForm(event)">
+					<form class="contact-form" action="https://formsubmit.co/atendimento@almarvm.com.br" method="POST">
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
@@ -228,6 +228,10 @@
 								<span>Não sou um robô</span>
 							</label>
 						</div>
+						<input type="hidden" name="_subject" value="Contato pelo site - ALMAR">
+						<input type="hidden" name="_template" value="table">
+						<input type="hidden" name="_captcha" value="false">
+						<input type="text" name="_honey" style="display:none">
 						<button type="submit" class="submit-btn">Enviar</button>
 					</form>
 					<div class="contact-message">
@@ -294,40 +298,6 @@
 					}
 					isTransitioning = false;
 				}, 500);
-			}
-
-			function validateForm(event) {
-				event.preventDefault();
-				
-				const checkbox = document.getElementById('robotCheck');
-				if (!checkbox.checked) {
-					alert('Por favor, confirme que você não é um robô.');
-					return false;
-				}
-
-				// Coletando os dados do formulário
-				const form = event.target;
-				const nome = form.nome.value;
-				const sobrenome = form.sobrenome.value;
-				const email = form.email.value;
-				const busca = form.busca.value;
-				const empresa = form.empresa.value;
-				const mensagem = form.mensagem.value;
-
-				// Montando o corpo do email
-				const assunto = encodeURIComponent(`Contato do site - ${nome} ${sobrenome}`);
-				const corpo = encodeURIComponent(
-					`Nome: ${nome}\n` +
-					`Sobrenome: ${sobrenome}\n` +
-					`Email: ${email}\n` +
-					`O que busca: ${busca}\n` +
-					`Empresa: ${empresa}\n\n` +
-					`Mensagem:\n${mensagem}`
-				);
-
-				window.location.href = `mailto:atendimento@almarvm.com.br?subject=${assunto}&body=${corpo}`;
-				
-				return false;
 			}
 		</script>
 	</main>
