@@ -22,5 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    const heroVideo = document.getElementById('hero-video');
+    const soundAlert = document.getElementById('sound-alert');
+
+    if (heroVideo && soundAlert) {
+        setTimeout(() => {
+            soundAlert.classList.add('hidden');
+            heroVideo.play().catch(error => {
+                console.log("Reprodução automática bloqueada ou falhou:", error);
+            });
+        }, 5000);
+    }
 });
 
