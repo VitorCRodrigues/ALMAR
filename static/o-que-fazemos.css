@@ -61,6 +61,8 @@ button, input, optgroup, select, textarea {
     width: 100%; 
     z-index: 9999;
     transition: background 0.3s ease;
+	mix-blend-mode: difference;
+
 }
 
 .site-header:hover {
