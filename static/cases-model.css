@@ -163,7 +163,7 @@ button, input, optgroup, select, textarea {
 }
 
 /* Hero Section */
-.hero-singular {
+.hero-model {
 	width: 100%;
 	height: 100vh;
 	min-height: 600px;
@@ -177,7 +177,7 @@ button, input, optgroup, select, textarea {
 	z-index: 1;
 }
 
-.hero-singular-background {
+.hero-model-background {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -186,14 +186,14 @@ button, input, optgroup, select, textarea {
 	overflow: hidden;
 }
 
-.hero-singular-image {
+.hero-model-image {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center center;
 }
 
-.hero-singular-overlay {
+.hero-model-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -202,13 +202,13 @@ button, input, optgroup, select, textarea {
 	background: rgba(0, 0, 0, 0.3);
 }
 
-.hero-singular-content {
+.hero-model-content {
 	position: relative;
 	z-index: 2;
 	text-align: left;
 }
 
-.hero-singular-content h1 {
+.hero-model-content h1 {
 	font-size: 62px;
 	font-weight: 400;
 	color: #fff;
@@ -217,7 +217,7 @@ button, input, optgroup, select, textarea {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-singular-content p {
+.hero-model-content p {
 	font-size: 24px;
 	font-weight: 300;
 	color: #fff;
@@ -227,23 +227,23 @@ button, input, optgroup, select, textarea {
 }
 
 @media (max-width: 900px) {
-	.hero-singular {
+	.hero-model {
 		height: 50vh;
 		min-height: 300px;
 		padding-bottom: 40px;
 		padding-left: 30px;
 	}
 	
-	.hero-singular-content h1 {
+	.hero-model-content h1 {
 		font-size: 48px;
 	}
 	
-	.hero-singular-content p {
+	.hero-model-content p {
 		font-size: 18px;
 	}
 }
 
-.singular-info {
+.model-info {
 	background: #000;
 	color: #fff;
 	padding: 100px 0;
@@ -255,7 +255,7 @@ button, input, optgroup, select, textarea {
 	z-index: 2;
 }
 
-.singular-info-content {
+.model-info-content {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	gap: 80px;
@@ -308,7 +308,7 @@ button, input, optgroup, select, textarea {
 	margin: 0;
 }
 
-.singular-image-container {
+.model-image-container {
 	max-width: 1200px;
 	width: 100%;
 	margin: 80px auto 0;
@@ -317,7 +317,7 @@ button, input, optgroup, select, textarea {
 	align-items: center;
 }
 
-.singular-pessoas-image {
+.model-pessoas-image {
 	width: 100%;
 	height: auto;
 	display: block;
@@ -328,24 +328,24 @@ button, input, optgroup, select, textarea {
     	padding: 0 30px;
 	}
 
-	.singular-info {
+	.model-info {
 		padding: 60px 0;
 	}
 	
-	.singular-info-content {
+	.model-info-content {
 		grid-template-columns: 1fr;
 		gap: 40px;
 		padding: 0 30px;
 	}
 	
-	.singular-image-container {
+	.model-image-container {
 		margin: 40px auto 0;
 		padding: 0 20px;
 	}
 }
 
 /* Details Section */
-.singular-details {
+.model-details {
 	position: relative;
 	z-index: 3;
 }
