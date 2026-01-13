@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>O que fazemos - ALMAR</title>
+	<link rel="stylesheet" href="static/contato.css" />
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			
+			<button class="menu-toggle" aria-label="Abrir menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+
+			<nav class="header-nav">
+				<a href="#">Home</a>
+				<a href="#">Quem somos</a>
+				<a href="#">O que fazemos</a>
+				<a href="#">Autoridade</a>
+				<a href="#">Cases</a>
+				<a href="#">Alma feminina</a>
+				<a href="#">Contato</a>
+			</nav>
+		</div>
+	</header>
+    <main>
+        		<section class="contact-intro-section" data-header-theme="dark">
+			<h2>CONTATO</h2>
+			<p>Estratégia, criatividade e relacionamento: o início de uma boa parceria começa aqui.</p>
+		</section>
+		<section class="contact-form-section">
+			<div class="contact-form-background">
+				<img src="images/img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
+				<div class="contact-form-container">
+					<form class="contact-form" onsubmit="return validateForm(event)">
+						<input type="text" name="nome" placeholder="Nome" required>
+						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
+						<input type="email" name="email" placeholder="Email" required>
+						<select name="busca" required>
+							<option value="" disabled selected>O que você busca?</option>
+							<option value="programa-relacionamento">Programa de relacionamento</option>
+							<option value="pesquisa-customizada">Pesquisa customizada</option>
+							<option value="dados-crm">Dados e CRM</option>
+							<option value="planejamento-estrategico">Planejamento estratégico</option>
+							<option value="cursos-palestras">Cursos / Palestras</option>
+							<option value="parcerias">Parcerias</option>
+							<option value="outros">Outros</option>
+						</select>
+						<input type="text" name="empresa" placeholder="Empresa">
+						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
+						<div class="recaptcha-container">
+							<label class="recaptcha-label">
+								<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
+								<span>Não sou um robô</span>
+							</label>
+						</div>
+						<button type="submit" class="submit-btn">Enviar</button>
+					</form>
+					<div class="contact-message">
+						<p>Entre em contato com nossos<br>especialistas e vamos<br>transformar ideias em resultados.</p>
+					</div>
+				</div>
+			</div>
+		</section> 
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-inner">
+			<div class="footer-col footer-left">
+				<div class="brand">
+					<img src="images/logoALMAR.svg" alt="ALMAR" class="brand-logo" />
+				</div>
+
+				<div class="contact">
+					<h4>Fale conosco</h4>
+					<div class="phone-item">
+						<img src="images/call_end.svg" alt="call" class="phone-icon" />
+						<span>(21) 98383-2398</span>
+					</div>
+					<div class="contact-item">
+						<img src="images/mail.svg" alt="mail" class="mail-icon" />
+						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-col footer-center">
+				<nav class="footer-nav">
+					<a href="#">Home</a>
+					<a href="#">Quem somos</a>
+					<a href="#">O que fazemos</a>
+					<a href="#">Autoridade</a>
+					<a href="#">Cases</a>
+					<a href="#">Alma feminina</a>
+					<a href="#">Contato</a>
+				</nav>
+			</div>
+
+			<div class="footer-col footer-right">
+				<div class="socials">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-divider"></div>
+
+		<div class="footer-bottom">
+			<div class="credit">Desenvolvido por<br/><strong>Empresa Júnior PUC-Rio</strong></div>
+		</div>
+	</footer>
+</body>
+</html>
