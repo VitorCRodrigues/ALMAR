@@ -1198,7 +1198,7 @@ button, input, optgroup, select, textarea {
     .solucoes-pratica {
         position: sticky;
         top: 0;
-        height: 100vh;
+        height: 120vh;
     }
 
     .banner-solucoes{
