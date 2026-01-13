@@ -223,11 +223,6 @@ button, input, optgroup, select, textarea {
     align-self: flex-start; 
 }
 
-.site-header {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-}
-
-/* RESPONSIVO (MOBILE) */
 @media (max-width: 768px) {
     .oqf-hero-content {
         display: none; 
