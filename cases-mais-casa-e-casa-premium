@@ -1,0 +1,148 @@
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>MAIS CASA E CASA PREMIUM - ALMAR</title>
+	<link rel="stylesheet" href="static/cases-model.css" />
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			
+			<button class="menu-toggle" aria-label="Abrir menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+
+			<nav class="header-nav">
+				<a href="#">Home</a>
+				<a href="#">Quem somos</a>
+				<a href="#">O que fazemos</a>
+				<a href="#">Autoridade</a>
+				<a href="#">Cases</a>
+				<a href="#">Alma feminina</a>
+				<a href="#">Contato</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero-model">
+			<div class="hero-model-background">
+				<img src="images/mais-casa-e-casa-premium.jpg" alt="model" class="hero-model-image">
+				<div class="hero-model-overlay"></div>
+			</div>
+			<div class="hero-model-content">
+				<h1>MAIS CASA E CASA PREMIUM</h1>
+				<p>Casa Shopping</p>
+			</div>
+		</section>
+
+		<section class="model-info">
+			<div class="model-info-content">
+				<div class="info-left">
+					<h3>ANO</h3>
+					<p>2024</p>
+				</div>
+				<div class="info-right">
+					<h3>CONTEXTO</h3>
+					<p>O CasaShopping buscava evoluir seus<br>programas de relacionamento — Mais Casa<br>(voltado ao consumidor final) e Casa Premium<br>(para profissionais de arquitetura e design).</p>
+				</div>
+			</div>
+			
+			<div class="model-image-container">
+				<img src="images/mais-casa-e-casa-premium-1.jpg" class="model-pessoas-image">
+			</div>
+		</section>
+
+		<section class="model-details">
+			<div class="details-content">
+				<div class="details-inner">
+					<div class="details-left">
+						<h3>A JORNADA</h3>
+						<p>A ALMAR apoiou a marca no refinamento estratégico dos programas, identificando sinergias e oportunidades de valor entre iniciativas já existentes. O projeto incluiu a reestruturação de CRM, revisão de processos e recomendações de novas features para ampliar o valor percebido no ecossistema.</p>
+					</div>
+					<div class="details-right">
+						<img src="images/mais-casa-e-casa.svg" class="details-image">
+					</div>
+				</div>
+			</div>
+
+			<div class="details-content">
+				<div class="details-inner">
+					<div class="details-left-column">
+						<div class="details-left">
+							<h3>RESULTADOS E IMPACTOS</h3>
+							<p>O trabalho consolidou uma visão mais integrada de relacionamento, com dados e jornadas mais inteligentes e orientadas à fidelização.</p>
+						</div>
+						
+						<div class="feedback-block">
+							<h3>FEEDBACK</h3>
+							<p>“É muito legal ver como cada etapa contribuiu e amarrou direitinho com cada escolha para chegar nessa conclusão de Oferta de Valor. E não é achismo. Foi tudo baseado em dados e pesquisas.”</p>
+							<p class="feedback-author">- Luiza Marcolini, Gerente de Projetos do CasaShopping</p>
+						</div>
+					</div>
+					
+					<div class="details-right">
+						<img src="images/mais-casa-e-casa-premium-2.jpg" class="details-image">
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-inner">
+			<div class="footer-col footer-left">
+				<div class="brand">
+					<img src="images/logoALMAR.svg" alt="ALMAR" class="brand-logo" />
+				</div>
+
+				<div class="contact">
+					<h4>Fale conosco</h4>
+					<div class="phone-item">
+						<img src="images/call_end.svg" alt="call" class="phone-icon" />
+						<span>(21) 98383-2398</span>
+					</div>
+					<div class="contact-item">
+						<img src="images/mail.svg" alt="mail" class="mail-icon" />
+						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-col footer-center">
+				<nav class="footer-nav">
+					<a href="#">Home</a>
+					<a href="#">Quem somos</a>
+					<a href="#">O que fazemos</a>
+					<a href="#">Autoridade</a>
+					<a href="#">Cases</a>
+					<a href="#">Alma feminina</a>
+					<a href="#">Contato</a>
+				</nav>
+			</div>
+
+			<div class="footer-col footer-right">
+				<div class="socials">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-divider"></div>
+
+		<div class="footer-bottom">
+			<div class="credit">Desenvolvido por<br/><strong>Empresa Júnior PUC-Rio</strong></div>
+		</div>
+	</footer>
+
+</body>
+</html>
