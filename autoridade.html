@@ -5,40 +5,41 @@
   <title>ALMAR – Autoridade</title>
 
   <link rel="stylesheet" href="static/autoridade.css" />
+  <link rel="stylesheet" href="static/header-homeBR-desktop.css" />
+  <link rel="stylesheet" href="static/footer.css" />
 </head>
 <body>
 
-  <!-- TOPO / NAV -->
   <header class="site-header">
-    <div class="site-header-inner">
-      <div class="site-logo">Autoridade</div>
+			<div class="header-inner">
+				
+				<button class="menu-toggle" aria-label="Abrir menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
 
-      <nav class="site-nav">
-        <a href="#">Home</a>
-        <a href="#">Quem somos</a>
-        <a href="#">O que fazemos</a>
-        <a href="#" class="is-active">Autoridade</a>
-        <a href="#">Cases</a>
-        <a href="#">Alma feminina</a>
-        <a href="#">Contato</a>
-      </nav>
-    </div>
-  </header>
+				<nav class="header-nav">
+					<a href="#">Home</a>
+					<a href="#">Quem somos</a>
+					<a href="#">O que fazemos</a>
+					<a href="#">Autoridade</a>
+					<a href="#">Cases</a>
+					<a href="#">Alma feminina</a>
+					<a href="#">Contato</a>
+				</nav>
+			</div>
+		</header>
 
-  <main class="page">
+  <main class="page stack-scroll">
 
-    <!-- HERO COM VÍDEO -->
-    <section class="hero-video">
+    <section class="hero-video stack-section stack-1">
       <div class="hero-video-inner">
-
-        <!-- Espaço para o vídeo (pasta videos) -->
-        <!-- Troque o src pelo seu arquivo real em /videos -->
         <video class="hero-video-player" muted playsinline controls>
           <source src="videos/autoridade-hero.mp4" type="video/mp4" />
           Seu navegador não suporta vídeo HTML5.
         </video>
 
-        <!-- Faixa com texto sobreposto (como no wireframe) -->
         <div class="hero-video-overlay">
           <p>
             Nossa equipe se atualiza constantemente sobre cenários de varejo nos
@@ -48,11 +49,12 @@
       </div>
     </section>
 
-    <!-- BLOCO PRINCIPAL PRETO -->
-    <section class="authority-main">
+    <section class="authority-main stack-section stack-2">
       <div class="authority-main-inner">
 
-        <!-- TEXTO CENTRAL NO TOPO DO BLOCO PRETO -->
+        <img class="authority-line authority-line--left" src="images/linha-amarela.png" alt="">
+        <img class="authority-line authority-line--right" src="images/linha-amarela.png" alt="">
+
         <div class="authority-intro-text">
           <p>
             Somos uma empresa ativa no processo de transformação e qualificação do
@@ -90,74 +92,392 @@
 
           </div>
 
-          <!-- GRID DE CARDS DE AUTORIDADE -->
           <div class="authority-cards">
-            <!-- Cada card é só um espaço para imagem -->
-            <!-- Troque os src pelos arquivos reais da pasta images -->
 
             <article class="authority-card">
-              <img src="images/autoridade-card-01.jpg" alt="Card 1" />
+              <img src="images/autoridade-card-1.png" alt="Card 1" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-02.jpg" alt="Card 2" />
+              <img src="images/autoridade-card-2.png" alt="Card 2" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-03.jpg" alt="Card 3" />
+              <img src="images/autoridade-card-3.png" alt="Card 3" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-04.jpg" alt="Card 4" />
+              <img src="images/autoridade-card-4.png" alt="Card 4" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-05.jpg" alt="Card 5" />
+              <img src="images/autoridade-card-5.png" alt="Card 5" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-06.jpg" alt="Card 6" />
+              <img src="images/autoridade-card-6.png" alt="Card 6" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-07.jpg" alt="Card 7" />
+              <img src="images/autoridade-card-7.png" alt="Card 7" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-08.jpg" alt="Card 8" />
+              <img src="images/autoridade-card-8.png" alt="Card 8" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-09.jpg" alt="Card 9" />
+              <img src="images/autoridade-card-9.png" alt="Card 9" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-10.jpg" alt="Card 10" />
+              <img src="images/autoridade-card-10.png" alt="Card 10" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-11.jpg" alt="Card 11" />
+              <img src="images/autoridade-card-11.png" alt="Card 11" />
             </article>
 
             <article class="authority-card">
-              <img src="images/autoridade-card-12.jpg" alt="Card 12" />
+              <img src="images/autoridade-card-12.png" alt="Card 12" />
+            </article>
+
+            <article class="authority-card">
+              <img src="images/autoridade-card-13.png" alt="Card 13" />
+            </article>
+
+            <article class="authority-card">
+              <img src="images/autoridade-card-14.png" alt="Card 14" />
             </article>
 
           </div>
         </div>
       </div>
     </section>
+    <section class="authority-events stack-section stack-3">
+      <div class="authority-events-inner">
 
-    <!-- FAIXA FINAL CLARA -->
-    <section class="authority-bottom">
-      <div class="authority-bottom-inner">
-        <p>
-          Investimos ativamente junto a nossos especialistas, em participações nos
-          principais fóruns de inovação do mercado nacional e internacional.
-        </p>
+        <div class="events-intro">
+          <p>
+            Investimos ativamente junto a nossos especialistas, em participações nos
+            principais fóruns de inovação do mercado nacional e internacional.
+          </p>
+        </div>
+
+        <div class="events-logos-strip">
+          <button class="events-arrow events-arrow--left" aria-label="Anterior" type="button">‹</button>
+
+          <div class="events-logos" id="events-carousel">
+            <div class="events-logo-item"><img src="images/sxsw.png" alt="SXSW" /></div>
+            <div class="events-logo-item"><img src="images/festival.png" alt="Festival E,Faz&Fala" /></div>
+            <div class="events-logo-item"><img src="images/rioinnovation.png" alt="Rio Innovation Week" /></div>
+            <div class="events-logo-item"><img src="images/rio2c.png" alt="Rio 2C" /></div>
+            <div class="events-logo-item"><img src="images/websummit.png" alt="Web Summit" /></div>
+            <div class="events-logo-item is-active"><img src="images/nrf.png" alt="NRF" /></div>
+          </div>
+
+          <button class="events-arrow events-arrow--right" aria-label="Próximo" type="button">›</button>
+        </div>
+
       </div>
     </section>
 
+    <section class="events-stage stack-section stack-4">
+      <div class="events-stage-inner">
+
+        <div class="events-panel">
+          <div class="events-panel-inner">
+            <div class="events-panel-text">
+              <p>
+                Nossos insights e processos para as empresas também se transformam
+                em encontros e painéis conduzidos por Vanessa Moço, nossa CEO.
+              </p>
+            </div>
+
+            <figure class="events-panel-photo">
+              <img src="images/mulher-autoridade.png" alt="Vanessa Moço em painel" />
+            </figure>
+
+            <div class="events-panel-buttons">
+              <button type="button" class="events-tab" data-target="ev-1" aria-controls="ev-1" aria-expanded="false">
+                ALMAR e as Gerações
+              </button>
+
+              <button type="button" class="events-tab" data-target="ev-2" aria-controls="ev-2" aria-expanded="false">
+                Quantas pontas valem um toque?
+              </button>
+
+              <button type="button" class="events-tab" data-target="ev-3" aria-controls="ev-3" aria-expanded="false">
+                Como transformar relacionamento em cultura de marca?
+              </button>
+            </div>
+
+            <div class="events-details">
+              <div class="events-detail" id="ev-1">
+                <p>
+                  Público-alvo: equipes comerciais, marketing, gestão de pessoas e cultura de inovação.
+                  Corporações, estudiosos, mídia e curiosos.
+                </p>
+                <p>
+                  Do que se trata? Como conceitualmente esse assunto ganhou tanto espaço?
+                  Caminhos para utilizar esse tema de forma prática para criar e fomentar
+                  maior cooperação entre e com estes grupos geracionais.
+                </p>
+              </div>
+
+              <div class="events-detail" id="ev-2">
+                <p>
+                  Público-alvo: equipes comerciais, marketing, gestão de pessoas e cultura de inovação.
+                  Corporações, estudiosos, mídia e curiosos.
+                </p>
+                <p>
+                  Do que se trata? Por que o tema de "comunidades" e relacionamento ganhou tanta força
+                  no mercado? Uma leitura transversal sobre esses universos nos últimos 15 anos e como
+                  culturalmente as comunidades tem regido o mercado do varejo no cenário nacional e internacional.
+                </p>
+              </div>
+
+              <div class="events-detail" id="ev-3">
+                <p>
+                  Público-alvo: equipes comerciais, marketing, gestão de pessoas e cultura de inovação.
+                  Corporações, estudiosos, mídia e curiosos.
+                </p>
+                <p>
+                  Do que se trata? Para marcas que já possuem ou desejam se preparar para implementar
+                  um programa de relacionamento. É a oportunidade de aprofundar no tema, com um olhar
+                  mult cultural e na perspectiva ALMAR, com um olhar técnico para tirar o melhor proveito
+                  desse rico e crescente universo.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <section class="stats-band stack-section stack-5">
+          <div class="stats-band-inner">
+
+            <div class="stats-badge">
+              <img src="images/oval-amarelo.png" alt="" />
+              <span class="stats-badge-number">26%</span>
+            </div>
+
+            <div class="stats-content">
+              <p class="stats-title">
+                Segundo relatório da Abrasce divulgado em 2025, apenas 2% dos Shoppings no Brasil têm programas de relacionamento;
+              </p>
+
+              <p class="stats-sub">
+                A Associação indica ser atualmente cerca de 400 shoppings associados.
+              </p>
+
+              <p class="stats-source">
+                <span>Fonte:</span> Relatório Abrasce 2025
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="final-quote stack-section stack-6">
+          <div class="final-quote-inner">
+
+            <div class="final-quote-line final-quote-line--top">
+              <img src="images/linha-amarela.png" alt="" />
+            </div>
+
+            <div class="final-quote-text">
+              <span class="final-quote-mark">“</span>
+
+              <div class="final-quote-body">
+                <p>
+                  Mais de 50% dos programas de Shopping Centers foram criados nos últimos 4 anos e a ALMAR participa ativamente destes números.
+                </p>
+                <p>
+                  A nossa história se mistura com a do varejo nacional. Já atuamos com mais de 80% dos players de gestão de shoppings e varejo no Brasil.
+                </p>
+              </div>
+
+              <span class="final-quote-mark final-quote-mark--right">”</span>
+            </div>
+
+            <p class="final-quote-author">
+              – Vanessa Moço, fundadora da Almar
+            </p>
+
+            <div class="final-quote-line final-quote-line--bottom">
+              <img src="images/linha-amarela.png" alt="" />
+            </div>
+
+          </div>
+        </section>
+
+        <section class="trend-band stack-section stack-7">
+          <img class="trend-bg" src="images/trend-bg.png" alt="" />
+
+          <div class="trend-band-inner">
+            <div class="trend-left">
+              <h3>O tema é tendência: mundial e multissetorial</h3>
+              <p class="trend-source"><span>Fonte:</span> “Global Customer Loyalty Report 2025”</p>
+            </div>
+
+            <div class="trend-right">
+              <div class="trend-item">
+                <div class="trend-badge">
+                  <img src="images/oval-amarelo75.png" alt="" />
+                </div>
+                <p>“Das empresas planejam implementar gamificação nos próximos dois anos.”</p>
+              </div>
+
+              <div class="trend-item">
+                <div class="trend-badge">
+                  <img src="images/oval-amarelo81.png" alt="" />
+                </div>
+                <p>“Dos consumidores preferem marcas que oferecem recompensas personalizadas.”</p>
+              </div>
+
+              <div class="trend-item">
+                <div class="trend-badge">
+                  <img src="images/oval-amarelo5,2x.png" alt="" />
+                </div>
+                <p>
+                  Segundo estudo da Global Customer Loyalty Report 2025, este é o índice/ROI que chega a ser atingido por empresas
+                  que investem em projetos dessa natureza!
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO: Cases -->
+        <section class="cases-section stack-section stack-8">
+          <div class="cases-inner">
+            <h3 class="cases-title">Conheça alguns cases que nos orgulhamos muito:</h3>
+
+            <div class="cases-grid">
+              <a class="case-card" href="#">
+                <img src="images/case-1.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">SINGULAR</p>
+                  <p class="case-sub">Shopping Pátio Batel</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-2.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">LIVING JARDIM SUL</p>
+                  <p class="case-sub">Shopping Jardim Sul</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-3.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">MAIS CASA E CASA PREMIUM</p>
+                  <p class="case-sub">Casa Shopping</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-4.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">MEU PÁTIO</p>
+                  <p class="case-sub">Shopping Pátio Paulista</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-5.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">RIO DESIGN MAIS</p>
+                  <p class="case-sub">Shopping Rio Design Leblon</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-6.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">RIO DESIGN MAIS</p>
+                  <p class="case-sub">Shopping Rio Design Barra</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-7.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">SOLAR</p>
+                  <p class="case-sub">Shopping Leblon</p>
+                </div>
+              </a>
+
+              <a class="case-card" href="#">
+                <img src="images/case-8.png" alt="" />
+                <div class="case-label">
+                  <p class="case-name">ODONTO PREV</p>
+                  <p class="case-sub">Projeto de Personas e Storytelling de marca</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
   </main>
+  <footer class="site-footer">
+		<div class="footer-inner">
+			<div class="footer-col footer-left">
+				<div class="brand">
+					<img src="images/logoALMAR.svg" alt="ALMAR" class="brand-logo" />
+				</div>
+
+				<div class="contact">
+					<h4>Fale conosco</h4>
+					<div class="phone-item">
+						<img src="images/call_end.svg" alt="call" class="phone-icon" />
+						<span>(21) 98383-2398</span>
+					</div>
+					<div class="contact-item">
+						<img src="images/mail.svg" alt="mail" class="mail-icon" />
+						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-col footer-center">
+				<nav class="footer-nav">
+					<a href="#">Home</a>
+					<a href="#">Quem somos</a>
+					<a href="#">O que fazemos</a>
+					<a href="#">Autoridade</a>
+					<a href="#">Cases</a>
+					<a href="#">Alma feminina</a>
+					<a href="#">Contato</a>
+				</nav>
+			</div>
+
+			<div class="footer-col footer-right">
+				<div class="socials">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-divider"></div>
+
+		<div class="footer-bottom">
+			<div class="credit">Desenvolvido por<br/><strong>Empresa Júnior PUC-Rio</strong></div>
+		</div>
+	</footer>
+  <script src="carrossel-autoridade.js"></script>
+  <script src="events-tab.js"></script>
 </body>
 </html>
