@@ -1,42 +1,52 @@
-(function () {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('.menu-toggle');
+    const header = document.querySelector('.site-header');
+    const nav = document.querySelector('.header-nav');
 
-  const headerHeight = () => header.offsetHeight || 80;
+    if (btn && nav) {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            
+            const isOpen = nav.classList.toggle('active');
+            btn.classList.toggle('active');
+            header.classList.toggle('menu-open', isOpen);
 
-  function updateHeaderTheme() {
-    const x = Math.floor(window.innerWidth / 2);
-    const y = Math.floor(headerHeight() / 2);
+            if (nav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
 
-    // 1) Faz o header "sumir" pro hit-test (sem afetar visual)
-    const prevPointerEvents = header.style.pointerEvents;
-    header.style.pointerEvents = "none";
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
 
-    // 2) Agora sim pega o elemento real por trás
-    const el = document.elementFromPoint(x, y);
+                // remove ativo de todos
+                nav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
 
-    // 3) Volta ao normal
-    header.style.pointerEvents = prevPointerEvents || "";
+                // ativa o clicado
+                link.classList.add('active');
 
-    if (!el) return;
-
-    const themedSection = el.closest("[data-header-theme]");
-    const shouldBeDark =
-        themedSection && themedSection.getAttribute("data-header-theme") === "dark";
-
-    header.classList.toggle("is-dark", !!shouldBeDark);
-  }
+                // fecha menu
+                nav.classList.remove('active');
+                btn.classList.remove('active');
+                header.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            });
+        });
 
 
-  // Rodar ao carregar
-  window.addEventListener("load", updateHeaderTheme);
+        // --- NOVO: Fechar ao clicar fora do menu ---
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = nav.contains(e.target);
+            const isClickOnButton = btn.contains(e.target);
 
-  // Rodar no scroll (passivo pra performance)
-  window.addEventListener("scroll", updateHeaderTheme, { passive: true });
-
-  // Rodar no resize
-  window.addEventListener("resize", updateHeaderTheme);
-
-  // Rodar quando fontes/layout mudarem um pouco
-  setTimeout(updateHeaderTheme, 100);
-})();
+            // Se o menu está aberto E o clique NÃO foi no menu E NÃO foi no botão
+            if (nav.classList.contains('active') && !isClickInsideMenu && !isClickOnButton) {
+                nav.classList.remove('active');
+                btn.classList.remove('active');
+                header.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
+        });
+    }

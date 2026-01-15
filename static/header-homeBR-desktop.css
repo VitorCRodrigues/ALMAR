@@ -7,6 +7,8 @@
 	right: 0;
 	z-index: 9999;
 	transition: background 0.3s ease;
+    mix-blend-mode: difference;
+
 }
 
 .site-header:hover {
@@ -42,10 +44,26 @@
 }
 
 @media (max-width: 900px) {
+    .site-header {
+        background: transparent;
+        mix-blend-mode: difference;
+    }
+
+    .site-header.menu-open {
+        background: #000;
+        mix-blend-mode: normal;
+    }
 	.header-nav {
 		gap: 1rem;
 		font-size: 13px;
 	}
+    .site-header.menu-open .header-nav a {
+        color: #fff;
+    }
+
+    .site-header.menu-open .header-nav a.active {
+        color: #d4a21a; /* amarelo */
+    }
 }
 
 @media (max-width: 768px) {
@@ -139,29 +157,4 @@
 		color: #c89b1a !important;
 	}
 
-}
-
-.site-header.is-dark .header-nav a{
-  color: #000;
-}
-
-.site-header.is-dark .header-nav a:hover{
-  color: var(--gold);
-}
-
-.site-header.is-dark .menu-toggle span{
-  background: #000;
-}
-
-.site-header.is-dark{
-  background: rgba(245,245,245,0.65);
-  backdrop-filter: blur(6px);
-}
-
-.site-header.is-dark:hover{
-  background: rgba(245,245,245,0.85);
-}
-
-.site-header.is-dark:hover .header-nav a{
-  color: #000;
 }
