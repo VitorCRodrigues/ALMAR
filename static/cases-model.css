@@ -434,6 +434,10 @@ button, input, optgroup, select, textarea {
 		.details-inner {
 			padding: 0 30px;
 		}
+
+		.details-content:nth-child(2) {
+    		margin-top: -40px;
+		}
 	}
 
 
@@ -545,7 +549,7 @@ button, input, optgroup, select, textarea {
 
 	.details-content:first-child .details-image {
 		max-width: 450px;
-		margin-bottom: -150px;
+		margin-bottom: 40px;
 	}
 
 	.details-content:nth-child(2) .details-inner {
