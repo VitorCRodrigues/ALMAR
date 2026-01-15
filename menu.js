@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.querySelector('.menu-toggle');
+    const header = document.querySelector('.site-header');
     const nav = document.querySelector('.header-nav');
 
     if (btn && nav) {
-        btn.addEventListener('click', () => {
-            nav.classList.toggle('active');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            
+            const isOpen = nav.classList.toggle('active');
             btn.classList.toggle('active');
+            header.classList.toggle('menu-open', isOpen);
 
             if (nav.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
@@ -16,22 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+
+                // remove ativo de todos
+                nav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+
+                // ativa o clicado
+                link.classList.add('active');
+
+                // fecha menu
                 nav.classList.remove('active');
                 btn.classList.remove('active');
+                header.classList.remove('menu-open');
                 document.body.style.overflow = '';
             });
         });
-    }
-    const heroVideo = document.getElementById('hero-video');
-    const soundAlert = document.getElementById('sound-alert');
 
-    if (heroVideo && soundAlert) {
-        setTimeout(() => {
-            soundAlert.classList.add('hidden');
-            heroVideo.play().catch(error => {
-                console.log("Reprodução automática bloqueada ou falhou:", error);
-            });
-        }, 5000);
-    }
-});
 
+        // --- NOVO: Fechar ao clicar fora do menu ---
+        document.addEventListener('click', (e) => {
+            const isClickInsideMenu = nav.contains(e.target);
+            const isClickOnButton = btn.contains(e.target);
+
+            // Se o menu está aberto E o clique NÃO foi no menu E NÃO foi no botão
+            if (nav.classList.contains('active') && !isClickInsideMenu && !isClickOnButton) {
+                nav.classList.remove('active');
+                btn.classList.remove('active');
+                header.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
+        });
+    }
