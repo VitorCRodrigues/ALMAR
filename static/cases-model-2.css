@@ -435,6 +435,7 @@ button, input, optgroup, select, textarea {
 	@media (max-width: 768px) {
 		.details-inner {
 			padding: 0 30px;
+			height: auto;
 		}
 	}
 
