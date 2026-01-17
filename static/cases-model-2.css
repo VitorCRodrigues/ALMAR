@@ -437,12 +437,18 @@ button, input, optgroup, select, textarea {
 			padding: 0 30px;
 			height: auto;
 		}
+
+		.details-content:nth-child(2) {
+    		margin-top: -40px;
+		}
 	}
 
 
 	.details-left {
 		position: relative;
 		padding-left: 20px;
+		margin-top: 30px;
+		margin-bottom: 60px;
 	}
 
 	.details-left::before {
@@ -495,9 +501,7 @@ button, input, optgroup, select, textarea {
 		display: flex;
 		justify-content: center;
 		overflow: hidden;
-		align-items: stretch;
-		margin-top 32px;
-			
+		align-items: flex-start;
 	}
 
 
@@ -555,10 +559,6 @@ button, input, optgroup, select, textarea {
 
 	.details-content:nth-child(2) .details-inner {
 		align-items: end;
-	}
-
-	.details-content:nth-child(2) .details-image {
-		max-width: 450px;
 	}
 
 	.details-left-column {
