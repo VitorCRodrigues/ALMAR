@@ -20,7 +20,7 @@ html {
 body {
     padding-top: 111px;
 	margin: 0;
-	font-family: 'Avenir Next';
+	font-family: 'Avenir Next', 'Montserrat', "Helvetica Neue", Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
