@@ -401,7 +401,7 @@ button, input, optgroup, select, textarea {
 	}
 
 	.details-content {
-		padding: 100px 0;
+		padding: 200px 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
