@@ -1,6 +1,13 @@
+:root{
+  --bg:#000;
+  --text:#fff;
+  --muted:#cfcfcf;
+  --gold:#c89b1a;
+}
+
 .site-footer{
-	background:var(--bg);
-	color:var(--text);
+	background: var(--bg, #000);
+  	color: var(--text, #fff);
 	padding:48px 0vw 20px;
 	position:relative;
 	z-index: 4;

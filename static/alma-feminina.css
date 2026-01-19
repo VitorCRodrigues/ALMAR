@@ -1,0 +1,1001 @@
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("../styles/fonts/avenir-next-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root{
+  --gold: #DAA521;
+  --bg: #E7E6E6;
+  --text: #000000;
+  --white: #fff;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:visited, a:hover, a:focus, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+body{
+  font-family: "Avenir Next LT Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.alma-page{
+  min-height: 100vh;
+  background: #E7E6E6;
+}
+
+.alma-hero{
+  position: relative;
+  min-height: 92vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  align-items: start;
+}
+
+.alma-hero-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+.alma-hero-overlay{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.70) 0%,
+    rgba(0,0,0,0.35) 45%,
+    rgba(0,0,0,0.10) 75%,
+    rgba(0,0,0,0.00) 100%
+  );
+}
+
+.alma-hero-inner{
+  position: relative;
+  z-index: 2;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+
+  padding: 140px 40px 0;
+
+  color: var(--white);
+}
+
+.alma-hero-kicker{
+  font-size: 56px;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.alma-hero-text{
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.90);
+}
+
+.alma-hero-line{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  z-index: 2;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.alma-hero-line img{
+  max-width: 260px;
+  height: auto;
+  display: block;
+}
+
+.alma-section{
+  background: #E7E6E6;
+  padding: 84px 0 92px;
+}
+
+.alma-section-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.alma-title{
+  color: var(--gold);
+  font-size: 28px;
+  letter-spacing: 0.10em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.alma-content{
+  max-width: 980px;
+  font-size: 16px;
+  line-height: 2.0;
+  color: #000000;
+  margin-top: 18px;
+}
+
+.alma-content p + p{
+  margin-top: 18px;
+}
+
+.alma-line{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 14px;
+}
+
+.alma-line--bottom{
+  margin-top: 26px;
+}
+
+.alma-line img{
+  max-width: 260px;
+  height: auto;
+  display: block;
+}
+
+.alma-line{ 
+    display: none; 
+}
+
+.alma-block{
+  display: flex;
+  align-items: flex-start;
+  gap: 44px;
+}
+
+.alma-block + .alma-block{
+  margin-top: 58px;
+}
+
+.alma-vline{
+  width: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex: 0 0 2px;
+  align-self: stretch;
+  min-height: 120px;
+}
+
+.alma-block-content{
+  flex: 1;
+}
+
+.alma-title{
+  margin-bottom: 16px;
+}
+
+.alma-dark-section{
+  background: #000;
+  color: #fff;
+  padding: 0 0 64px;
+}
+
+.alma-dark-hero{
+  position: relative;
+  width: 100%;
+  height: 54vh;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.alma-dark-hero-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.alma-dark-hero-fade{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.35) 40%,
+    rgba(0,0,0,0.10) 70%,
+    rgba(0,0,0,0.00) 100%
+  );
+  pointer-events: none;
+}
+
+.alma-dark-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 40px 0;
+}
+
+.alma-topics-carousel{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 18px 0 12px;
+}
+
+.topics-viewport{
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 40px; 
+}
+
+.topic{
+  font-size: 18px;
+  letter-spacing: 0.14em;
+}
+
+.topics-track{
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  padding: 6px 0;
+  width: max-content;
+  will-change: transform;
+  animation: topics-marquee 22s linear infinite;
+}
+
+@keyframes topics-marquee{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+.topics-btn{
+  width: 42px;
+  height: 34px;
+  border: 1px solid rgba(218,165,33,0.55);
+  background: rgba(0,0,0,0.25);
+  color: var(--gold);
+  border-radius: 999px;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+}
+.topics-btn:hover{
+  background: rgba(218,165,33,0.12);
+}
+
+.alma-dark-title{
+  margin-top: 18px;
+  color: var(--gold);
+  font-size: 28px;
+  letter-spacing: 0.10em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.alma-dark-title--spaced{
+  margin-top: 26px;
+}
+
+.alma-dark-text{
+  margin-top: 12px;
+  max-width: 920px;
+  font-size: 16px;
+  line-height: 2.0;
+  color: rgba(255,255,255,0.88);
+}
+
+.alma-dark-kicker{
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: rgba(218,165,33,0.92);
+}
+
+.alma-cards-grid{
+  margin-top: 16px;
+  display: grid;
+  gap: 18px;
+}
+
+.alma-cards-grid--4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.alma-cards-grid--5{
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.alma-card{
+  text-align: center;
+}
+
+.alma-card-thumb{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.alma-card-photo{
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 58%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.alma-cards-grid--4 .alma-card-photo{
+  inset: 10% 10% 18% 10%;
+  width: 80%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.alma-card-frame{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.alma-card-caption{
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  width: 80%;
+  text-align: center;
+  z-index: 3;
+}
+
+.alma-card-title{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(255,255,255,0.92);
+}
+
+.alma-card-meta{
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.70);
+}
+
+.alma-value{
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  padding: 54px 0;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+}
+
+.alma-value-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.alma-value-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.58);
+  z-index: 1;
+}
+
+.alma-value-inner{
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.alma-value-eyebrow{
+  text-align: center;
+  color: var(--gold);
+  font-size: 30px;
+  letter-spacing: 0.02em;
+  margin-bottom: 34px;
+  font-weight: 400;
+}
+
+.alma-value-grid{
+  --pill-w: 420px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.alma-value-col{
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.alma-value-head{
+  width: min(var(--pill-w), 100%);
+  margin: 0;
+  text-align: center;
+}
+
+.alma-value-title{
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: rgba(255,255,255,0.95);
+}
+
+.alma-value-sub{
+  margin: 0;
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.alma-value-buttons{
+  width: min(var(--pill-w), 100%);
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.alma-value-col:first-child .alma-value-head,
+.alma-value-col:first-child .alma-value-buttons{
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.alma-value-col:last-child .alma-value-head,
+.alma-value-col:last-child .alma-value-buttons{
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.alma-value-pill{
+  position: relative;
+  height: 62px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.alma-value-pill-bg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+.alma-value-pill-text{
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  color: rgba(255,255,255,0.95);
+  text-align: center;
+  padding: 0 18px;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.alma-partner{
+  background: #000;
+  color: rgba(255,255,255,0.90);
+  padding: 70px 0 78px;
+}
+
+.alma-partner-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 22px;
+
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.alma-partner-media{
+  width: 100%;
+}
+
+.alma-partner-video{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  background: #d9d9d9;
+  display: block;
+  border: 0;
+}
+
+.alma-partner-text{
+  max-width: 650px;
+}
+
+.alma-partner-text p{
+  font-size: 17px;
+  line-height: 2.0;
+  margin: 0 0 18px;
+}
+
+.alma-partner-cta{
+  margin-top: 14px;
+}
+
+.alma-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 18px;
+  background: var(--gold);
+  color: #111;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+}
+
+.alma-gallery{
+  background: #000;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  padding: 0;
+}
+
+.alma-gallery-inner{
+  background: #E7E6E6;
+
+  border-radius: 110px 110px 0 0;
+  overflow: hidden;
+  padding: 34px 0 44px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.alma-gallery-title{
+  max-width: 980px;
+  margin: 0 auto 18px;
+  padding: 0 40px;
+
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(0,0,0,0.85);
+}
+
+.alma-gallery-grid{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.alma-gallery-grid img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+
+  border-radius: 10px;
+}
+
+@media (max-width: 960px){
+  .alma-hero-inner{
+    padding: 120px 20px 0;
+  }
+
+  .alma-hero-kicker{
+    font-size: 40px;
+  }
+
+  .alma-hero-text{
+    font-size: 16px;
+    max-width: 92%;
+  }
+
+  .alma-hero-line{
+    padding: 0 20px;
+  }
+
+  .alma-section-inner{
+    padding: 0 20px;
+  }
+  .alma-dark-inner,
+  .alma-topics-carousel{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .alma-cards-grid--4{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .alma-value-inner{
+    padding: 0 20px;
+  }
+
+  .alma-value-eyebrow{
+    font-size: 24px;
+    margin-bottom: 26px;
+  }
+
+  .alma-value-col{
+    justify-self: center;
+  }
+
+  .alma-partner-inner{
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .alma-partner-media{
+  display: flex;
+  justify-content: center;
+  }
+
+  .alma-partner-video{
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .alma-partner-cta{
+    display: flex;
+  }
+
+  .alma-btn{
+    width: 100%;
+    height: 46px;
+    font-size: 15px;
+  }
+
+  .alma-partner-text{
+    max-width: 100%;
+  }
+  
+  .alma-gallery-inner{
+    border-radius: 44px 44px 0 0;
+    padding: 24px 0 28px;
+  }
+
+  .alma-gallery-title{
+    max-width: 900px;
+    padding: 0 20px;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .alma-gallery-grid{
+    max-width: 900px;
+    padding: 0 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .alma-gallery-grid img{ border-radius: 9px; }
+}
+
+@media (max-width: 640px){
+  .alma-hero{
+    min-height: 100svh; 
+  }
+
+  .alma-hero-kicker{
+    font-size: 34px;
+  }
+
+  .alma-hero-text{
+    font-size: 15px;
+  }
+
+  .alma-hero-line img,
+  .alma-line img{
+    max-width: 160px;
+  }
+  .alma-block{
+    gap: 22px;
+  }
+  .topics-btn{ display: none; }
+  .alma-topics-carousel{ grid-template-columns: 1fr; }
+
+  .alma-dark-hero{
+    height: 44vh;
+    min-height: 280px;
+  }
+
+  .alma-cards-grid--4,
+  .alma-cards-grid--5{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .alma-value-pill{
+    height: 58px;
+  }
+
+  .alma-value-pill-text{
+    font-size: 16px;
+  }
+
+  .alma-partner{
+    padding: 56px 0 62px;
+  }
+
+  .alma-partner-inner{
+    padding: 0 16px;
+  }
+
+  .alma-partner-text p{
+    font-size: 16px;
+  }
+  .alma-gallery-inner{
+    border-radius: 28px 28px 0 0;
+    padding: 18px 0 22px;
+  }
+
+  .alma-gallery-title{
+    padding: 0 16px;
+    font-size: 18px;
+  }
+
+  .alma-gallery-grid{
+    padding: 0 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .alma-gallery-grid img{ border-radius: 8px; }
+
+  .alma-cards-grid--5{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+
+  .alma-cards-grid--5 .alma-card-thumb{
+    aspect-ratio: 1 / 1.45;
+  }
+
+  .alma-cards-grid--5 .alma-card-photo{
+    left: 12%;
+    top: 10%;
+    width: 76%;
+    height: 58%;
+  }
+
+  .alma-cards-grid--5 .alma-card-caption{
+    left: 8%;
+    bottom: 7%;
+    width: 84%;
+    padding: 6px 6px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.55);
+  }
+
+  .alma-cards-grid--5 .alma-card-title{
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  .alma-cards-grid--5 .alma-card-meta{
+    font-size: 11px;
+    margin-top: 3px;
+  }
+
+  .alma-value{
+    padding-top: 96px;
+    padding-bottom: 64px;
+  }
+
+  .alma-value-inner{
+    padding-top: 10px;
+  }
+
+  .alma-value-eyebrow{
+    margin-bottom: 34px;
+  }
+
+  .alma-value-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .alma-value-col{
+    width: 100%;
+  }
+
+  .alma-value-buttons,
+  .alma-value-head{
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .alma-value-pill{
+    width: 100%;
+    height: 48px;
+  }
+
+  .alma-value-pill-text{
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .alma-cards-grid--5 .alma-card-caption{
+    bottom: 6%;
+    padding: 6px 5px;
+  }
+
+  .alma-cards-grid--5 .alma-card-title{
+    font-size: 10px;
+    line-height: 1.12;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .alma-cards-grid--5 .alma-card-photo{
+    top: 9%;
+    height: 56%;
+  }
+  .alma-value-title{
+    margin-bottom: 10px;
+  }
+
+  .alma-value-buttons{
+    gap: 20px;
+  }
+}
+
+.alma-card-photo{ z-index: 1; }
+.alma-card-frame{ z-index: 2; }
+.alma-card-caption{ z-index: 3; }
+
+.alma-card-photo{
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 52%;
+  object-fit: contain;
+}
+
+.alma-cards-grid--4 .alma-card-photo{
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 52%;
+}
+
+.alma-card-caption{
+  left: 10%;
+  bottom: 10%;
+  width: 80%;
+  padding: 8px 10px;
+  background: rgba(0,0,0,0.55);
+  border-radius: 6px;
+}
+
+.alma-card-title{
+  font-size: 14px;
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.alma-card-meta{
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+
+.alma-hero{ position: relative; }
+
+.alma-hero-media{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.alma-hero-media .alma-hero-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  opacity: 0;
+  transition: opacity 900ms ease;
+  will-change: opacity;
+}
+
+.alma-hero-media .alma-hero-img.is-active{
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .alma-hero-media .alma-hero-img{ transition: none !important; }
+}
+
+.stack-scroll{
+  position: relative;
+  isolation: isolate;
+}
+
+.stack-section{
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.stack-1{ z-index: 1; }
+.stack-2{ z-index: 2; }
+.stack-3{ z-index: 3; }
+.stack-4{ z-index: 4; }
+.stack-5{ z-index: 5; }
+.stack-6{ z-index: 6; }
+
+.stack-3{
+  position: relative;
+  top: auto;
+  min-height: auto;
+  height: auto;
+}
+
+.stack-3.alma-dark-section{
+  padding-bottom: 96px;
+}
