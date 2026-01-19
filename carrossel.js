@@ -6,7 +6,7 @@ function startAutoCarousel() {
 
   autoTimer = setInterval(() => {
     moveCarousel(1);
-  }, 2200); 
+  }, 1000); 
 }
 
 function stopAutoCarousel() {
