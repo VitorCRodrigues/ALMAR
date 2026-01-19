@@ -52,64 +52,94 @@ button, input, optgroup, select, textarea {
 }
 
 .site-header {
-    background: transparent;
-    padding: 1.4rem 4vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%; 
-    z-index: 9999;
-    transition: background 0.3s ease;
-	mix-blend-mode: difference;
+	background: transparent;
+	padding: 1.4rem 4vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	transition: background 0.3s ease;
+    mix-blend-mode: difference;
 
 }
 
 .site-header:hover {
-    background: #000;
+	background: var(--bg);
 }
 
 .header-inner {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 100%;
-    position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .header-nav {
-    display: flex;
-    gap: 5rem;
-    align-items: center;
+	display: flex;
+	gap: 5rem;
+	align-items: center;
 }
 
 .header-nav a {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 400;
-    transition: color 0.5s ease;
-    white-space: nowrap;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 400;
+	transition: color 0.5s ease;
+	white-space: nowrap;
 }
 
 .site-header:hover .header-nav a {
-    color: #fff; 
+	color: var(--text);
 }
 
 .site-header:hover .header-nav a:hover {
-    color: #c89b1a; 
-}
-
-.menu-toggle {
-    display: none; 
+	color: var(--gold);
 }
 
 @media (max-width: 900px) {
-    .header-inner {
-        justify-content: flex-end; 
+    .site-header {
+        background: transparent;
+        mix-blend-mode: difference;
     }
 
+    .site-header.menu-open {
+        background: #000;
+        mix-blend-mode: normal;
+    }
+	.header-nav {
+		gap: 1rem;
+		font-size: 13px;
+	}
+    .site-header.menu-open .header-nav a {
+        color: #fff;
+    }
+
+    .site-header.menu-open .header-nav a.active {
+        color: #d4a21a; /* amarelo */
+    }
+}
+
+@media (max-width: 768px) {
+	.header-inner {
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.header-nav {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.8rem;
+	}
+}
+
+.menu-toggle {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+
     .menu-toggle {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: space-between;
         width: 30px;
@@ -117,8 +147,9 @@ button, input, optgroup, select, textarea {
         background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 10001; 
+        z-index: 10001;
         padding: 0;
+        margin-left: auto;
     }
 
     .menu-toggle span {
@@ -126,51 +157,61 @@ button, input, optgroup, select, textarea {
         width: 100%;
         height: 3px;
         background-color: #fff;
-        border-radius: 3px;
-        transition: all 0.3s;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .header-inner {
+        justify-content: flex-end;
+        position: relative;
     }
 
     .header-nav {
+        display: none; 
         position: fixed;
         top: 0;
-        right: -100%; 
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
+        right: 0;
+        width: 281px; 
+        max-width: 415px; 
+        height: 100vh;  
         background-color: #000;
-        
+        opacity: 1;      
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        padding: 20px;
-        
-        transition: right 0.4s ease-in-out;
+        justify-content: flex-start; 
+        align-items: flex-start;
+        padding-top: 59px;   
+        padding-left: 40px;  
+        gap: 1px;           
         z-index: 10000;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.7);
     }
 
     .header-nav.active {
-        right: 0;
+        display: flex;
     }
 
-    .header-nav a {
-        font-size: 20px; 
-        display: block;
-    }
+	.header-nav a {
+		font-size: 24px; 
+		font-weight: 400;
+		color: #fff; 
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		border-bottom: none;
+		transition: color 0.2s ease;
+		text-align: left;
+		-webkit-tap-highlight-color: transparent; 
+	}
 
-    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+	.header-nav a:active, 
+	.header-nav a:hover,
+	.header-nav a:focus {
+		color: #c89b1a !important;
+	}
+
 }
 
-:root{
-	--black:#000;
-	--white:#fff;
-	--gold:#D8AA26;
-	--gray:#B0B0B0;
-	--light:#EAEAEA;
-}
 
 .oqf-main *{
 	box-sizing:border-box;
@@ -225,7 +266,17 @@ button, input, optgroup, select, textarea {
     align-self: flex-start; 
 }
 
-@media (max-width: 768px) {
+.section-title {
+    font-size: 36px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* RESPONSIVO (MOBILE) */
+@media (max-width: 900px) {
     .oqf-hero-content {
         display: none; 
     }
@@ -246,12 +297,9 @@ button, input, optgroup, select, textarea {
         padding-top: 20px; 
     }
 
-    .servicos-header {
-        margin-bottom: 50px; 
-    }
 
     .section-title {
-        font-size: 20px; 
+        font-size: 30px; 
         letter-spacing: 2px;
         margin-bottom: 12px;
         color: #fff;
@@ -307,25 +355,13 @@ button, input, optgroup, select, textarea {
     padding-top: 70px;
 }
 
-.servicos-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 80px;
-}
 
-.section-title {
-    font-size: 36px;
-    letter-spacing: 1px;
-    font-weight: 400;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
 
 .title-decoration {
     width: 340px;
     height: 2px;
     background-color: var(--gold, #D8AA26);
+    margin:auto;
 }
 
 /* Grid */
@@ -405,7 +441,7 @@ button, input, optgroup, select, textarea {
 }
 
 .cta-inner-content h2 {
-    font-family: 'Avenir Next', sans-serif;
+    font-family: 'Avenir Next';
     font-size: 52px; 
     line-height: 1.1;
     color: #1D1D1D;
@@ -858,7 +894,7 @@ button, input, optgroup, select, textarea {
 }
 
 .solucoes-content h2 {
-    font-family: 'Avenir Next', sans-serif; 
+    font-family: 'Avenir Next'; 
     font-size: 56px; 
     line-height: 1.1;
     color: #1D1D1D;
@@ -1191,7 +1227,7 @@ button, input, optgroup, select, textarea {
 
 }
 
-@media (min-width: 400px) {
+@media (max-width: 400px) {
 
     .oqf-hero{
         position: sticky;
