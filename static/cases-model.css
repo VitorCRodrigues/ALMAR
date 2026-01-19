@@ -51,6 +51,7 @@ button, input, optgroup, select, textarea {
 }
 
 .site-header {
+    color-scheme: dark;
 	background: transparent;
 	padding: 1.4rem 4vw;
 	position: fixed;
@@ -58,14 +59,32 @@ button, input, optgroup, select, textarea {
 	left: 0;
 	right: 0;
 	z-index: 9999;
-	transition: background 0.3s ease;
-    mix-blend-mode: difference;
+	transition: background 0.3s ease, color 0.3s ease;
+}
 
+.site-header.is-dark .header-nav a {
+    color: #fff;
+}
+
+.site-header.is-dark {
+    background: transparent;
+}
+
+.site-header.menu-open {
+    background: #000;
+}
+
+.site-header.menu-open .header-nav a {
+    color: #fff;
 }
 
 .site-header:hover {
-	background: var(--bg);
+    background: var(--bg);
 }
+.site-header:hover .header-nav a {
+    color: var(--text);
+}
+
 
 .header-inner {
 	display: flex;
@@ -80,16 +99,13 @@ button, input, optgroup, select, textarea {
 }
 
 .header-nav a {
-	color: #ffffff;
+	color: #000;
 	font-size: 16px;
 	font-weight: 400;
-	transition: color 0.5s ease;
+	transition: color 0.3s ease;
 	white-space: nowrap;
 }
 
-.site-header:hover .header-nav a {
-	color: var(--text);
-}
 
 .site-header:hover .header-nav a:hover {
 	color: var(--gold);
@@ -98,12 +114,10 @@ button, input, optgroup, select, textarea {
 @media (max-width: 900px) {
     .site-header {
         background: transparent;
-        mix-blend-mode: difference;
     }
 
     .site-header.menu-open {
         background: #000;
-        mix-blend-mode: normal;
     }
 	.header-nav {
 		gap: 1rem;
