@@ -120,5 +120,40 @@
 		</div>
 	</footer>
 	<script src="menu.js"></script>
+		<script>
+			function validateForm(event) {
+				event.preventDefault();
+				
+				const checkbox = document.getElementById('robotCheck');
+				if (!checkbox.checked) {
+					alert('Por favor, confirme que você não é um robô.');
+					return false;
+				}
+
+				// Coletando os dados do formulário
+				const form = event.target;
+				const nome = form.nome.value;
+				const sobrenome = form.sobrenome.value;
+				const email = form.email.value;
+				const busca = form.busca.value;
+				const empresa = form.empresa.value;
+				const mensagem = form.mensagem.value;
+
+				// Montando o corpo do email
+				const assunto = encodeURIComponent(`Contato do site - ${nome} ${sobrenome}`);
+				const corpo = encodeURIComponent(
+					`Nome: ${nome}\n` +
+					`Sobrenome: ${sobrenome}\n` +
+					`Email: ${email}\n` +
+					`O que busca: ${busca}\n` +
+					`Empresa: ${empresa}\n\n` +
+					`Mensagem:\n${mensagem}`
+				);
+
+				window.location.href = `mailto:atendimento@almarvm.com.br?subject=${assunto}&body=${corpo}`;
+				
+				return false;
+			}
+		</script>
 </body>
 </html>
