@@ -394,6 +394,7 @@ button, input, optgroup, select, textarea {
 
 		.model-info {
 			padding: 60px 0;
+			padding-top: 20px;
 		}
 		
 		.model-info-content {
