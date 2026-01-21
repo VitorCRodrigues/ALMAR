@@ -2,21 +2,34 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>ALMAR – Nosso Methodus</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ALMAR – Quem somos</title>
 
-  <!-- CSS do site -->
+  <link rel="stylesheet" href="static/header-homeBR-desktop.css" />
   <link rel="stylesheet" href="static/quem-somos.css" />
-
-  <!-- fullPage.js CSS (CDN) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
-    integrity="sha512-HWl7h2sFeG9u0S4w+Gt3jUe+V+Xt2PVcBKntjRVJQCBmxCCpRG2VwY29oVBrqhCPH7sd7zKwgQd8oGfyk4vH8Q=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="static/footer.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav">
+        <a href="index.html">Home</a>
+        <a href="quem-somos.html">Quem somos</a>
+        <a href="o-que-fazemos.html">O que fazemos</a>
+        <a href="autoridade.html">Autoridade</a>
+        <a href="cases.html">Cases</a>
+        <a href="alma-feminina.html">Alma feminina</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+	</header>
   <div id="intro">
     <video
       id="introVideo"
@@ -33,10 +46,8 @@
     </video>
   </div>
 
-  <!-- WRAPPER QUE O fullPage.js VAI CONTROLAR -->
   <div id="fullpage">
 
-    <!-- SEÇÃO 1: HERO CINZA -->
     <section class="section hero">
       <header class="hero-header">
         <div class="hero-title">
@@ -46,7 +57,6 @@
       </header>
 
       <figure class="hero-image">
-        <!-- Troque o src pela sua imagem real -->
         <img src="images/mulher-quemsomos.jpg" alt="Almar – Jornada criativa" />
       </figure>
     </section>
@@ -60,27 +70,31 @@
           <span class="pin-dot"></span>
         </div>
 
-        <!-- Pirâmide dourada (aparece 3s depois) -->
-        <div class="pyramid">
-          <div class="pyramid-layer">
-            <h3>ALMAR</h3>
-            <p>Um jeito único de olhar para cada marca.</p>
-          </div>
-          <div class="pyramid-layer">
-            <h3>HUMANIZAÇÃO</h3>
-            <p>Marcas que conversam, não monologam.</p>
-          </div>
-          <div class="pyramid-layer">
-            <h3>ECOSSISTEMA</h3>
-            <p>Conteúdo, formatos e canais conectados.</p>
-          </div>
-          <div class="pyramid-layer">
-            <h3>PROCESSOS</h3>
-            <p>Fluxos claros para cada etapa da jornada.</p>
-          </div>
-          <div class="pyramid-layer">
-            <h3>RESULTADOS</h3>
-            <p>Indicadores pensados para o negócio, não só para o post.</p>
+        <div class="pyramid pyramid--split">
+          <span class="pyramid-fill pyramid-fill--left" aria-hidden="true"></span>
+          <span class="pyramid-fill pyramid-fill--right" aria-hidden="true"></span>
+
+          <div class="pyramid-content">
+            <div class="pyramid-layer">
+              <h3>ALMAR</h3>
+              <p>Um jeito único de olhar para cada marca.</p>
+            </div>
+            <div class="pyramid-layer">
+              <h3>HUMANIZAÇÃO</h3>
+              <p>Marcas que conversam, não monologam.</p>
+            </div>
+            <div class="pyramid-layer">
+              <h3>ECOSSISTEMA</h3>
+              <p>Conteúdo, formatos e canais conectados.</p>
+            </div>
+            <div class="pyramid-layer">
+              <h3>PROCESSOS</h3>
+              <p>Fluxos claros para cada etapa da jornada.</p>
+            </div>
+            <div class="pyramid-layer">
+              <h3>RESULTADOS</h3>
+              <p>Indicadores pensados para o negócio, não só para o post.</p>
+            </div>
           </div>
         </div>
 
@@ -233,13 +247,56 @@
 
   </div> 
 
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"
-    integrity="sha512-RL+cPt86C+VfDRm+ydiHVadclhYKi69gkSyI9qlkcTP6LSX3xaSiBOuQWo/gAT10KDBrChPWbwhsAPLP5kqIoQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer">
-  </script>
+  <footer class="site-footer">
+		<div class="footer-inner">
+			<div class="footer-col footer-left">
+				<div class="brand">
+					<img src="images/logoALMAR.svg" alt="ALMAR" class="brand-logo" />
+				</div>
 
+				<div class="contact">
+					<h4>Fale conosco</h4>
+					<div class="phone-item">
+						<img src="images/call_end.svg" alt="call" class="phone-icon" />
+						<span>(21) 98383-2398</span>
+					</div>
+					<div class="contact-item">
+						<img src="images/mail.svg" alt="mail" class="mail-icon" />
+						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-col footer-center">
+				<nav class="footer-nav">
+					<a href="homeBR-desktop.html">Home</a>
+					<a href="quem-somos.html">Quem somos</a>
+					<a href="o-que-fazemos.html">O que fazemos</a>
+					<a href="autoridade.html">Autoridade</a>
+					<a href="cases.html">Cases</a>
+					<a href="alma-feminina">Alma feminina</a>
+					<a href="contato.html">Contato</a>
+				</nav>
+			</div>
+
+			<div class="footer-col footer-right">
+				<div class="socials">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-divider"></div>
+
+		<div class="footer-bottom">
+			<div class="credit">Desenvolvido por<br/><strong>Empresa Júnior PUC-Rio</strong></div>
+		</div>
+	</footer>
   <script src="quem-somos.js"></script>
 
 </body>
