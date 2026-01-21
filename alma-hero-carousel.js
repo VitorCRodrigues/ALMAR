@@ -23,7 +23,7 @@
   imgs[0].classList.add("is-active");
   imgs[1].classList.remove("is-active");
 
-  const intervalMs = 6000;
+  const intervalMs = 4000;
 
   function swapTo(nextSrc){
     const next = active === 0 ? 1 : 0;

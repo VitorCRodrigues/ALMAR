@@ -1290,6 +1290,12 @@ a, a:visited, a:hover, a:focus, a:active {
   min-height: auto;
 }
 
+.stack-4{
+  position: relative !important;
+  top: auto !important;
+  min-height: auto !important;
+}
+
 .stack-9{
   position: relative !important;
   top: auto !important;
