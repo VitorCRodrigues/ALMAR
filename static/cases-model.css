@@ -394,6 +394,7 @@ button, input, optgroup, select, textarea {
 
 		.model-info {
 			padding: 60px 0;
+			padding-top: 20px;
 		}
 		
 		.model-info-content {
@@ -770,3 +771,4 @@ button, input, optgroup, select, textarea {
 		.brand .logo{font-size:28px}
 		.site-footer{padding:32px 4vw 16px}
 	}
+ 
