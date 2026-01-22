@@ -190,7 +190,7 @@ a, a:visited, a:hover, a:focus, a:active {
 .authority-card img{
   width: 100%;
   display: block;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
 }
