@@ -3,36 +3,47 @@ document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('introVideo');
   const fullpageWrapper = document.getElementById('fullpage');
 
+  let scrollTimeout = null;
+  const baseSpeed = 1;
+  const maxSpeed = 12;
+
   function showSite() {
     if (!intro || intro.classList.contains('intro-hide')) return;
 
     intro.classList.add('intro-hide');
+    video.playbackRate = baseSpeed;
 
     setTimeout(() => {
       intro.style.display = 'none';
       fullpageWrapper.style.display = 'block';
-
-      new fullpage('#fullpage', {
-        autoScrolling: true,
-        scrollHorizontally: false,
-        navigation: false,
-        scrollingSpeed: 900,
-        easingcss3: 'ease-in-out',
-        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
-      });
+      window.removeEventListener('wheel', handleWheel);
     }, 700);
   }
 
-  if (video) {
-    // impede menu / interação
-    video.addEventListener('contextmenu', e => e.preventDefault());
+  function handleWheel(e) {
+    if (!video || intro.classList.contains('intro-hide')) return;
 
-    // quando o vídeo único termina → entra no site
+    if (e.deltaY > 0) {
+      video.playbackRate = Math.min(
+        video.playbackRate + 0.35,
+        maxSpeed
+      );
+    }
+
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      video.playbackRate = baseSpeed;
+    }, 180);
+  }
+
+  if (video) {
+    video.addEventListener('contextmenu', e => e.preventDefault());
     video.addEventListener('ended', showSite);
 
-    // fallback se autoplay falhar
     video.play().catch(() => {
       setTimeout(showSite, 3000);
     });
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
   }
 });
