@@ -8,6 +8,12 @@
 
 :root{
   --header-h: 92px;
+
+  --pyramid-overlap: clamp(370px, 37vh, 420px);
+
+  --pyramid-maxw: clamp(820px, 95vw, 1900px);
+
+  --pyramid-shift-x: clamp(-54px, -8vw, -40px);
 }
 
 
@@ -20,6 +26,10 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #E7E6E6;
   color: #000000;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 .section {
@@ -53,131 +63,98 @@ body {
   display: none; 
 }
 
-.hero{
-  background: #ededed;
+.hero--blocked{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #E7E6E6;
+  background-image: url("images/imagem-blocada-quemsomos2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+
+  position: relative;
+  z-index: 1;
+}
+
+.hero-blocked-img{
+  height: 100vh;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.methodus{
+  background:#000;
+  height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  position: relative;
+  overflow: visible;
+  z-index: 10; 
+}
+
+.methodus-inner{
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+
+  padding-top: clamp(680px, 62vh, 980px);
+}
+
+.pyramid-extend{
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  transform:
+    translateX(-50%)
+    translateX(var(--pyramid-shift-x))
+    translateY(calc(var(--pyramid-overlap) * -1));
+
+  width: min(var(--pyramid-maxw), 1900px);
+  z-index: 999;
+}
+
+.pyramid-extend img{
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pyramid-content{
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-}
-
-.hero-header{
-  padding-top: 52px;
-  padding-bottom: 14px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  color: #fff;
+  padding: 18% 12% 20%;
+  z-index: 6; /* textos acima da imagem */
 }
 
-.hero-title-main{
-  display: block;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.26em;
-}
-
-.hero-title-sub{
-  display: block;
-  margin-top: 8px;
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.hero-image{
-  margin-top: 18px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex: 1;
-  overflow: hidden;
-}
-
-.methodus {
-  background: #000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 10vh;
-}
-
-.methodus-inner {
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
+.methodus-footer{
+  position: relative;
+  z-index: 2;
+  margin-top: 28px;
   text-align: center;
-  position: relative;
-}
-
-/* PINO NO TOPO */
-.methodus-pin {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  margin-bottom: -28px; /* encaixa na ponta da pirâmide */
-}
-
-.pin-dot {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #f2f2f2;
-  border: 4px solid #111;
-  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.7);
-}
-
-/* PIRÂMIDE MAIOR */
-.pyramid {
-  position: relative;
-  margin: 0 auto;
-  padding: 150px 60px 80px;
-  width: min(540px, 100%);
-  background: linear-gradient(180deg, #c89629 0%, #b17319 100%);
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  opacity: 0;
-  transform: translateY(50px) scale(0.96);
-  color: #ffffff;
-  animation: lighthouse 0.9s ease-out 3s forwards;
-}
-
-/* TEXTO BRANCO DENTRO DA PIRÂMIDE */
-.pyramid-layer {
-  margin-bottom: 22px;
-}
-
-.pyramid-layer h3 {
-  font-size: 15px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.pyramid-layer p {
-  font-size: 12px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* TEXTO FINAL */
-.methodus-footer {
-  margin-top: 36px;
   color: #f7f7f7;
 }
 
-.methodus-footer h2 {
-  font-size: 18px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.methodus-footer p {
-  font-size: 13px;
-  line-height: 1.7;
-  max-width: 480px;
-  margin: 0 auto;
-  color: #cfcfcf;
-}
-
-/* ---------- ANIMAÇÃO DO FAROL ---------- */
 
 @keyframes lighthouse {
   from {
@@ -220,9 +197,6 @@ body {
   }
 }
 
-/* ===================================================== */
-/*                CONSULTORAS & ESPECIALISTAS            */
-/* ===================================================== */
 
 .consultants {
   background: #000;
@@ -425,4 +399,15 @@ body {
   .invited-photo {
     max-width: 100%;
   }
+}
+
+@media (max-width: 768px){
+  :root{ --pyramid-overlap: 140px; }
+
+  .pyramid-content{
+    padding: 22% 10% 20%;
+  }
+
+  .pyramid-layer h3{ font-size: 12px; }
+  .pyramid-layer p{ font-size: 11px; }
 }
