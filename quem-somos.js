@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let scrollTimeout = null;
   const baseSpeed = 1;
-  const maxSpeed = 12;
+  const maxSpeed = 24;
 
   function showSite() {
     if (!intro || intro.classList.contains('intro-hide')) return;
