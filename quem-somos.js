@@ -38,10 +38,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (video) {
     video.addEventListener('contextmenu', e => e.preventDefault());
-    video.addEventListener('ended', showSite);
+
+    video.addEventListener('ended', () => {
+      // congela no último frame
+      video.pause();
+      video.currentTime = video.duration;
+
+      // libera rolagem da página
+      intro.style.position = 'relative';
+
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+
+      // remove controle de scroll acelerado
+      window.removeEventListener('wheel', handleWheel);
+    });
 
     video.play().catch(() => {
-      setTimeout(showSite, 3000);
+      // se autoplay falhar, NÃO avança para o site
+      video.pause();
     });
 
     window.addEventListener('wheel', handleWheel, { passive: true });
