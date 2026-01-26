@@ -185,10 +185,16 @@
 			<div class="contact-form-background">
 				<img src="images/img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
 				<div class="contact-form-container">
-					<form class="contact-form" onsubmit="return validateForm(event)">
+					<form
+						class="contact-form"
+						action="https://formsubmit.co/atendimento@almarvm.com.br"
+						method="POST"
+						onsubmit="return validateForm(event)"
+						>
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
+
 						<select name="busca" required>
 							<option value="" disabled selected>O que você busca?</option>
 							<option value="programa-relacionamento">Programa de relacionamento</option>
@@ -199,14 +205,22 @@
 							<option value="parcerias">Parcerias</option>
 							<option value="outros">Outros</option>
 						</select>
+
 						<input type="text" name="empresa" placeholder="Empresa">
 						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
+
 						<div class="recaptcha-container">
 							<label class="recaptcha-label">
-								<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
-								<span>Não sou um robô</span>
+							<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
+							<span>Não sou um robô</span>
 							</label>
 						</div>
+
+						<input type="hidden" name="_subject" value="Contato pelo site - ALMAR">
+						<input type="hidden" name="_template" value="table">
+						<input type="hidden" name="_captcha" value="false">
+						<input type="text" name="_honey" style="display:none">
+
 						<button type="submit" class="submit-btn">Enviar</button>
 					</form>
 					<div class="contact-message">
