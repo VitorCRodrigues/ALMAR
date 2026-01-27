@@ -216,6 +216,7 @@
 							</label>
 						</div>
 
+						<input type="hidden" name="_next" value="http://127.0.0.1:5501/o-que-fazemos.html?enviado=1">
 						<input type="hidden" name="_subject" value="Contato pelo site - ALMAR">
 						<input type="hidden" name="_template" value="table">
 						<input type="hidden" name="_captcha" value="false">
@@ -230,8 +231,15 @@
 			</div>
 		</section> 
 
+	<div id="popup-overlay" class="popup-overlay" aria-hidden="true">
+		<div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+			<h3 id="popup-title">Mensagem enviada!</h3>
+			<p>Recebemos seu contato e vamos responder em breve.</p>
+			<button type="button" id="popup-close" class="popup-close">Fechar</button>
+		</div>
+	</div>
+		
 	</main>
-
 
 	<footer class="site-footer">
 		<div class="footer-inner">
@@ -242,10 +250,6 @@
 
 				<div class="contact">
 					<h4>Fale conosco</h4>
-					<div class="phone-item">
-						<img src="images/call_end.svg" alt="call" class="phone-icon" />
-						<span>(21) 98383-2398</span>
-					</div>
 					<div class="contact-item">
 						<img src="images/mail.svg" alt="mail" class="mail-icon" />
 						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>

@@ -36,8 +36,16 @@
 
     <section class="hero-video stack-section stack-1">
       <div class="hero-video-inner">
-        <video class="hero-video-player" muted playsinline controls>
-          <source src="videos/autoridade-hero.mp4" type="video/mp4" />
+        <video
+          class="hero-video-player"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+
+          <source src="videos/autoridade-video.mp4" type="video/mp4" />
           Seu navegador não suporta vídeo HTML5.
         </video>
 
@@ -48,6 +56,7 @@
           </p>
 
           <div class="hero-mobile-extra">
+            <img class="hero-mobile-line hero-mobile-line--top" src="images/linha-amarela.png" alt="">
             <p>
               Somos uma empresa ativa no processo de transformação e qualificação do
               varejo nacional. Compartilhar o nosso conhecimento e ponto de vista se
@@ -97,9 +106,9 @@
               <p class="authority-cta-text">
                 Clique aqui e saiba mais.
               </p>
-              <button class="authority-button">
+              <a class="authority-button" href="#insights">
                 Nossos cursos
-              </button>
+              </a>
             </div>
 
           </div>
@@ -194,7 +203,7 @@
       </div>
     </section>
 
-    <section class="events-stage stack-section stack-4">
+    <section class="events-stage stack-section stack-4" id="insights">
       <div class="events-stage-inner">
 
         <div class="events-panel">
@@ -362,27 +371,30 @@
             <div class="trend-right">
               <div class="trend-item">
                 <div class="trend-badge">
-                  <img src="images/oval-amarelo75.png" alt="" />
+                  <img src="images/oval-amarelo.png" alt="" />
+                  <span class="trend-badge-number">75%</span>
                 </div>
                 <p>“Das empresas planejam implementar gamificação nos próximos dois anos.”</p>
               </div>
 
               <div class="trend-item">
                 <div class="trend-badge">
-                  <img src="images/oval-amarelo81.png" alt="" />
+                  <img src="images/oval-amarelo.png" alt="" />
+                  <span class="trend-badge-number">81%</span>
                 </div>
                 <p>“Dos consumidores preferem marcas que oferecem recompensas personalizadas.”</p>
               </div>
 
               <div class="trend-item">
                 <div class="trend-badge">
-                  <img src="images/oval-amarelo5,2x.png" alt="" />
+                  <img src="images/oval-amarelo.png" alt="" />
+                  <span class="trend-badge-number">5,2x</span>
                 </div>
+
                 <p>
                   Segundo estudo da Global Customer Loyalty Report 2025, este é o índice/ROI que chega a ser atingido por empresas
                   que investem em projetos dessa natureza!
                 </p>
-              </div>
             </div>
           </div>
         </section>
@@ -471,10 +483,6 @@
 
 				<div class="contact">
 					<h4>Fale conosco</h4>
-					<div class="phone-item">
-						<img src="images/call_end.svg" alt="call" class="phone-icon" />
-						<span>(21) 98383-2398</span>
-					</div>
 					<div class="contact-item">
 						<img src="images/mail.svg" alt="mail" class="mail-icon" />
 						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>

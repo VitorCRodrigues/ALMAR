@@ -28,6 +28,14 @@ body {
   overflow-x: hidden;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
+#insights{
+  scroll-margin-top: 110px;
+}
+
 a, a:visited, a:hover, a:focus, a:active {
   color: inherit;
   text-decoration: none;
@@ -37,45 +45,58 @@ a, a:visited, a:hover, a:focus, a:active {
   background: #e5e5e5;
 }
 
-/* =========================================================
-   HERO VIDEO
-========================================================= */
-
-.hero-video {
-  padding: 40px 40px 0;
+.hero-video{
+  padding: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
-.hero-video-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.hero-video-player {
+.hero-video-inner{
+  position: relative;
   width: 100%;
-  height: 460px;
-  background: #000000;
+  height: calc(100vh - 92px);
+  min-height: 520px;
+  overflow: hidden;
+  margin: 0;
+  max-width: none;
+}
+
+.hero-video-player{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  background: #000;
 }
 
-.hero-video-overlay {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.35), #000000);
+.hero-video-overlay{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
   padding: 54px 24px 62px;
   text-align: center;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.00) 0%,
+    rgba(0,0,0,0.55) 55%,
+    rgba(0,0,0,0.95) 100%
+  );
 }
 
-.hero-video-overlay p {
-  max-width: 640px;
+.hero-video-overlay p{
+  max-width: 980px;
   margin: 0 auto;
   font-size: 14px;
   line-height: 1.7;
-  color: #ffffff;
+  color: #fff;
 }
-
-/* =========================================================
-   AUTHORITY MAIN
-========================================================= */
 
 .authority-main {
   background: #000000;
@@ -495,6 +516,7 @@ a, a:visited, a:hover, a:focus, a:active {
   font-weight: 500;
   font-size: clamp(34px, 3vw, 46px);
   letter-spacing: 0.02em;
+  font-weight: 700;
 }
 
 .stats-title{
@@ -1353,10 +1375,9 @@ a, a:visited, a:hover, a:focus, a:active {
     overflow: hidden;
 
     display: flex;
-    flex-direction: column; /* <-- ERA column-reverse */
+    flex-direction: column;
   }
 
-  /* texto novo em cima */
   .hero-video-mobile-intro{
     display: block;
     background: #000;
@@ -1373,7 +1394,6 @@ a, a:visited, a:hover, a:focus, a:active {
     color: #fff;
   }
 
-  /* vídeo vertical no meio */
   .hero-video-player{
     width: 100%;
     height: auto;
@@ -1381,17 +1401,15 @@ a, a:visited, a:hover, a:focus, a:active {
     object-fit: cover;
     display: block;
     order: 2;
-    background: #2d2d2d; /* pra não ficar “vazio” */
+    background: #2d2d2d;
   }
 
-  /* texto original da hero embaixo */
   .hero-video-overlay{
     padding: 18px 18px 26px;
     text-align: center;
     order: 3;
   }
 
-  /* some o texto antigo lá embaixo */
   .authority-intro-text{
     display: none;
   }
@@ -1405,51 +1423,73 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 }
 
-/* por padrão, extra do mobile fica escondido */
 .hero-mobile-extra{
   display: none;
 }
 
 @media (max-width: 640px){
-
-  /* HERO vira “cartão” completo como na referência */
   .hero-video{
+    background: #000;
     padding: 0;
   }
 
   .hero-video-inner{
-    max-width: none;
-    margin: 0;
-    overflow: hidden;
     display: flex;
-    flex-direction: column; /* vídeo em cima, overlay embaixo */
-  }
-
-  /* vídeo vertical */
-  .hero-video-player{
-    width: 100%;
+    flex-direction: column;
     height: auto;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    display: block;
-    background: #2d2d2d; /* placeholder enquanto não tem vídeo */
+    min-height: 0;
+    overflow: hidden;
   }
 
-  /* overlay com os DOIS textos */
   .hero-video-overlay{
-    padding: 44px 18px 26px;
+    position: static;
+    order: 1;
+    background: #000;
+    padding: 44px 18px 34px;
     text-align: center;
   }
 
   .hero-video-overlay .hero-text-main{
+    font-size: 24px !important;
+    line-height: 1.45 !important;
+    max-width: 520px;
     margin: 0 auto;
-    max-width: 340px;
-    font-size: 14px;
-    line-height: 1.75;
-    color: #fff;
   }
 
-  /* texto novo (o “Somos uma empresa…”) */
+  .hero-video-overlay .hero-mobile-extra{
+    display: block;
+    margin-top: 42px;
+  }
+
+  .hero-video-overlay .hero-mobile-extra p{
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-mobile-line{
+    display: block;
+    width: 170px;
+    height: auto;
+    margin: 12px 0 0 auto;
+  }
+
+  .hero-mobile-line--top{
+    margin: 0 0 16px auto;
+  }
+
+  .hero-video-player{
+    position: static;
+    order: 2;
+    width: 100%;
+    height: 100dvh;
+    object-fit: cover;
+    display: block;
+    background: #000;
+  }
+
   .hero-mobile-extra{
     display: block;
     margin-top: 14px;
@@ -1463,21 +1503,110 @@ a, a:visited, a:hover, a:focus, a:active {
     color: rgba(255,255,255,0.92);
   }
 
-  /* risquinho amarelo no canto (como na imagem) */
   .hero-mobile-line{
     display: block;
     width: 160px;
     height: auto;
-    margin: 10px 0 0 auto; /* joga pra direita */
+    margin: 10px 0 0 auto; 
   }
 
-  /* some com o texto antigo lá embaixo (authority-main) */
   .authority-intro-text{
     display: none;
   }
 
-  /* e some com as linhas que estavam ficando lá embaixo */
   .authority-line{
     display: none;
   }
+
+  .hero-video-overlay .hero-mobile-extra p{
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .hero-video-overlay .hero-mobile-extra p{
+    max-width: none;
+    margin: 0;
+    text-align: center;
+  }
+
+  .stack-1{
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .stack-1.hero-video{
+    min-height: auto !important;
+  }
+
+  .hero-video-overlay{
+    padding: 72px 18px 52px !important;
+  }
+
+  .hero-mobile-line--top{
+    margin: 0 auto 16px 0 !important;
+  }
+
+  .hero-mobile-line:not(.hero-mobile-line--top){
+    margin: 12px 0 0 auto !important;
+  }
+
+}
+
+.trend-item{
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 26px;
+  align-items: center;
+}
+
+.trend-badge{
+  position: relative;
+  width: 160px;
+  display: block;
+}
+
+.trend-badge img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.trend-badge-number{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-weight: 700;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-video-overlay .hero-text-main{
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+}
+
+.authority-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 22px;
+  padding: 16px 28px;
+
+  border-radius: 2px;
+  border: none;
+
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  background: #f4b73b;
+  color: #000000;
+
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
 }
