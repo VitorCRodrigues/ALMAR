@@ -64,12 +64,12 @@
 .contact .contact-item span,
 .contact .phone-item span,
 .contact .contact-item a{
-	font-size:14px;
+	font-size:16px;
 	color:var(--muted);
 }
 
 .footer-nav{display:flex;flex-direction:column;gap:8px}
-.footer-nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.footer-nav a{color:var(--muted);text-decoration:none;font-size:16px}
 .footer-nav a:hover{color:var(--text)}
 
 .socials{display:flex;justify-content:flex-end;gap:14px}

@@ -38,7 +38,6 @@ body {
 
 html, body {
   overflow-x: hidden;
-  background-color: #000;
 }
 
 .section {
@@ -471,6 +470,13 @@ html, body {
   width: 100%;
   height: auto;
   object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.consultants--top .consultant:first-child .consultant-photo img {
+    transform: scale(1.5);
+    object-position: center top;
+    margin-top: 70px;
 }
 
 @media (max-width: 768px) {
@@ -519,6 +525,7 @@ html, body {
       38% 14%
     );
   }
+  /* === TEXTO DENTRO DO FEIXE === */
 
   .pyramid-content {
     position: absolute;
