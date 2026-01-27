@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>O que fazemos - ALMAR</title>
 	<link rel="stylesheet" href="static/o-que-fazemos.css" />
+	<link rel="stylesheet" href="static/contato.css" />
+	<link rel="stylesheet" href="static/footer.css" />
+	<link rel="stylesheet" href="static/header-homeBR-desktop.css" />
 </head>
 <body>
 	<header class="site-header">
@@ -17,7 +20,7 @@
 			</button>
 
 			<nav class="header-nav">
-				<a href="index.html">Home</a>
+				<a href="homeBR-desktop.html">Home</a>
 				<a href="quem-somos.html">Quem somos</a>
 				<a href="o-que-fazemos.html">O que fazemos</a>
 				<a href="autoridade.html">Autoridade</a>
@@ -185,16 +188,10 @@
 			<div class="contact-form-background">
 				<img src="images/img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
 				<div class="contact-form-container">
-					<form
-						class="contact-form"
-						action="https://formsubmit.co/atendimento@almarvm.com.br"
-						method="POST"
-						onsubmit="return validateForm(event)"
-						>
+					<form class="contact-form" onsubmit="return validateForm(event)">
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
-
 						<select name="busca" required>
 							<option value="" disabled selected>O que você busca?</option>
 							<option value="programa-relacionamento">Programa de relacionamento</option>
@@ -205,22 +202,14 @@
 							<option value="parcerias">Parcerias</option>
 							<option value="outros">Outros</option>
 						</select>
-
 						<input type="text" name="empresa" placeholder="Empresa">
 						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
-
 						<div class="recaptcha-container">
 							<label class="recaptcha-label">
-							<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
-							<span>Não sou um robô</span>
+								<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
+								<span>Não sou um robô</span>
 							</label>
 						</div>
-
-						<input type="hidden" name="_subject" value="Contato pelo site - ALMAR">
-						<input type="hidden" name="_template" value="table">
-						<input type="hidden" name="_captcha" value="false">
-						<input type="text" name="_honey" style="display:none">
-
 						<button type="submit" class="submit-btn">Enviar</button>
 					</form>
 					<div class="contact-message">
@@ -255,13 +244,13 @@
 
 			<div class="footer-col footer-center">
 				<nav class="footer-nav">
-					<a href="index.html">Home</a>
-					<a href="quem-somos.html">Quem somos</a>
-					<a href="o-que-fazemos.html">O que fazemos</a>
-					<a href="autoridade.html">Autoridade</a>
-					<a href="cases.html">Cases</a>
-					<a href="alma-feminina">Alma feminina</a>
-					<a href="contato.html">Contato</a>
+					<a href="#">Home</a>
+					<a href="#">Quem somos</a>
+					<a href="#">O que fazemos</a>
+					<a href="#">Autoridade</a>
+					<a href="#">Cases</a>
+					<a href="#">Alma feminina</a>
+					<a href="#">Contato</a>
 				</nav>
 			</div>
 
