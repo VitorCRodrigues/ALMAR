@@ -197,23 +197,41 @@ a, a:visited, a:hover, a:focus, a:active {
 
 .authority-cards{
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
   align-content: start;
 }
 
+.authority-card{
+  background: #111;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
 
-.authority-card {
-  background: #111111;
-  border: 1px solid #222222;
+  transition: transform .35s ease, box-shadow .35s ease;
+  transform: translateZ(0);
 }
 
 .authority-card img{
   width: 100%;
   display: block;
-  height: 250px;
+  height: 290px;
   object-fit: cover;
   object-position: center;
+
+  transition: transform .45s ease, filter .45s ease;
+  filter: brightness(.88);
+}
+
+.authority-card:hover{
+  transform: scale(1.04);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
+  z-index: 5;
+}
+
+.authority-card:hover img{
+  transform: scale(1.06);
+  filter: brightness(1);
 }
 
 .authority-events {
@@ -966,7 +984,9 @@ a, a:visited, a:hover, a:focus, a:active {
 .events-details{
   width: 100%;
   margin-top: 18px;
-  display: block;
+
+  display: flex;
+  justify-content: center;
 }
 
 .events-detail{
@@ -978,8 +998,9 @@ a, a:visited, a:hover, a:focus, a:active {
   background: transparent;
 
   display: none;
-  width: 100%;
-  max-width: 100%;
+
+  width: min(760px, 100%);
+  max-width: 760px;
 }
 
 .events-detail p{ margin: 0; }
@@ -1419,7 +1440,11 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .authority-line--right{
-    top: 140px; /* ajuste fino aqui */
+    top: 140px; 
+  }
+
+  .authority-card:hover{
+    transform: scale(1.02);
   }
 }
 
@@ -1609,4 +1634,35 @@ a, a:visited, a:hover, a:focus, a:active {
   cursor: pointer;
   text-decoration: none;
   line-height: 1;
+}
+
+.events-details{
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 18px;
+
+  display: none;
+  justify-content: center;
+  justify-self: stretch;
+}
+
+.events-details.is-open{
+  display: flex;
+}
+
+.events-detail{
+  display: none;
+  width: min(760px, 100%);
+  max-width: 760px;
+
+  border: 1px solid #f4b73b;
+  padding: 18px 22px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.92);
+  background: transparent;
+}
+
+.events-detail.is-open{
+  display: block;
 }
