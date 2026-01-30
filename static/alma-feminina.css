@@ -209,8 +209,8 @@ body{
 .alma-dark-hero{
   position: relative;
   width: 100%;
-  height: 54vh;
-  min-height: 360px;
+  height: 78vh;
+  min-height: 540px;
   overflow: hidden;
 }
 
@@ -219,6 +219,7 @@ body{
   height: 100%;
   object-fit: cover;
   display: block;
+  object-position: center 70%;
 }
 
 .alma-dark-hero-fade{
@@ -328,10 +329,6 @@ body{
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.alma-cards-grid--5{
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
 .alma-card{
   text-align: center;
 }
@@ -415,7 +412,7 @@ body{
 .alma-value-overlay{
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.58);
+  background: rgba(0,0,0,0.75);
   z-index: 1;
 }
 
@@ -763,8 +760,7 @@ body{
     min-height: 280px;
   }
 
-  .alma-cards-grid--4,
-  .alma-cards-grid--5{
+  .alma-cards-grid--4{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -805,42 +801,6 @@ body{
 
   .alma-gallery-grid img{ border-radius: 8px; }
 
-  .alma-cards-grid--5{
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 10px;
-    overflow: hidden;
-    padding-bottom: 0;
-  }
-
-  .alma-cards-grid--5 .alma-card-thumb{
-    aspect-ratio: 1 / 1.45;
-  }
-
-  .alma-cards-grid--5 .alma-card-photo{
-    left: 12%;
-    top: 10%;
-    width: 76%;
-    height: 58%;
-  }
-
-  .alma-cards-grid--5 .alma-card-caption{
-    left: 8%;
-    bottom: 7%;
-    width: 84%;
-    padding: 6px 6px;
-    border-radius: 6px;
-    background: rgba(0,0,0,0.55);
-  }
-
-  .alma-cards-grid--5 .alma-card-title{
-    font-size: 11px;
-    line-height: 1.15;
-  }
-
-  .alma-cards-grid--5 .alma-card-meta{
-    font-size: 11px;
-    margin-top: 3px;
-  }
 
   .alma-value{
     padding-top: 96px;
@@ -1011,4 +971,57 @@ body{
 
 .alma-partner-highlight{
   color: var(--gold);
+}
+
+.stack-4{
+  position: relative !important;
+  top: auto !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+.alma-dark-hero{ position: relative; }
+
+.alma-topics-carousel{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.topics-viewport{
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.topics-track{
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: topics-marquee 22s linear infinite;
+}
+
+.topics-set{
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  padding: 10px 0;
+  flex: 0 0 auto;
+}
+
+@keyframes topics-marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.topic{
+  font-size: 18px;
+  letter-spacing: 0.14em;
 }
