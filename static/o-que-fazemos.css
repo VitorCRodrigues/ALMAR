@@ -55,7 +55,7 @@ button, input, optgroup, select, textarea {
 	box-sizing:border-box;
 	margin:0;
 	padding:0;
-    position: re;
+    position: relative;
     overflow: visible;
     height: auto;
     min-height: auto;
@@ -386,7 +386,7 @@ button, input, optgroup, select, textarea {
     font-weight: 500;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
     .solucoes-wrapper{
         flex-direction: column;
         min-height: auto;
@@ -443,6 +443,13 @@ button, input, optgroup, select, textarea {
         align-items: center;
         justify-content: center;
     }
+
+    .solucoes-video {
+        width: auto;
+        height: auto;
+        max-width: none;
+    }
+
 }
 
 .banner-solucoes {
@@ -675,6 +682,9 @@ button, input, optgroup, select, textarea {
         position: relative;
     }
 
+    .solucoes-video {
+        width: auto;
+    }
 
 }
 
@@ -721,3 +731,47 @@ button, input, optgroup, select, textarea {
 
 
 }
+
+body.lock-scroll {
+  overflow: hidden;
+}
+
+#introScroll {
+  position: relative;
+  height: 110vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.intro-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background: #000;
+}
+
+.intro-track img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
+}
+
+.intro-track img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.intro-track img.fading-out {
+  opacity: 0;
+  z-index: 1;
+}
+
