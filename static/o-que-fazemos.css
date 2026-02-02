@@ -18,7 +18,6 @@ html {
 }
 
 body {
-    padding-top: 111px;
 	margin: 0;
 	font-family: 'Avenir Next';
 	-webkit-font-smoothing: antialiased;
@@ -114,7 +113,7 @@ button, input, optgroup, select, textarea {
 }
 
 /* RESPONSIVO (MOBILE) */
-@media (max-width: 900px) {
+@media (max-width: 1500px) {
     .oqf-hero-content {
         display: none; 
     }
@@ -294,7 +293,7 @@ button, input, optgroup, select, textarea {
     font-weight: 400;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1500px) {
     .solucoes-cta {
         padding: 60px 5%;
     }
@@ -363,20 +362,20 @@ button, input, optgroup, select, textarea {
 
 .gold-line {
     position: absolute; 
-    width: 300px; 
+    width: 250px; 
     height: 4px;  
     background-color: #D69E1E; 
 }
 
 .line-top {
-    top: 20%; 
+    top: 16%; 
     left: 0;
 }
 
 .line-bottom {
-    bottom: 20%; 
+    bottom: 30%; 
     right: 0;
-    width: 500px;
+    width: 550px;
 }
 
 
@@ -386,7 +385,7 @@ button, input, optgroup, select, textarea {
     font-weight: 500;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
     .solucoes-wrapper{
         flex-direction: column;
         min-height: auto;
@@ -644,7 +643,7 @@ button, input, optgroup, select, textarea {
     }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1500px) {
 
     .oqf-hero,
     .solucoes-pratica {
@@ -742,6 +741,13 @@ body.lock-scroll {
   width: 100%;
   overflow: hidden;
   background: #000;
+}
+
+@media (max-width: 1500px) {
+  #introScroll {
+    height: 30vh;
+  }
+    
 }
 
 .intro-track {
