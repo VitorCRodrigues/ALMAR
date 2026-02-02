@@ -308,7 +308,19 @@ button, input, optgroup, select, textarea {
     }
 }
 
-
+.solucoes-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    flex-basis: 36.3%;
+    max-width: 36.3%;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
 .solucoes-pratica {
     width: 100%;
@@ -367,15 +379,6 @@ button, input, optgroup, select, textarea {
     width: 500px;
 }
 
-.solucoes-right {
-    flex-basis: 36.3%;
-    max-width: 36.3%;
-    background-color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
 
 .midia-placeholder p {
     color: #999;
@@ -715,49 +718,6 @@ button, input, optgroup, select, textarea {
     .content {
         position: relative;
     }
-}
 
-.popup-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  padding: 24px;
-}
 
-.popup-overlay.is-open{ display: flex; }
-
-.popup{
-  background: #111;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 12px;
-  max-width: 420px;
-  width: 100%;
-  padding: 22px 18px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.45);
-}
-
-.popup h3{
-  margin: 0 0 8px 0;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.popup p{
-  margin: 0 0 16px 0;
-  color: #cfcfcf;
-  line-height: 1.5;
-}
-
-.popup-close{
-  background: var(--gold, #c89b1a);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 14px;
-  cursor: pointer;
-  color: #000;
 }
