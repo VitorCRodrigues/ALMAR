@@ -33,7 +33,7 @@ a, a:visited, a:hover, a:focus, a:active {
 body {
   font-family:'Avenir Next', 'Montserrat', "Helvetica Neue", Arial, sans-serif;
   color: #000000;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 html, body {
@@ -84,7 +84,6 @@ html, body {
 
 .methodus{
   background:#000;
-  height: 100vh;
   display:flex;
   justify-content:center;
   align-items:flex-start;
@@ -136,11 +135,17 @@ html, body {
 .pyramid-content { z-index: 10; }
 
 .pyramid-extend img{
-  width: 100%;
-  max-width: 1400px; /* controla o “feixe” */
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+    width: 100%;
+    height: 94%;
+    object-position: center top;
+    object-fit: cover;
+    background: linear-gradient(   /* 🚨 AQUI */
+      to bottom,
+      rgba(0,0,0,0) 35%,
+      rgba(0,0,0,0.6) 55%,
+      rgba(0,0,0,0.85) 75%,
+      #000 100%
+    );
 }
 
 .pyramid-content{
@@ -220,7 +225,6 @@ html, body {
   }
 }
 
-/* ---------- RESPONSIVO ---------- */
 
 @media (max-width: 768px) {
   .hero-title-main {
@@ -229,10 +233,6 @@ html, body {
 
   .hero-title-sub {
     font-size: 11px;
-  }
-
-  .methodus {
-    padding-top: 8vh;
   }
 
   .pyramid {
@@ -368,7 +368,7 @@ html, body {
 }
 
 .consultant-photo {
-    width: 350px;
+    width: 240px;
     height: 400px;
     flex: 1;
     border-radius: 4px;
@@ -479,94 +479,257 @@ html, body {
     margin-top: 70px;
 }
 
+
 @media (max-width: 768px) {
 
-  body {
-    overflow: auto;
+  .consultant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  /* ===== METHODUS / PIRÂMIDE ===== */
+  .consultant-photo {
+    order: 1;
+    margin-bottom: 16px;
+  }
 
-  .methodus {
+  .consultant-text {
+    order: 2;
+  }
+
+  .consultant-text h4 {
+    order: 3;
+    margin-top: 8px;
+  }
+
+  .consultant-text p {
+    order: 4;
+  }
+
+  .invited-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .invited-photo {
+    order: 1;
+    width: 240px;
+    height: 300px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .invited-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .invited-text {
+    order: 2;
+    max-width: 320px;
+     font-size: 20px;
+  }
+
+  .invited-text h3 {
+    order: 3;
+    margin-bottom: 16px;
+    letter-spacing: 0.32em;
+  }
+
+  .invited-text p {
+    order: 4;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  /* neutraliza alternância */
+  .invited-card:nth-child(even) {
+    flex-direction: column;
+  }
+
+
+}
+
+body.lock-scroll {
+  overflow: hidden;
+}
+
+/* ÁREA DO SCROLL ANIMADO */
+#introScroll {
+  position: relative;
+  height: 110vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+
+.intro-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110vh;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+
+/* IMAGENS EMPILHADAS */
+.intro-track img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
+  will-change: opacity;
+}
+
+/* IMAGEM ATIVA */
+.intro-track img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.intro-track img.fading-out {
+  opacity: 0;
+  z-index: 1;
+}
+
+
+.lock-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+
+  #introScroll {
     position: relative;
-    padding-bottom: 96px;
-    overflow-x: visible;
-    overflow-y: hidden;
+    height: 29vh;
+    width: 100%;
+    overflow: hidden;
     background: #000;
   }
 
-  .methodus-inner {
-    padding-top: 80vh;
+
+
+  .methodus {
+    position: relative;
+    height: 76vh; /* cria a área longa igual ao exemplo */
+    min-height: unset;
+    display: block;
+    overflow: hidden;
+    background: #000;
   }
 
-  /* === PIRÂMIDE === */
+  .intro-track img {
+    height: 27%;
+    width: auto;
+  }
 
+  .methodus-inner {
+    padding: 0;
+    max-width: none;
+    width: 100%;
+    height: 51%;
+    position: relative;
+  }
+
+  /* IMAGEM DA MULHER */
   .pyramid-extend {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 140%;              /* 👈 MAIS LARGO QUE A TELA */
     transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    pointer-events: none;
+    width: 100vw;
+    height: 100vh; /* só a parte da imagem */
+    z-index: 1;
   }
 
   .pyramid-extend img {
     width: 100%;
-    height: 100%;
+    height: 27%;
     object-fit: cover;
-
-    clip-path: polygon(
-      50% 0%,
-      62% 14%,
-      75% 100%,
-      25% 100%,
-      38% 14%
+    object-position: center top;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 35%,
+      rgba(0,0,0,0.6) 55%,
+      rgba(0,0,0,0.85) 75%,
+      #000 100%
     );
   }
-  /* === TEXTO DENTRO DO FEIXE === */
 
+  /* FEIXE ESCURO POR CIMA DA IMAGEM */
+  .pyramid-extend::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 35%,
+      rgba(0,0,0,0.6) 55%,
+      rgba(0,0,0,0.85) 75%,
+      #000 100%
+    );
+    z-index: 2;
+  }
+
+  /* BLOCO DE TEXTO DENTRO DO FEIXE */
   .pyramid-content {
     position: absolute;
-    top: 46%;
+    top: 2vh; /* começa depois do rosto */
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 220px;
-    text-align: center;
+    transform: translateX(-50%);
+    z-index: 5;
   }
 
   .pyramid-layer {
-    margin-bottom: 22px;
+    margin-bottom: 26px;
   }
 
   .pyramid-layer h3 {
-    font-size: 12px;
-    letter-spacing: 0.32em;
-    margin-bottom: 6px;
+    font-size: 14px;
+    letter-spacing: 0.28em;
   }
 
   .pyramid-layer p {
-    font-size: 11px;
-    line-height: 1.55;
+    font-size: 12px;
+    line-height: 1.6;
   }
-
 
 
   .methodus-footer {
-    padding-top: 48px;
+    position: absolute;
+    bottom: -260px;
+    width: 100%;
+    text-align: center;
+    padding: 0 24px;
   }
 
   .methodus-footer h2 {
-    font-size: 20px;
-    letter-spacing: 0.3em;
+    font-size: 18px;
   }
 
   .methodus-footer p {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 13px;
   }
-  /* ===== CONSULTORES ===== */
+
+  body {
+    overflow: auto;
+  }
 
 
  .consultants-heading {
@@ -750,75 +913,27 @@ html, body {
   }
 }
 
-@media (max-width: 768px) {
+.methodus {
+  /* ... mantenha as propriedades existentes ... */
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
 
-  .consultant {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .consultant-photo {
-    order: 1;
-    margin-bottom: 16px;
-  }
-
-  .consultant-text {
-    order: 2;
-  }
-
-  .consultant-text h4 {
-    order: 3;
-    margin-top: 8px;
-  }
-
-  .consultant-text p {
-    order: 4;
-  }
-
-  .invited-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .invited-photo {
-    order: 1;
-    width: 240px;
-    height: 300px;
-    margin-bottom: 16px;
-    overflow: hidden;
-  }
-
-  .invited-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .invited-text {
-    order: 2;
-    max-width: 320px;
-     font-size: 20px;
-  }
-
-  .invited-text h3 {
-    order: 3;
-    margin-bottom: 16px;
-    letter-spacing: 0.32em;
-  }
-
-  .invited-text p {
-    order: 4;
-    font-size: 12px;
-    line-height: 1.75;
-  }
-
-  /* neutraliza alternância */
-  .invited-card:nth-child(even) {
-    flex-direction: column;
-  }
+/* ADICIONE ISSO: A camada preta que cobrirá tudo inicialmente */
+.methodus::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Cobre toda a área */
+  background-color: #000;
+  z-index: 100; /* Fica acima de tudo (imagens e texto) */
+  pointer-events: none; /* Permite clicar/selecionar o que está embaixo mesmo se visível */
+  
+  /* A opacidade será controlada pelo JavaScript através desta variável */
+  opacity: var(--reveal-opacity, 1); 
+  transition: opacity 0.1s linear; /* Suaviza levemente a troca */
 }
