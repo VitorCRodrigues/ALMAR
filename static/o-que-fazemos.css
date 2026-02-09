@@ -605,20 +605,20 @@ button, input, optgroup, select, textarea {
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
 
     .oqf-hero{
         position: sticky;
         top: 0;
     }
     .solucoes-pratica {
-        position: sticky;
+        position: relative;
         top: 0;
         height: 120vh;
     }
 
     .banner-solucoes{
-        position: sticky;
+        position: relative;
         top: 0;
         height: auto;
     }
