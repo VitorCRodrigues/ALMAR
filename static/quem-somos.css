@@ -195,6 +195,7 @@ html, body {
 }
 
 .methodus-footer h2 {
+  color: #E7E6E6;
   font-size: 26px;
   letter-spacing: 0.32em;
   margin-bottom: 20px;
@@ -355,11 +356,21 @@ html, body {
   text-align: right;
 }
 
+.consultants--bottom .consultant:nth-of-type(3) .consultant-text h4,
+.consultants--bottom .consultant:nth-of-type(3) .consultant-text p {
+  text-align: right;
+}
+
 .invited-card:nth-of-type(1) .invited-text h3,
 .invited-card:nth-of-type(1) .invited-text p {
   text-align: right;
 }
 
+
+.consultants--bottom .consultant:nth-of-type(3) .consultant-photo img {
+  transform: scale(1.25);
+  object-position: center top;
+}
 
 .consultant-text p {
   font-size: 14px;
@@ -455,7 +466,9 @@ html, body {
 
 .invited-photo {
   flex: 1;
-  max-width: 500px;
+  width: 240px;
+  height: 400px;
+  overflow: hidden;
 }
 
 .invited-photo img {
@@ -463,6 +476,7 @@ html, body {
   object-fit: cover;
   display: block;
   border-radius: 4px;
+  transform: scale(1.08);
 }
 
 .consultant-photo img,
@@ -834,6 +848,9 @@ body.lock-scroll {
     text-align: left;
   }
 
+  .consultants--bottom .consultant:nth-of-type(3) .consultant-text h4, .consultants--bottom .consultant:nth-of-type(3) .consultant-text p {
+    text-align: left; /* mantém padrão mobile */
+  }
 
   .consultant:nth-of-type(4) .consultant-text h4,
   .consultant:nth-of-type(4) .consultant-text p {
