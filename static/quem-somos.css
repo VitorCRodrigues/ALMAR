@@ -368,7 +368,7 @@ html, body {
 
 
 .consultants--bottom .consultant:nth-of-type(3) .consultant-photo img {
-  transform: scale(1.25);
+  transform: scale(1.7);
   object-position: center top;
 }
 
@@ -898,7 +898,7 @@ body.lock-scroll {
 
   .invited-text h3 {
     position: relative;
-    display: inline-block; /* obrigatório */
+    display: inline-block;
     font-size: 20px;
     letter-spacing: 0.32em;
     margin-bottom: 28px;
@@ -931,7 +931,6 @@ body.lock-scroll {
 }
 
 .methodus {
-  /* ... mantenha as propriedades existentes ... */
   background: #000;
   display: flex;
   justify-content: center;
@@ -941,16 +940,15 @@ body.lock-scroll {
   z-index: 5;
 }
 
-/* ADICIONE ISSO: A camada preta que cobrirá tudo inicialmente */
 .methodus::before {
   content: "";
   position: absolute;
-  inset: 0; /* Cobre toda a área */
+  inset: 0; 
   background-color: #000;
-  z-index: 100; /* Fica acima de tudo (imagens e texto) */
-  pointer-events: none; /* Permite clicar/selecionar o que está embaixo mesmo se visível */
+  z-index: 100; /
+  pointer-events: none; 
   
-  /* A opacidade será controlada pelo JavaScript através desta variável */
+  
   opacity: var(--reveal-opacity, 1); 
-  transition: opacity 0.1s linear; /* Suaviza levemente a troca */
+  transition: opacity 0.1s linear; 
 }
