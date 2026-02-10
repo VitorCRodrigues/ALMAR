@@ -1441,3 +1441,10 @@ button, input, optgroup, select, textarea {
 @media (max-width: 900px){
   .audio-toast{ bottom: 18px; font-size: 13px; }
 }
+
+.audio-toast { pointer-events: auto; }
+.audio-toast * { pointer-events: auto; }
+
+.audio-toast[hidden]{
+  display: none !important;
+}

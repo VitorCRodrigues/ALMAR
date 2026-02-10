@@ -45,13 +45,22 @@
 			</div>
 			<div class="hero-right">
 				<h1>SOMOS A ALMAR</h1>
-				<p>Uma consultoria boutique de marketing com a missão de<br>potencializar a <strong>ALMA</strong> e os <strong>RESULTADOS</strong> das empresas,<br>por meio de uma metodologia proprietária. Também<br>somos conhecidos como <strong>ALAVANCA DAS MARCAS</strong>.</p>
+				<p>
+					Uma consultoria boutique de marketing com a missão de potencializar a
+					<strong>ALMA</strong> e os <strong>RESULTADOS</strong> das empresas, por meio de uma
+					metodologia proprietária. Também somos conhecidos como
+					<strong>ALAVANCA DAS MARCAS</strong>.
+				</p>
 			</div>
 		</section>
 
 		<section class="solutions-section" data-header-theme="dark">
 			<div class="solutions-left">
-				<h2>DESENVOLVEMOS SOLUÇÕES<br><span class="highlight">INTELIGENTES</span> E <span class="highlight">EXCLUSIVAS</span> DE<br>MARKETING E RELACIONAMENTO</h2>
+				<h2>
+					DESENVOLVEMOS SOLUÇÕES<br>
+					<span class="highlight">INTELIGENTES</span> E <span class="highlight">EXCLUSIVAS</span> DE MARKETING<br>
+					E RELACIONAMENTO
+				</h2>
 			</div>
 			<div class="solutions-right">
 				<p>Somos especialistas em programas de relacionamento, fidelidade e gestão de comunidades. Nossas soluções unem dados, pesquisas e inteligência para alavancar a performance das marcas.</p>
@@ -265,66 +274,6 @@
 				<button type="button" id="popup-close" class="popup-close">Fechar</button>
 			</div>
 		</div>
-
-		<script>
-			// Controle de som do vídeo
-			const heroVideo = document.querySelector('.hero-video');
-			const heroSection = document.querySelector('.hero-section');
-			let soundEnabled = false;
-			
-			// Ativar som no primeiro clique
-			document.addEventListener('click', () => {
-				if (!soundEnabled) {
-					heroVideo.muted = false;
-					soundEnabled = true;
-				}
-			}, { once: true });
-			
-			// Controlar som baseado no scroll (só funciona se o som já foi ativado)
-			window.addEventListener('scroll', () => {
-				if (soundEnabled) {
-					const heroRect = heroSection.getBoundingClientRect();
-					const windowHeight = window.innerHeight;
-					const isHeroVisible = heroRect.bottom > windowHeight * 0.5;
-					
-					heroVideo.muted = !isHeroVisible;
-				}
-			});
-
-			let currentPosition = 17;
-			const track = document.querySelector('.carousel-track');
-			const logoWidth = 270; 
-			const totalLogos = 17;
-			let isTransitioning = false;
-			
-			track.style.transform = `translateX(-${currentPosition * logoWidth}px)`;
-
-			function moveCarousel(direction) {
-				if (isTransitioning) return;
-				
-				isTransitioning = true;
-				currentPosition += direction;
-				
-				// Move o carrossel com transição
-				track.style.transition = 'transform 0.5s ease';
-				track.style.transform = `translateX(-${currentPosition * logoWidth}px)`;
-				
-				// Aguarda a transição terminar
-				setTimeout(() => {
-					// Reset infinito
-					if (currentPosition >= totalLogos * 2) {
-						track.style.transition = 'none';
-						currentPosition = totalLogos;
-						track.style.transform = `translateX(-${currentPosition * logoWidth}px)`;
-					} else if (currentPosition <= 0) {
-						track.style.transition = 'none';
-						currentPosition = totalLogos;
-						track.style.transform = `translateX(-${currentPosition * logoWidth}px)`;
-					}
-					isTransitioning = false;
-				}, 500);
-			}
-		</script>
 	</main>
 
 	<div id="audio-toast" class="audio-toast" aria-live="polite" hidden>

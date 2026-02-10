@@ -1,43 +1,63 @@
-(function () {
-  const video = document.querySelector("video");
-  if (!video) return;
-
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("hero-video");
   const toast = document.getElementById("audio-toast");
   const txt = document.getElementById("audio-toast-text");
   const btn = document.getElementById("audio-toast-btn");
   const close = document.getElementById("audio-toast-close");
 
+  if (!video || !toast || !txt || !btn || !close) return;
+
   let dismissed = false;
 
-  function updateToast() {
+  function setUI() {
     if (dismissed) return;
 
-    if (!video.muted && video.volume > 0) {
-      txt.textContent = "Som ligado — toque para mutar";
-      btn.textContent = "Mutar";
-      toast.hidden = false;
-      return;
-    }
+    const isOn = !video.muted && (video.volume ?? 1) > 0;
 
-    txt.textContent = "Som desligado — toque para ativar";
-    btn.textContent = "Ativar som";
+    txt.textContent = isOn
+      ? "Som ligado — toque para mutar"
+      : "Som desligado — toque para ativar";
+
+    btn.textContent = isOn ? "Mutar" : "Ativar som";
+
     toast.hidden = false;
   }
 
-  btn.addEventListener("click", () => {
-    video.muted = !video.muted;
+  async function tryPlay() {
+    try {
+      await video.play();
+    } catch (e) {
+    }
+  }
 
-    if (!video.muted && video.volume === 0) video.volume = 1;
+  video.muted = true;
+  if (video.volume === 0) video.volume = 1;
+  tryPlay();
+  toast.hidden = false;
+  setUI();
 
-    updateToast();
+  btn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (video.muted) {
+      video.muted = false;
+      if (video.volume === 0) video.volume = 1;
+      await tryPlay();
+    } else {
+      video.muted = true;
+    }
+
+    setUI();
   });
 
-  close.addEventListener("click", () => {
+  close.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     dismissed = true;
     toast.hidden = true;
   });
-  video.addEventListener("volumechange", updateToast);
 
-  toast.hidden = false;
-  updateToast();
-})();
+  video.addEventListener("volumechange", setUI);
+});
