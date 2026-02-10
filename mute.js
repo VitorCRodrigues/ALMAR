@@ -27,18 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       await video.play();
     } catch (e) {
-      // ok se o browser bloquear, vai liberar no próximo toque
     }
   }
 
-  // Estado inicial (mantém vídeo rodando e mutado)
   video.muted = true;
   if (video.volume === 0) video.volume = 1;
   tryPlay();
   toast.hidden = false;
   setUI();
 
-  // Botão Mutar/Ativar
   btn.addEventListener("click", async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -54,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setUI();
   });
 
-  // X fechar
   close.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -63,6 +59,5 @@ document.addEventListener("DOMContentLoaded", () => {
     toast.hidden = true;
   });
 
-  // Se alguém mudar o áudio por fora, atualiza o texto
   video.addEventListener("volumechange", setUI);
 });
