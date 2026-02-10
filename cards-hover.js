@@ -1,25 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const imgs = document.querySelectorAll(".authority-card img[data-hover]");
+  const cards = document.querySelectorAll(".authority-card");
 
-  imgs.forEach((img) => {
-    const original = img.getAttribute("src");
-    const hover = img.getAttribute("data-hover");
+  cards.forEach((card) => {
+    const img = card.querySelector(".card-img");
+    if (!img) return;
 
-    if (!hover) return;
+    const normalSrc = card.dataset.img || img.getAttribute("src");
+    const hoverSrc = card.dataset.hover;
 
-    const pre = new Image();
-    pre.src = hover;
+    if (normalSrc) img.src = normalSrc;
 
-    img.addEventListener("mouseenter", () => {
-      img.setAttribute("src", hover);
+    if (!hoverSrc) return;
+
+    const preload = new Image();
+    preload.src = hoverSrc;
+
+    card.addEventListener("mouseenter", () => {
+      img.src = hoverSrc;
     });
 
-    img.addEventListener("mouseleave", () => {
-      img.setAttribute("src", original);
+    card.addEventListener("mouseleave", () => {
+      img.src = normalSrc;
     });
 
-    img.addEventListener("blur", () => {
-      img.setAttribute("src", original);
+    card.addEventListener("focusin", () => {
+      img.src = hoverSrc;
+    });
+
+    card.addEventListener("focusout", () => {
+      img.src = normalSrc;
     });
   });
 });

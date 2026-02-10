@@ -793,14 +793,23 @@ button, input, optgroup, select, textarea {
     }
 }
 
-.contact-intro-section {
-	background: #d3d3d3;
-	padding: 60px 4vw;
-	text-align: center;
-	position: relative;
-	z-index: 4;
-	margin-top: 0;
-    padding-top: 110px;
+.contact .socials{
+  margin-top: 12px;
+  justify-content: flex-start;
+}
+
+.contact-intro-section{
+  background: #d3d3d3;
+  padding: 60px 4vw;
+  text-align: center;
+  position: relative;
+  z-index: 4;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
 }
 
 .contact-intro-section h2 {
@@ -1116,7 +1125,32 @@ button, input, optgroup, select, textarea {
     letter-spacing:4px;
 }
 .brand .tag{font-size:12px;color:var(--muted);margin-top:6px}
-.brand{margin-bottom:48px;} 
+
+.brand{
+  margin-bottom: 25px;
+}
+
+.socials.socials-left{
+  justify-content: flex-start;
+  margin-top: 14px;
+}
+
+.socials.socials-top{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: fit-content;
+  margin-left: 0;
+  padding-left: 0;
+
+  margin-top: -80px;
+  margin-bottom: 25px;
+}
+
+.footer-left{
+  align-items: flex-start !important;
+}
 
 .brand-logo{
     width:220px;
@@ -1353,4 +1387,57 @@ button, input, optgroup, select, textarea {
   padding: 10px 14px;
   cursor: pointer;
   color: #000;
+}
+
+.audio-toast{
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  padding: 10px 14px;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  font-size: 14px;
+  line-height: 1;
+  max-width: calc(100vw - 32px);
+  white-space: nowrap;
+}
+
+.audio-toast-btn{
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.audio-toast-close{
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 6px;
+  opacity: .85;
+}
+
+.audio-toast-close:hover{ opacity: 1; }
+
+@media (max-width: 900px){
+  .audio-toast{ bottom: 18px; font-size: 13px; }
 }

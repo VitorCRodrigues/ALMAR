@@ -54,6 +54,14 @@
 	white-space: nowrap;
 }
 
+.header-nav a.active{
+  color: var(--gold) !important;
+}
+
+.site-header .header-nav a.active{
+  color: var(--gold) !important;
+}
+
 
 .site-header:hover .header-nav a:hover {
 	color: var(--gold);

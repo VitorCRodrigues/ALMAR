@@ -18,7 +18,7 @@
 				</button>
 
 				<nav class="header-nav">
-					<a href="index.html">Home</a>
+					<a href="index.html" class="active">Home</a>
 					<a href="quem-somos.html">Quem somos</a>
 					<a href="o-que-fazemos.html">O que fazemos</a>
 					<a href="autoridade.html">Autoridade</a>
@@ -224,7 +224,18 @@
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
-						<input type="text" name="busca" placeholder="O que você busca?" required>
+						
+						<select name="busca" required>
+							<option value="" disabled selected>O que você busca?</option>
+							<option value="programa-relacionamento">Programa de relacionamento</option>
+							<option value="pesquisa-customizada">Pesquisa customizada</option>
+							<option value="dados-crm">Dados e CRM</option>
+							<option value="planejamento-estrategico">Planejamento estratégico</option>
+							<option value="cursos-palestras">Cursos / Palestras</option>
+							<option value="parcerias">Parcerias</option>
+							<option value="outros">Outros</option>
+						</select>
+
 						<input type="text" name="empresa" placeholder="Empresa">
 						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
 						<div class="recaptcha-container">
@@ -315,6 +326,12 @@
 			}
 		</script>
 	</main>
+
+	<div id="audio-toast" class="audio-toast" aria-live="polite" hidden>
+		<span id="audio-toast-text">Som ligado — toque para mutar</span>
+		<button type="button" id="audio-toast-btn" class="audio-toast-btn">Mutar</button>
+		<button type="button" id="audio-toast-close" class="audio-toast-close" aria-label="Fechar">✕</button>
+	</div>
     
 	<footer class="site-footer">
 		<div class="footer-inner">
@@ -324,11 +341,24 @@
 				</div>
 
 				<div class="contact">
-					<h4>Fale conosco</h4>
-					<div class="contact-item">
-						<img src="images/mail.svg" alt="mail" class="mail-icon" />
-						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+
+					<div class="socials socials-left socials-top">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
 					</div>
+
+					<h4>Fale conosco</h4>
+
+					<div class="contact-item">
+					<img src="images/mail.svg" alt="mail" class="mail-icon" />
+					<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+
 				</div>
 			</div>
 
@@ -343,17 +373,6 @@
 					<a href="contato.html">Contato</a>
 				</nav>
 			</div>
-
-			<div class="footer-col footer-right">
-				<div class="socials">
-					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
-					</a>
-					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
-						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
-					</a>
-				</div>
-			</div>
 		</div>
 
 		<div class="footer-divider"></div>
@@ -366,5 +385,6 @@
 	<script src="header1.js"></script>
 	<script src="carrossel.js"></script>
 	<script src="popup.js"></script>
+	<script src="mute.js"></script>
 </body>
 </html>
