@@ -22,8 +22,9 @@ body {
 	font-family: 'Avenir Next';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	overflow-x: hidden;
+	overflow-x: hidden; /* Garante que nada scrolle horizontalmente */
 	background: #000;
+    width: 100%;
 }
 
 img, picture, video, canvas, svg {
@@ -50,6 +51,9 @@ button, input, optgroup, select, textarea {
 	--gold:#c89b1a;
 }
 
+/* =========================================
+   ESTRUTURA GERAL
+   ========================================= */
 .oqf-main *{
 	box-sizing:border-box;
 	margin:0;
@@ -83,7 +87,6 @@ button, input, optgroup, select, textarea {
     width: 100%;
     padding: 40px 5%; 
     z-index: 2;
-    
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
     display: flex;
     flex-direction: column;
@@ -113,77 +116,57 @@ button, input, optgroup, select, textarea {
     color: #000;
 }
 
-/* RESPONSIVO (MOBILE) */
-@media (max-width: 1500px) {
-    .oqf-hero-content {
-        display: none; 
-    }
-
-    .oqf-hero {
-        height: auto;
-        background: #000;
-    }
-
-    .hero-img-full {
-        height: auto;
-        width: 100%;
-        object-fit: contain; 
-        margin-bottom: 20px; 
-    }
-
-    .nossos-servicos {
-        padding-top: 20px; 
-    }
-
-
-    .section-title {
-        font-size: 30px; 
-        letter-spacing: 2px;
-        margin-bottom: 9px;
-        color: #000;
-    }
-
-    .title-decoration {
-        width: 140px; 
-        height: 2px;
-        background-color: var(--gold);
-        margin-top: 5px;
-    }
-
-    .servicos-grid {
-        gap: 50px;
-    }
-
-    .servico-card h3 {
-        font-size: 32px;
-        color: var(--gold);
-        margin-bottom: 15px;
-        font-weight: 400; 
-    }
-
-    .servico-card p {
-        font-size: 18px;
-        line-height: 1.4;
-        color: #EAEAEA; 
-        font-weight: 300;
-    }
-
-    .card-footer {
-        margin-top: 10px;
-    }
-
-    .plus-btn {
-        font-size: 38px; 
-        color: var(--gold);
-        font-weight: 300;
-        line-height: 0.8;
-    }
+/* =========================================
+   SCROLL INTRO / HERO (Desktop > 1500px)
+   ========================================= */
+#introScroll {
+  position: relative;
+  height: 110vh; /* Altura padrão para telas grandes */
+  width: 100%;
+  overflow: hidden;
+  background: #000;
 }
 
+.intro-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background: #000;
+}
+
+.intro-track img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
+}
+
+.intro-track img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.intro-track img.fading-out {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* =========================================
+   NOSSOS SERVIÇOS
+   ========================================= */
 .nossos-servicos {
     background-color: #e7e7e7;
     color: #fff;
     position: relative;
+    width: 100%;
+    overflow: hidden; /* Segurança extra para evitar vazamento */
 }
 
 .nossos-servicos .container {
@@ -193,7 +176,6 @@ button, input, optgroup, select, textarea {
     padding-top: 70px;
 }
 
-
 .title-decoration {
     width: 340px;
     height: 2px;
@@ -202,12 +184,17 @@ button, input, optgroup, select, textarea {
     bottom: 5px;
 }
 
-/* Grid */
+/* Grid de Serviços */
 .servicos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    /* CORREÇÃO: Aumentado de 240px para 300px.
+       Isso força a grade a ter menos colunas (mas mais largas) em telas médias,
+       evitando que o texto estoure para fora. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     align-items: stretch;
+    width: 100%;
+    position: relative; 
 }
 
 .servico-card {
@@ -215,6 +202,11 @@ button, input, optgroup, select, textarea {
     flex-direction: column;
     height: 100%;
     text-align: left;
+    color: #000;
+    padding: 30px;
+    transition: all 0.3s ease;
+    /* Adicionado para garantir que nada saia do card */
+    overflow-wrap: break-word; 
 }
 
 .servico-card h3 {
@@ -224,6 +216,9 @@ button, input, optgroup, select, textarea {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #c89b1a;
+    /* Segurança para palavras longas */
+    word-break: break-word; 
+    hyphens: auto;
 }
 
 .servico-card p {
@@ -233,7 +228,7 @@ button, input, optgroup, select, textarea {
     margin-bottom: 20px; 
     font-weight: 300;
     flex-grow: 1; 
-    width: 294px;
+    width: 100%; /* Garante largura fluida */
 }
 
 .card-footer {
@@ -251,178 +246,7 @@ button, input, optgroup, select, textarea {
     display: inline-block;
 }
 
-@media (max-width: 768px) {
-    .servicos-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-}
-
-.solucoes-cta {
-    width: 100%;
-    background-color: #F2F2F2; 
-    padding: 100px 8%;      
-    display: flex;
-    justify-content: flex-start; 
-}
-
-.cta-inner-content {
-    max-width: 850px; 
-}
-
-
-.cta-inner-content h2 {
-    font-family: 'Avenir Next';
-    font-size: 52px; 
-    line-height: 1.1;
-    color: #1D1D1D;
-    font-weight: 400;
-    margin-bottom: 25px;
-}
-
-.cta-inner-content p {
-    font-size: 22px; 
-    line-height: 1.5;
-    color: #4A4A4A;
-    font-weight: 400;
-}
-
-@media (max-width: 1500px) {
-    .solucoes-cta {
-        padding: 60px 5%;
-    }
-    
-    .cta-inner-content h2 {
-        font-size: 34px;
-    }
-    
-    .cta-inner-content p {
-        font-size: 18px;
-    }
-}
-
-.solucoes-video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    flex-basis: 36.3%;
-    max-width: 36.3%;
-    background-color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.solucoes-pratica {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.solucoes-wrapper {
-    display: flex;
-    width: 100%;
-    min-height: 891px;
-    background-color: #000;
-}
-
-.solucoes-left {
-    flex-basis: 63.7%; 
-    max-width: 63.7%;
-    position: relative;
-    background-color: #000; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 8%; 
-    padding-right: 5%;
-}
-
-.solucoes-content {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px; 
-}
-
-.solucoes-content h2 {
-    font-family: 'Avenir Next'; 
-    font-size: 62px; 
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 500;
-    margin: 0;
-}
-
-.solucoes-content p {
-    font-size: 24px; 
-    line-height: 1.5;
-    color: #fff;
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-.midia-placeholder p {
-    color: #999;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-@media (max-width: 1500px) {
-    .solucoes-wrapper{
-        flex-direction: column;
-        min-height: auto;
-    }
-    .solucoes-left {
-        flex-basis: 100%;
-        max-width: 100%;
-        padding: 60px 24px;
-        min-height: auto;   
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .solucoes-content h2 {
-        font-size: 32px; 
-        line-height: 1.2;
-        margin: 30px 0; 
-    }
-
-
-    .solucoes-right {
-        flex-basis: 100%;
-        max-width: 100%;
-        padding: 60px 24px;
-        
-        min-height: 70vh; 
-        
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .solucoes-video {
-        width: auto;
-        height: auto;
-        max-width: none;
-        -webkit-mask-image: linear-gradient(to bottom, transparent 2%, black 50%);
-    }
-
-}
-
-
-
-.servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-    position: relative; 
-}
-
+/* Expansão dos Cards (Lógica de JS) */
 .servicos-grid.expanding-mode {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -433,11 +257,6 @@ button, input, optgroup, select, textarea {
     display: none !important;
 }
 
-.servico-card {
-    color: #000;
-    padding: 30px;
-    transition: all 0.3s ease;
-}
 .servico-card .specs-list, .servico-card .close-btn { display: none; }
 
 .servico-card.active {
@@ -528,7 +347,6 @@ button, input, optgroup, select, textarea {
     color: #1a1a1a;
 }
 
-
 .specs-list .sub-item::before {
     content: '';
     display: inline-block;
@@ -542,6 +360,281 @@ button, input, optgroup, select, textarea {
     flex-shrink: 0; 
 }
 
+/* =========================================
+   SOLUÇÕES / CTA
+   ========================================= */
+.solucoes-cta {
+    width: 100%;
+    background-color: #F2F2F2; 
+    padding: 100px 8%;      
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.cta-inner-content {
+    max-width: 850px; 
+}
+
+.cta-inner-content h2 {
+    font-family: 'Avenir Next';
+    font-size: 52px; 
+    line-height: 1.1;
+    color: #1D1D1D;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.cta-inner-content p {
+    font-size: 22px; 
+    line-height: 1.5;
+    color: #4A4A4A;
+    font-weight: 400;
+}
+
+.solucoes-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    flex-basis: 36.3%;
+    max-width: 36.3%;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.solucoes-pratica {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.solucoes-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 891px;
+    background-color: #000;
+}
+
+.solucoes-left {
+    flex-basis: 63.7%; 
+    max-width: 63.7%;
+    position: relative;
+    background-color: #000; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%; 
+    padding-right: 5%;
+}
+
+.solucoes-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; 
+}
+
+.solucoes-content h2 {
+    font-family: 'Avenir Next'; 
+    font-size: 62px; 
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 500;
+    margin: 0;
+}
+
+.solucoes-content p {
+    font-size: 24px; 
+    line-height: 1.5;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.midia-placeholder p {
+    color: #999;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* =========================================
+   MEDIA QUERIES (RESPONSIVIDADE)
+   ========================================= */
+
+/* Tablets / Laptops menores que 1500px */
+@media (max-width: 1500px) {
+    /* CORREÇÃO DO ESPAÇO PRETO VERTICAL */
+    #introScroll {
+        height: auto !important;
+        min-height: auto !important;
+        position: relative;
+    }
+
+    .intro-track {
+        position: relative !important;
+        height: auto !important;
+        width: 100%;
+        display: block;
+    }
+
+    .intro-track img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* A imagem ativa define a altura */
+    .intro-track img.active {
+        position: relative !important;
+        z-index: 10;
+        opacity: 1;
+    }
+
+    .intro-track img:not(.active) {
+        opacity: 0;
+    }
+
+    /* Ajustes das seções de conteúdo */
+    .solucoes-cta {
+        padding: 60px 5%;
+    }
+    
+    .cta-inner-content h2 {
+        font-size: 34px;
+    }
+    
+    .cta-inner-content p {
+        font-size: 18px;
+    }
+
+    .solucoes-wrapper{
+        flex-direction: column;
+        min-height: auto;
+    }
+    .solucoes-left {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 60px 24px;
+        min-height: auto;   
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .solucoes-content h2 {
+        font-size: 32px; 
+        line-height: 1.2;
+        margin: 30px 0; 
+    }
+
+    .solucoes-right {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 60px 24px;
+        min-height: 70vh; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .solucoes-video {
+        width: auto;
+        height: auto;
+        max-width: none;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 2%, black 50%);
+    }
+    
+    .solucoes-content {
+        padding-left: 0; 
+    }
+}
+
+/* Mobile / Tablet Portrait (< 1000px) */
+@media (max-width: 1000px) {
+    .oqf-hero-content {
+        display: none; 
+    }
+
+    .oqf-hero {
+        height: auto; 
+        min-height: 400px;
+        background: #000;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-img-full {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 0; 
+    }
+
+    .nossos-servicos {
+        padding-top: 20px; 
+    }
+
+    .section-title {
+        font-size: 30px; 
+        letter-spacing: 2px;
+        margin-bottom: 9px;
+        color: #000;
+    }
+
+    .title-decoration {
+        width: 140px; 
+        height: 2px;
+        background-color: var(--gold);
+        margin-top: 5px;
+    }
+
+    .servicos-grid {
+        gap: 50px;
+    }
+
+    .servico-card h3 {
+        /* CORREÇÃO IMPORTANTE: Reduzido de 32px para 26px.
+           Fontes muito grandes estavam empurrando a largura da tela. */
+        font-size: 26px; 
+        color: var(--gold);
+        margin-bottom: 15px;
+        font-weight: 400; 
+    }
+
+    .servico-card p {
+        font-size: 18px;
+        line-height: 1.4;
+        color: #000; 
+        font-weight: 300;
+        width: 100%;
+    }
+
+    .card-footer {
+        margin-top: 10px;
+    }
+
+    .plus-btn {
+        font-size: 38px; 
+        color: var(--gold);
+        font-weight: 300;
+        line-height: 0.8;
+    }
+}
+
+/* Telas muito pequenas (< 768px) */
+@media (max-width: 768px) {
+    .servicos-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+/* Telas minúsculas (< 600px) */
 @media (max-width:600px){
 	.servico-card.active .close-btn {
 		right:40px
@@ -558,55 +651,7 @@ button, input, optgroup, select, textarea {
     .servico-card.active .specs-list li {
         font-size: 16px;
     }
-}
-
-@media (min-width: 1500px) {
-
-    .oqf-hero,
-    .solucoes-pratica {
-        position: sticky;
-        top: 0;
-        height: 110vh;
-    }
-
-    .banner-solucoes{
-        position: sticky;
-        top: 0;
-        height: auto;
-    }
-
-    .nossos-servicos{
-        position: relative;
-        min-height: auto;
-        height: auto;        
-    }
-
-    .servico-card.active{
-        position: relative;
-        height: auto;    
-
-        overflow: visible;
-    }
-
-    .sticky-bg {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-    }
-
-    .content {
-        position: relative;
-    }
-
-    .solucoes-video {
-        width: auto;
-        -webkit-mask-image: linear-gradient(to right, transparent 2%, black 50%);
-    }
-
-}
-
-@media (max-width: 600px) {
-
+    
     .oqf-hero{
         position: sticky;
         top: 0;
@@ -632,7 +677,44 @@ button, input, optgroup, select, textarea {
     .servico-card.active{
         position: relative;
         height: auto;  
+        overflow: visible;
+    }
 
+    .sticky-bg {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+    }
+
+    .content {
+        position: relative;
+    }
+}
+
+/* Sticky Logic para Telas Grandes (> 1500px) */
+@media (min-width: 1500px) {
+    .oqf-hero,
+    .solucoes-pratica {
+        position: sticky;
+        top: 0;
+        height: 110vh;
+    }
+
+    .banner-solucoes{
+        position: sticky;
+        top: 0;
+        height: auto;
+    }
+
+    .nossos-servicos{
+        position: relative;
+        min-height: auto;
+        height: auto;        
+    }
+
+    .servico-card.active{
+        position: relative;
+        height: auto;    
         overflow: visible;
     }
 
@@ -646,59 +728,12 @@ button, input, optgroup, select, textarea {
         position: relative;
     }
 
-
+    .solucoes-video {
+        width: auto;
+        -webkit-mask-image: linear-gradient(to right, transparent 2%, black 50%);
+    }
 }
 
 body.lock-scroll {
   overflow: hidden;
 }
-
-#introScroll {
-  position: relative;
-  height: 110vh;
-  width: 100%;
-  overflow: hidden;
-  background: #000;
-}
-
-@media (max-width: 1500px) {
-  #introScroll {
-    height: 30vh;
-  }
-
-  .solucoes-content {
-    padding-left: 40px;
-  }
-}
-
-.intro-track {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: block;
-  background: #000;
-}
-
-.intro-track img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
-}
-
-.intro-track img.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-.intro-track img.fading-out {
-  opacity: 0;
-  z-index: 1;
-}
-
