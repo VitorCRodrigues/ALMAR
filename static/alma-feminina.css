@@ -209,7 +209,7 @@ body{
 .alma-dark-hero{
   position: relative;
   width: 100%;
-  height: 78vh;
+  height: 100vh;
   min-height: 540px;
   overflow: hidden;
 }
@@ -219,19 +219,19 @@ body{
   height: 100%;
   object-fit: cover;
   display: block;
-  object-position: center 70%;
+  object-position: center 100%;
 }
 
 .alma-dark-hero-fade{
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.65) 0%,
-    rgba(0,0,0,0.35) 40%,
-    rgba(0,0,0,0.10) 70%,
-    rgba(0,0,0,0.00) 100%
-  );
+ background: linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 0.90) 0%,   
+  rgba(0, 0, 0, 0.70) 35%,  
+  rgba(0, 0, 0, 0.40) 65%,  
+  rgba(0, 0, 0, 0.20) 100%  
+);
   pointer-events: none;
 }
 
