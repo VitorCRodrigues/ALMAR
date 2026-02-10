@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* =========================
      EXPANSÃO DOS CARDS
-  ==========================*/
+  ========================== */
   const gridContainer = document.querySelector('.servicos-grid');
   const cards = document.querySelectorAll('.servico-card');
 
@@ -28,84 +28,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-
   /* =========================
-     SLIDER INTRO
-  ==========================*/
-  const track = document.querySelector(".intro-track");
-  const images = document.querySelectorAll(".intro-track img");
+     SLIDER AUTOMÁTICO (TEMPO)
+  ========================== */
+  const track = document.querySelector('.intro-track');
+  const images = document.querySelectorAll('.intro-track img');
   const body = document.body;
 
   if (!track || images.length === 0) return;
 
   let index = 0;
-  let unlocked = false;
-  let animating = false;
   const lastIndex = images.length - 1;
+  const intervalTime = 1750; // tempo entre slides (ms)
+  const fadeTime = 1400;     // deve bater com o CSS
 
-  let startY = 0;
-  let deltaY = 0;
-
-  body.classList.add("lock-scroll");
-  images[0].classList.add("active");
+  body.classList.add('lock-scroll');
+  images[0].classList.add('active');
 
   function changeImage(newIndex) {
-    if (animating || newIndex === index) return;
-    animating = true;
-
     const current = images[index];
     const next = images[newIndex];
 
-    current.classList.remove("active");
-    current.classList.add("fading-out");
-    next.classList.add("active");
+    current.classList.remove('active');
+    current.classList.add('fading-out');
+    next.classList.add('active');
 
     setTimeout(() => {
-      current.classList.remove("fading-out");
+      current.classList.remove('fading-out');
       index = newIndex;
-      animating = false;
-    }, 500);
+    }, fadeTime);
   }
+
+  const sliderInterval = setInterval(() => {
+
+    if (index < lastIndex) {
+      changeImage(index + 1);
+    } else {
+      clearInterval(sliderInterval);
+      unlockScroll();
+    }
+
+  }, intervalTime);
 
   function unlockScroll() {
-    unlocked = true;
-    body.classList.remove("lock-scroll");
-    track.style.position = "absolute";
-    track.style.top = "0";
+    body.classList.remove('lock-scroll');
+    track.style.position = 'relative';
   }
-
-  function handleScroll(direction) {
-    if (unlocked) return;
-
-    if (direction === "down" && index < lastIndex) {
-      changeImage(index + 1);
-    } else if (direction === "up" && index > 0) {
-      changeImage(index - 1);
-    }
-
-    if (index === lastIndex) {
-      setTimeout(unlockScroll, 1300);
-    }
-  }
-
-  window.addEventListener("wheel", function (e) {
-    if (animating || unlocked) return;
-    e.preventDefault();
-    handleScroll(e.deltaY > 0 ? "down" : "up");
-  }, { passive: false });
-
-  window.addEventListener("touchstart", (e) => {
-    startY = e.touches[0].clientY;
-  });
-
-  window.addEventListener("touchmove", (e) => {
-    if (unlocked || animating) return;
-    deltaY = startY - e.touches[0].clientY;
-
-    if (Math.abs(deltaY) > 40) {
-      handleScroll(deltaY > 0 ? "down" : "up");
-      startY = e.touches[0].clientY;
-    }
-  });
 
 });
