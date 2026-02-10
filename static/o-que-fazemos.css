@@ -110,6 +110,7 @@ button, input, optgroup, select, textarea {
     margin-bottom: 6px;
     text-transform: uppercase;
     text-align: center;
+    color: #000;
 }
 
 /* RESPONSIVO (MOBILE) */
@@ -138,8 +139,8 @@ button, input, optgroup, select, textarea {
     .section-title {
         font-size: 30px; 
         letter-spacing: 2px;
-        margin-bottom: 12px;
-        color: #fff;
+        margin-bottom: 9px;
+        color: #000;
     }
 
     .title-decoration {
@@ -180,7 +181,7 @@ button, input, optgroup, select, textarea {
 }
 
 .nossos-servicos {
-    background-color: #000;
+    background-color: #e7e7e7;
     color: #fff;
     position: relative;
 }
@@ -193,12 +194,12 @@ button, input, optgroup, select, textarea {
 }
 
 
-
 .title-decoration {
     width: 340px;
     height: 2px;
     background-color: var(--gold, #D8AA26);
     margin:auto;
+    bottom: 5px;
 }
 
 /* Grid */
@@ -217,7 +218,7 @@ button, input, optgroup, select, textarea {
 }
 
 .servico-card h3 {
-    font-size: 32px;
+    font-size: 30px;
     margin-bottom: 20px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -228,7 +229,7 @@ button, input, optgroup, select, textarea {
 .servico-card p {
     font-size: 18px;
     line-height: 1.6;
-    color: #ccc;
+    color: #000;
     margin-bottom: 20px; 
     font-weight: 300;
     flex-grow: 1; 
@@ -269,13 +270,6 @@ button, input, optgroup, select, textarea {
     max-width: 850px; 
 }
 
-.cta-inner-content .gold-line {
-    width: 80px;
-    height: 4px;
-    background-color: var(--gold);
-    display: block;
-    margin-bottom: 35px;
-}
 
 .cta-inner-content h2 {
     font-family: 'Avenir Next';
@@ -330,14 +324,15 @@ button, input, optgroup, select, textarea {
 .solucoes-wrapper {
     display: flex;
     width: 100%;
-    min-height: 891px; 
+    min-height: 891px;
+    background-color: #000;
 }
 
 .solucoes-left {
     flex-basis: 63.7%; 
     max-width: 63.7%;
     position: relative;
-    background-color: #F2F2F2; 
+    background-color: #000; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -353,31 +348,20 @@ button, input, optgroup, select, textarea {
 
 .solucoes-content h2 {
     font-family: 'Avenir Next'; 
-    font-size: 70px; 
+    font-size: 62px; 
     line-height: 1.1;
-    color: #1D1D1D;
+    color: #fff;
     font-weight: 500;
     margin: 0;
 }
 
-.gold-line {
-    position: absolute; 
-    width: 250px; 
-    height: 4px;  
-    background-color: #D69E1E; 
+.solucoes-content p {
+    font-size: 24px; 
+    line-height: 1.5;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 300;
 }
-
-.line-top {
-    top: 16%; 
-    left: 0;
-}
-
-.line-bottom {
-    bottom: 30%; 
-    right: 0;
-    width: 550px;
-}
-
 
 .midia-placeholder p {
     color: #999;
@@ -406,29 +390,6 @@ button, input, optgroup, select, textarea {
         margin: 30px 0; 
     }
 
-    .gold-line {
-        position: relative; 
-        top: auto;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        width: 80px; 
-        height: 3px;
-    }
-
-    .line-top {
-        align-self: flex-start; 
-        margin-left: -24px;     
-        margin-bottom: 0;
-        width: 150px;
-    }
-
-    .line-bottom {
-        align-self: flex-end;   
-        margin-right: -24px;   
-        margin-top: 0;
-        width: 100px;
-    }
 
     .solucoes-right {
         flex-basis: 100%;
@@ -447,55 +408,12 @@ button, input, optgroup, select, textarea {
         width: auto;
         height: auto;
         max-width: none;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 2%, black 50%);
     }
 
 }
 
-.banner-solucoes {
-    background-color: #D69E1E; 
-    width: 100%;
-    padding: 30px 30px; 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
 
-.conteudo {
-    margin-left: 5%; 
-    color: #000000; 
-}
-
-.conteudo h2 {
-    font-size: 38px;
-    font-weight: 400; 
-    line-height: 1.3;
-    margin-bottom: 15px; 
-}
-
-.conteudo p {
-    font-size: 30px;
-    max-width: 800px;
-    font-weight: 400;
-    line-height: 1.5;
-    margin: auto;
-    text-align: center;
-}
-
-.destaque-branco {
-    color: #FFFFFF;
-}
-
-@media (max-width: 768px) {
-    .conteudo h2 {
-        font-size: 1.5rem;
-    }
-    .conteudo p {
-        font-size: 1rem;
-    }
-    .conteudo {
-        margin-left: 0;
-    }
-}
 
 .servicos-grid {
     display: grid;
@@ -516,8 +434,7 @@ button, input, optgroup, select, textarea {
 }
 
 .servico-card {
-    background: #000;
-    color: #fff;
+    color: #000;
     padding: 30px;
     transition: all 0.3s ease;
 }
@@ -649,7 +566,7 @@ button, input, optgroup, select, textarea {
     .solucoes-pratica {
         position: sticky;
         top: 0;
-        height: 100vh;
+        height: 110vh;
     }
 
     .banner-solucoes{
@@ -683,24 +600,25 @@ button, input, optgroup, select, textarea {
 
     .solucoes-video {
         width: auto;
+        -webkit-mask-image: linear-gradient(to right, transparent 2%, black 50%);
     }
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
 
     .oqf-hero{
         position: sticky;
         top: 0;
     }
     .solucoes-pratica {
-        position: sticky;
+        position: relative;
         top: 0;
         height: 120vh;
     }
 
     .banner-solucoes{
-        position: sticky;
+        position: relative;
         top: 0;
         height: auto;
     }
@@ -747,7 +665,10 @@ body.lock-scroll {
   #introScroll {
     height: 30vh;
   }
-    
+
+  .solucoes-content {
+    padding-left: 40px;
+  }
 }
 
 .intro-track {
