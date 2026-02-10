@@ -198,6 +198,11 @@ button, input, optgroup, select, textarea {
 	z-index: 3;
 }
 
+.cases-grid .case-card:nth-of-type(2) .case-image {
+	transform: scale(1.25);
+    filter: brightness(0.6);
+}
+
 .cases-grid::before {
 	content: '';
 	position: absolute;
