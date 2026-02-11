@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
     current.classList.add("fading-out");
     next.classList.add("active");
 
+    if (newIndex === lastIndex) {
+      body.classList.add("intro-last");
+    }
     // Aguarda a transição CSS (0.5s) terminar para liberar a flag
     setTimeout(() => {
       current.classList.remove("fading-out");
@@ -48,8 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function unlockScroll() {
     // Destrava a página e solta o container da intro
     body.classList.remove("lock-scroll");
+    body.classList.add("intro-done");
     track.style.position = "absolute";
     track.style.top = "0";
+    track.style.position = "absolute";
+    track.style.top = "0";
+    track.style.left = "0";
+    track.style.width = "100%";
+    track.style.height = "100%";
     
     // (Opcional) Se quiser esconder a intro depois que acaba:
     // track.style.display = 'none'; 
@@ -97,6 +106,4 @@ document.addEventListener("scroll", function () {
   let revealVal = 1 - ((progress - 0.2) * 2.5); 
   revealVal = Math.max(0, Math.min(revealVal, 1));
 
-  // Aplica a opacidade na variável CSS
-  section.style.setProperty('--reveal-opacity', revealVal);
 });
