@@ -15,13 +15,12 @@
 }
 
 :root{
-  --header-h: 92px;
+  --methodus-hero-h: clamp(560px, 78vh, 920px);
+  --methodus-hero-h-mobile: clamp(560px, 84vh, 780px);
 
-  --pyramid-overlap: clamp(370px, 37vh, 420px);
-
-  --pyramid-maxw: clamp(820px, 95vw, 1900px);
-
-  --pyramid-shift-x: -22px;
+  /* quanto a pirâmide sobe por cima da última imagem */
+  --pyramid-overlap: clamp(260px, 34vh, 420px);
+  --pyramid-overlap-mobile: clamp(180px, 26vh, 290px);
 }
 
 
@@ -83,101 +82,100 @@ html, body {
 
 
 .methodus{
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   overflow: hidden;
-  z-index: 10; 
-  min-height: 120vh;
+  z-index: 5;
+  --reveal-opacity: 0;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
 }
-
-
 
 .methodus-inner{
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
-
-  padding-top: clamp(680px, 62vh, 980px);
+  z-index: 5;
 }
 
 .pyramid-extend{
-  position: absolute;
-  top: 0;
+  position: relative;
   left: 50%;
-  width: 100vw;
-  height: 100%;
   transform: translateX(-50%);
+  width: 100vw;
+  height: calc(var(--methodus-hero-h) + clamp(140px, 18vh, 240px));
+  overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: stretch;
+  pointer-events: none;
 }
 
 .pyramid-extend::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+  content:"";
+  position:absolute;
+  inset:0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0) 35%,
-    rgba(0,0,0,0.6) 55%,
-    rgba(0,0,0,0.9) 75%,
+    rgba(0,0,0,0) 32%,
+    rgba(0,0,0,0.55) 55%,
+    rgba(0,0,0,0.85) 75%,
     #000 100%
   );
   z-index: 2;
-  pointer-events: none;
 }
 
 .pyramid-extend img { z-index: 1; position: relative; }
 .pyramid-content { z-index: 10; }
 
 .pyramid-extend img{
-    width: 100%;
-    height: 94%;
-    object-position: center top;
-    object-fit: cover;
-    background: linear-gradient(   /* 🚨 AQUI */
-      to bottom,
-      rgba(0,0,0,0) 35%,
-      rgba(0,0,0,0.6) 55%,
-      rgba(0,0,0,0.85) 75%,
-      #000 100%
-    );
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
+
 
 .pyramid-content{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  left: 51%;
+  top: 36%; /* importante */
+  bottom: clamp(210px, 22vh, 320px); /* sobe/ desce automático conforme altura da tela */
+  transform: translateX(-50%); /* sem translateY */
+  width: min(92vw, 620px);
+  padding: 0 12px;
   text-align: center;
-  color: #fff;
-  z-index: 10; /* acima de tudo */
-  pointer-events: none;
+  z-index: 5;
 }
 
 .pyramid-layer h3 {
-  font-size: 24px;
+  font-size: clamp(12px, 1.5vw, 24px);
   font-weight: 400;
   letter-spacing: 0.22em;
   margin-bottom: 6px;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0,0,0,0.45);
+  text-align: center;
 }
 
 .pyramid-layer p {
-  font-size: 20px;
+  font-size: clamp(11px, 1.2vw, 20px);
   line-height: 1.6;
-  max-width: 420px;
+  max-width: 440px;
   margin: 0 auto;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0,0,0,0.45);
+  text-align: center;
 }
 
 .pyramid-layer {
-  margin-bottom: 34px;
+  margin-bottom: clamp(18px, 2.4vh, 34px);
 }
 
 .pyramid-layer h3,
@@ -188,15 +186,15 @@ html, body {
 
 .methodus-footer{
   position: relative;
-  z-index: 6;
-  padding-top: 80px;
   text-align: center;
-  color: #f7f7f7;
+  padding: clamp(44px, 6vh, 86px) 0 clamp(52px, 7vh, 120px);
+  z-index: 5;
+  overflow: visible
 }
 
 .methodus-footer h2 {
   color: #E7E6E6;
-  font-size: 26px;
+  font-size: clamp(18px, 2vw, 26px);
   letter-spacing: 0.32em;
   margin-bottom: 20px;
   text-shadow:
@@ -204,13 +202,15 @@ html, body {
     0 0 20px rgba(255,200,80,0.35);
 }
 
-.methodus-footer p {
-  max-width: 640px;
+.methodus-footer p{
+  max-width: 680px;
   margin: 0 auto;
-  line-height: 1.8;
-  font-size: 16px;
-
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #cfcfcf;
 }
+
 
 
 @keyframes lighthouse {
@@ -227,7 +227,7 @@ html, body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-title-main {
     font-size: 16px;
   }
@@ -241,11 +241,11 @@ html, body {
   }
 
   .pyramid-layer h3 {
-    font-size: 13px;
+    font-size: 20px;
   }
 
   .pyramid-layer p {
-    font-size: 11px;
+    font-size: 18px;
   }
 }
 
@@ -494,7 +494,7 @@ html, body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
   .consultant {
     display: flex;
@@ -571,15 +571,27 @@ html, body {
 
 body.lock-scroll {
   overflow: hidden;
+  height: 100vh;
+}
+
+body.intro-last .methodus{
+  margin-top: calc(var(--pyramid-overlap) * -1);
+  z-index: 20;
+}
+
+body.intro-done .methodus{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ÁREA DO SCROLL ANIMADO */
 #introScroll {
   position: relative;
-  height: 110vh;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
   background: #000;
+  z-index: 1;
 }
 
 
@@ -588,11 +600,9 @@ body.lock-scroll {
   top: 0;
   left: 0;
   width: 100%;
-  height: 110vh;
-  display: block;
-  justify-content: center;
-  align-items: center;
-  background: #000;
+  height: 100vh;
+  background: #e7e7e9;
+  z-index: 2;
 }
 
 
@@ -602,9 +612,8 @@ body.lock-scroll {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center bottom;
-
+  object-fit: contain;      /* mantém proporção e acompanha o viewport */
+  object-position: top;
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
   will-change: opacity;
@@ -627,63 +636,66 @@ body.lock-scroll {
   height: 100vh;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
-  #introScroll {
-    position: relative;
-    height: 29vh;
-    width: 100%;
-    overflow: hidden;
+  :root{
+    --intro-h: clamp(340px, 52vh, 520px);
+    --pyramid-h: calc(var(--intro-h) + clamp(220px, 28vh, 320px));
+    --pyramid-overlap-mobile: clamp(240px, 34vh, 380px);
+  }
+
+  body.intro-last .intro-track img.active{
+    object-position: center top !important;
     background: #000;
   }
 
+  #introScroll {
+    height: var(--intro-h);
+    background: #000;
+    overflow: hidden;
+    position: relative !important;
+    z-index: 1 !important;
+  }
 
+  .intro-track{
+    position: relative;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
 
   .methodus {
-    position: relative;
-    height: 76vh; /* cria a área longa igual ao exemplo */
-    min-height: unset;
-    display: block;
-    overflow: hidden;
-    background: #000;
+    position: relative !important;
+    z-index: 50 !important;
+    overflow: visible !important;
   }
 
   .intro-track img {
-    height: 27%;
-    width: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: contain !important;
+    object-position: top !important;
+    background: #000;
   }
 
-  .methodus-inner {
-    padding: 0;
-    max-width: none;
-    width: 100%;
-    height: 51%;
-    position: relative;
+  .methodus-inner{
+    padding: 0 16px !important;
   }
 
   /* IMAGEM DA MULHER */
-  .pyramid-extend {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100vh; /* só a parte da imagem */
-    z-index: 1;
+  .pyramid-extend{
+    overflow: v !important;
+    height: var(--pyramid-h);
   }
 
   .pyramid-extend img {
     width: 100%;
-    height: 27%;
+    height: 100%;
     object-fit: cover;
     object-position: center top;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 35%,
-      rgba(0,0,0,0.6) 55%,
-      rgba(0,0,0,0.85) 75%,
-      #000 100%
-    );
+    -webkit-mask-image: linear-gradient(to top, transparent 2%, black 50%);
   }
 
   /* FEIXE ESCURO POR CIMA DA IMAGEM */
@@ -703,46 +715,53 @@ body.lock-scroll {
 
   /* BLOCO DE TEXTO DENTRO DO FEIXE */
   .pyramid-content {
-    position: absolute;
-    top: 2vh; /* começa depois do rosto */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
+    left: 51%;
+    top: 46%;
+    bottom: clamp(170px, 20vh, 260px);
+    transform: translate(-50%, -50%) !important;
+    width: min(92vw, 560px);
+    text-align: center;
   }
 
-  .pyramid-layer {
-    margin-bottom: 26px;
+  .pyramid-layer{
+    margin-bottom: 22px !important;
   }
 
-  .pyramid-layer h3 {
-    font-size: 14px;
-    letter-spacing: 0.28em;
+  .pyramid-layer h3{
+    font-size: 13px !important;
+    letter-spacing: 0.28em !important;
   }
 
-  .pyramid-layer p {
-    font-size: 12px;
-    line-height: 1.6;
+  .pyramid-layer p{
+    font-size: 11px !important;
+    line-height: 1.6 !important;
   }
 
 
   .methodus-footer {
-    position: absolute;
-    bottom: -260px;
-    width: 100%;
-    text-align: center;
-    padding: 0 24px;
+    position: relative;
+    bottom: auto;
+    padding: 44px 0 80px;
   }
 
-  .methodus-footer h2 {
-    font-size: 18px;
+  .methodus-footer h2{
+    font-size: 18px !important;
+    letter-spacing: 0.32em !important;
   }
 
-  .methodus-footer p {
-    font-size: 13px;
+  .methodus-footer p{
+    font-size: 15px !important;
+    line-height: 1.8 !important;
   }
 
   body {
     overflow: auto;
+  }
+
+  body.intro-last .methodus{
+    margin-top: calc(var(--pyramid-overlap-mobile) * -1);
+    padding-top: var(--pyramid-overlap-mobile);
+    z-index: 50 !important;
   }
 
 
@@ -815,18 +834,18 @@ body.lock-scroll {
     content: "";
     position: absolute;
     height: 2px;
-    width: 140%;
+    width: 200%;
     background: #f2c94c;
     bottom: -14px;
   }
 
   .consultant:nth-of-type(odd) .consultant-text h4::after {
-    left: -40%;
+    left: 40%;
   }
 
   /* PARES → barra começa mais à DIREITA */
   .consultant:nth-of-type(even) .consultant-text h4::after {
-    right: -40%;
+    right: 40%;
   }
 
   .consultant-text {
@@ -930,25 +949,14 @@ body.lock-scroll {
   }
 }
 
-.methodus {
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
-  z-index: 5;
-}
 
 .methodus::before {
   content: "";
   position: absolute;
-  inset: 0; 
+  inset: 0;
   background-color: #000;
-  z-index: 100; /
-  pointer-events: none; 
-  
-  
-  opacity: var(--reveal-opacity, 1); 
-  transition: opacity 0.1s linear; 
+  z-index: 100;
+  pointer-events: none;
+  opacity: var(--reveal-opacity, 0);
+  transition: opacity 0.1s linear;
 }
