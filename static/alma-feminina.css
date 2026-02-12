@@ -294,7 +294,7 @@ background: linear-gradient(
 .alma-dark-title{
   margin-top: 18px;
   color: var(--gold);
-  font-size: 28px;
+  font-size: 26px;
   letter-spacing: 0.10em;
   font-weight: 500;
   text-transform: uppercase;
@@ -302,6 +302,7 @@ background: linear-gradient(
 
 .alma-dark-title--spaced{
   margin-top: 26px;
+  font-size: 26px;
 }
 
 .alma-dark-text{
@@ -313,8 +314,8 @@ background: linear-gradient(
 }
 
 .alma-dark-kicker{
-  margin-top: 16px;
-  font-size: 14px;
+  margin-top: 20px;
+  font-size: 26px;
   line-height: 1.6;
   letter-spacing: 0.04em;
   color: rgba(218,165,33,0.92);
