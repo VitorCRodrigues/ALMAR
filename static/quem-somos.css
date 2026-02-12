@@ -1294,3 +1294,55 @@ body.intro-done .intro-track{
   transition: opacity 0.1s linear;
 }
 
+/* ========= SOCIALS TOP (replicar igual em todas as páginas) ========= */
+
+.site-footer .socials.socials-left.socials-top{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: fit-content;
+  margin-left: 0;
+  padding-left: 0;
+
+  margin-top: -80px;
+  margin-bottom: 25px;
+
+  gap: 14px; /* garante o espaçamento */
+}
+
+.site-footer .socials.socials-left.socials-top .social-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+}
+
+.site-footer .socials.socials-left.socials-top .social-img{
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+  max-width: none; /* evita max-width:100% deformar em alguns contextos */
+}
+
+/* Mobile: opcional (se quiser manter igual ou ajustar) */
+@media (max-width: 900px){
+  .site-footer .socials.socials-left.socials-top{
+    margin-top: 14px;   /* no mobile geralmente não precisa negativo */
+    margin-bottom: 20px;
+  }
+}
+
+.site-footer{
+  --bg: #000;
+  --text: #fff;
+  --muted: #cfcfcf;
+  --gold: #c89b1a; /* ou #DAA521, use o padrão que você quer */
+  background: var(--bg);
+  color: var(--text);
+}
