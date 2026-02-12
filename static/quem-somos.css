@@ -23,6 +23,12 @@
   /* fallback (só pra não quebrar antes do JS rodar) */
   --pyramid-overlap-mobile: 220px;
 }
+:root{
+	--bg:#000;
+	--text:#fff;
+	--muted:#cfcfcf;
+	--gold:#c89b1a;
+}
 
 
 a, a:visited, a:hover, a:focus, a:active {
@@ -38,6 +44,7 @@ body {
 
 html, body {
   overflow-x: hidden;
+  background: #000;
 }
 
 .section {
@@ -1294,9 +1301,46 @@ body.intro-done .intro-track{
   transition: opacity 0.1s linear;
 }
 
-/* ========= SOCIALS TOP (replicar igual em todas as páginas) ========= */
+.site-footer{
+    background:var(--bg);
+    color:var(--text);
+    padding:48px 0vw 20px;
+    position:relative;
+    z-index: 4;
+    overflow:visible;
+}
 
-.site-footer .socials.socials-left.socials-top{
+.footer-inner{
+    display:flex;
+    gap:2rem; 
+    align-items:flex-start;
+    padding: 0 4vw;
+    box-sizing:border-box;
+}
+
+.footer-col{flex:1}
+.footer-left { flex: 4; min-width: 220px; display:flex; flex-direction:column; align-items:flex-start; }
+.footer-center { flex: 0.8; }
+.footer-right { flex: 0.5; min-width: 140px; text-align: right; }
+
+
+.brand .logo{
+    font-size:40px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+.brand .tag{font-size:12px;color:var(--muted);margin-top:6px}
+
+.brand{
+  margin-bottom: 25px;
+}
+
+.socials.socials-left{
+  justify-content: flex-start;
+  margin-top: 14px;
+}
+
+.socials.socials-top{
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1307,42 +1351,78 @@ body.intro-done .intro-track{
 
   margin-top: -80px;
   margin-bottom: 25px;
-
-  gap: 14px; /* garante o espaçamento */
 }
 
-.site-footer .socials.socials-left.socials-top .social-icon{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 6px;
-  background: transparent;
-  border: none;
-  text-decoration: none;
+.footer-left{
+  align-items: flex-start !important;
 }
 
-.site-footer .socials.socials-left.socials-top .social-img{
-  width: 40px;
-  height: 40px;
-  display: block;
-  object-fit: contain;
-  max-width: none; /* evita max-width:100% deformar em alguns contextos */
+.brand-logo{
+    width:220px;
+    max-width:100%;
+    height:auto;
+    display:block;
+    margin:-21px; 
+    position:relative;
+    top:-38px;
 }
 
-/* Mobile: opcional (se quiser manter igual ou ajustar) */
-@media (max-width: 900px){
-  .site-footer .socials.socials-left.socials-top{
-    margin-top: 14px;   /* no mobile geralmente não precisa negativo */
-    margin-bottom: 20px;
-  }
+.contact{margin-top:0}
+.contact h4{margin:0 0 10px 0;font-weight:600;color:var(--text)}
+.contact-item{display:flex;align-items:center;gap:10px;color:var(--muted);margin:6px 0}
+.contact-item a{color:var(--muted);text-decoration:underline}
+.ic{width:24px;height:24px;color:var(--gold)}
+.mail-icon{width:24px;height:24px;display:block;object-fit:contain}
+.phone-icon{width:24px;height:24px;display:block;object-fit:contain}
+
+.contact .contact-item,
+.contact .phone-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.site-footer{
-  --bg: #000;
-  --text: #fff;
-  --muted: #cfcfcf;
-  --gold: #c89b1a; /* ou #DAA521, use o padrão que você quer */
-  background: var(--bg);
-  color: var(--text);
+.contact .contact-item span,
+.contact .phone-item span,
+.contact .contact-item a{
+    font-size:14px;
+    color:var(--muted);
+}
+
+.footer-nav{display:flex;flex-direction:column;gap:8px}
+.footer-nav a{color:var(--muted);text-decoration:none;font-size:14px}
+.footer-nav a:hover{color:var(--text)}
+
+.socials{display:flex;justify-content:flex-end;gap:14px}
+.social-icon{display:inline-flex;align-items:center;justify-content:center;padding:6px;color:var(--gold);text-decoration:none;border:none;background:transparent}
+.social-icon svg{width:20px;height:20px}
+.social-icon:hover{background:transparent;color:var(--gold)}
+
+
+.social-img{width:40px;height:40px;object-fit:contain;display:block}
+
+.footer-divider{
+    height:1px;
+    background:var(--gold);
+    margin:28px 0 40px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    width:100vw;
+}
+
+.footer-bottom{max-width:1200px;padding: 0 4vw;padding-top:12px;padding-bottom:18px}
+.credit{color:var(--muted);font-size:13px;font-weight:400}
+.credit strong{color:var(--text);font-weight:400}
+
+
+@media (max-width:900px){
+    .footer-inner{flex-direction:column;align-items:flex-start}
+    .footer-right{text-align:left}
+    .socials{justify-content:flex-start}
+}
+
+@media (max-width:480px){
+    .brand .logo{font-size:28px}
+    .site-footer{padding:32px 4vw 16px}
 }
