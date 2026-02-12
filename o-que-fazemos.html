@@ -177,12 +177,13 @@
 			<div class="contact-form-background">
 				<img src="images/img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
 				<div class="contact-form-container">
-					<form class="contact-form" onsubmit="return validateForm(event)">
+					<form id="contactForm" class="contact-form" action="https://formsubmit.co/atendimento@almarvm.com.br" method="POST">
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
+						
 						<select name="busca" required>
-							<option value="" disabled selected>O que você busca?</option>
+							<option value="" disabled selected>O que você busca?</option>	
 							<option value="programa-relacionamento">Programa de relacionamento</option>
 							<option value="pesquisa-customizada">Pesquisa customizada</option>
 							<option value="dados-crm">Dados e CRM</option>
@@ -191,6 +192,7 @@
 							<option value="parcerias">Parcerias</option>
 							<option value="outros">Outros</option>
 						</select>
+
 						<input type="text" name="empresa" placeholder="Empresa">
 						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
 						<div class="recaptcha-container">
@@ -199,6 +201,11 @@
 								<span>Não sou um robô</span>
 							</label>
 						</div>
+						<input type="hidden" name="_next" value="http://localhost:5501/index.html?enviado=1">
+						<input type="hidden" name="_subject" value="Contato pelo site - ALMAR">
+						<input type="hidden" name="_template" value="table">
+						<input type="hidden" name="_captcha" value="false">
+						<input type="text" name="_honey" style="display:none">
 						<button type="submit" class="submit-btn">Enviar</button>
 					</form>
 					<div class="contact-message">
@@ -207,6 +214,15 @@
 				</div>
 			</div>
 		</section> 
+
+		
+		<div id="popup-overlay" class="popup-overlay" aria-hidden="true">
+			<div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+				<h3 id="popup-title">Mensagem enviada!</h3>
+				<p>Recebemos seu contato e vamos responder em breve.</p>
+				<button type="button" id="popup-close" class="popup-close">Fechar</button>
+			</div>
+		</div>
 
 	</main>
 
@@ -219,17 +235,30 @@
 				</div>
 
 				<div class="contact">
-					<h4>Fale conosco</h4>
-					<div class="contact-item">
-						<img src="images/mail.svg" alt="mail" class="mail-icon" />
-						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+
+					<div class="socials socials-left socials-top">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
 					</div>
+
+					<h4>Fale conosco</h4>
+
+					<div class="contact-item">
+					<img src="images/mail.svg" alt="mail" class="mail-icon" />
+					<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+
 				</div>
 			</div>
 
 			<div class="footer-col footer-center">
 				<nav class="footer-nav">
-					<a href="index.html">Home</a>
+					<a href="homeBR-desktop.html">Home</a>
 					<a href="quem-somos.html">Quem somos</a>
 					<a href="o-que-fazemos.html">O que fazemos</a>
 					<a href="autoridade.html">Autoridade</a>
@@ -237,17 +266,6 @@
 					<a href="alma-feminina.html">Alma feminina</a>
 					<a href="contato.html">Contato</a>
 				</nav>
-			</div>
-
-			<div class="footer-col footer-right">
-				<div class="socials">
-					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
-					</a>
-					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
-						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
-					</a>
-				</div>
 			</div>
 		</div>
 
@@ -259,5 +277,15 @@
 	</footer>
 	<script src="o-que-fazemos.js"></script>
 	<script src="menu.js"></script>
+	<script>
+		document.getElementById("contactForm").addEventListener("submit", function(e) {
+			const robotCheck = document.getElementById("robotCheck");
+
+			if (!robotCheck.checked) {
+				e.preventDefault(); 
+				alert("Por favor confirme que você não é um robô.");
+			}
+		});
+	</script>
 </body>
 </html>

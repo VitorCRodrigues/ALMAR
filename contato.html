@@ -97,17 +97,30 @@
 				</div>
 
 				<div class="contact">
-					<h4>Fale conosco</h4>
-					<div class="contact-item">
-						<img src="images/mail.svg" alt="mail" class="mail-icon" />
-						<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+
+					<div class="socials socials-left socials-top">
+					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
+					</a>
+
+					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
+					</a>
 					</div>
+
+					<h4>Fale conosco</h4>
+
+					<div class="contact-item">
+					<img src="images/mail.svg" alt="mail" class="mail-icon" />
+					<a href="mailto:atendimento@almarvm.com.br">atendimento@almarvm.com.br</a>
+					</div>
+
 				</div>
 			</div>
 
 			<div class="footer-col footer-center">
 				<nav class="footer-nav">
-					<a href="index.html">Home</a>
+					<a href="homeBR-desktop.html">Home</a>
 					<a href="quem-somos.html">Quem somos</a>
 					<a href="o-que-fazemos.html">O que fazemos</a>
 					<a href="autoridade.html">Autoridade</a>
@@ -115,17 +128,6 @@
 					<a href="alma-feminina.html">Alma feminina</a>
 					<a href="contato.html">Contato</a>
 				</nav>
-			</div>
-
-			<div class="footer-col footer-right">
-				<div class="socials">
-					<a class="social-icon" href="https://www.instagram.com/alavancadasmarcas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-						<img src="images/Instagram.svg" alt="Instagram" class="social-img" />
-					</a>
-					<a class="social-icon" href="https://www.linkedin.com/company/almar-alavanca-das-marcas/?originalSubdomain=br" target="_blank" rel="noopener noreferrer"ria-label="LinkedIn">
-						<img src="images/LinkedIn.svg" alt="LinkedIn" class="social-img" />
-					</a>
-				</div>
 			</div>
 		</div>
 
@@ -137,5 +139,15 @@
 	</footer>
 	<script src="popup.js"></script>
 	<script src="menu.js"></script>
+	<script>
+		document.getElementById("contactForm").addEventListener("submit", function(e) {
+			const robotCheck = document.getElementById("robotCheck");
+
+			if (!robotCheck.checked) {
+				e.preventDefault(); 
+				alert("Por favor confirme que você não é um robô.");
+			}
+		});
+	</script>
 </body>
 </html>

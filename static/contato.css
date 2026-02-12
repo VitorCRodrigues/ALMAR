@@ -300,24 +300,49 @@
         padding: 15px 0;
     }
 }
-.contact{margin-top:0}
-.contact h4{margin:0 0 10px 0;font-weight:600;color:var(--text)}
-.contact-item{display:flex;align-items:center;gap:10px;color:var(--muted);margin:6px 0}
-.contact-item a{color:var(--muted);text-decoration:underline}
-.ic{width:24px;height:24px;color:var(--gold)}
-.mail-icon{width:24px;height:24px;display:block;object-fit:contain}
-.phone-icon{width:24px;height:24px;display:block;object-fit:contain}
 
-.contact .contact-item,
-.contact .phone-item{
-    display:flex;
-    align-items:center;
-    gap:10px;
+.popup-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 24px;
 }
 
-.contact .contact-item span,
-.contact .phone-item span,
-.contact .contact-item a{
-    font-size:14px;
-    color:var(--muted);
+.popup-overlay.is-open{ display: flex; }
+
+.popup{
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  max-width: 420px;
+  width: 100%;
+  padding: 22px 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
 }
+
+.popup h3{
+  margin: 0 0 8px 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.popup p{
+  margin: 0 0 16px 0;
+  color: #cfcfcf;
+  line-height: 1.5;
+}
+
+.popup-close{
+  background: var(--gold);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #000;
+}
+
