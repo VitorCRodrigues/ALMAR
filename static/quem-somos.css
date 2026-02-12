@@ -18,9 +18,10 @@
   --methodus-hero-h: clamp(560px, 78vh, 920px);
   --methodus-hero-h-mobile: clamp(560px, 84vh, 780px);
 
-  /* quanto a pirâmide sobe por cima da última imagem */
   --pyramid-overlap: clamp(260px, 34vh, 420px);
-  --pyramid-overlap-mobile: clamp(180px, 26vh, 290px);
+
+  /* fallback (só pra não quebrar antes do JS rodar) */
+  --pyramid-overlap-mobile: 220px;
 }
 
 
@@ -90,8 +91,9 @@ html, body {
   z-index: 5;
   --reveal-opacity: 0;
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(calc(18px + var(--pyramid-shift, 0px)));
   transition: opacity .6s ease, transform .6s ease;
+  will-change: transform;
 }
 
 .methodus-inner{
@@ -574,6 +576,13 @@ body.lock-scroll {
   height: 100vh;
 }
 
+body.lock-scroll .intro-track{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+}
+
 body.intro-last .methodus{
   margin-top: calc(var(--pyramid-overlap) * -1);
   z-index: 20;
@@ -582,6 +591,13 @@ body.intro-last .methodus{
 body.intro-done .methodus{
   opacity: 1;
   transform: translateY(0);
+}
+
+body.intro-done .intro-track{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* ÁREA DO SCROLL ANIMADO */
@@ -639,9 +655,13 @@ body.intro-done .methodus{
 @media (max-width: 1024px) {
 
   :root{
-    --intro-h: clamp(340px, 52vh, 520px);
-    --pyramid-h: calc(var(--intro-h) + clamp(220px, 28vh, 320px));
-    --pyramid-overlap-mobile: clamp(240px, 34vh, 380px);
+    --intro-h: clamp(578px, 77vh, 207px);
+    --pyramid-h: calc(var(--intro-h) + clamp(1px, 52vh, 17px));
+    --pyramid-overlap-mobile: clamp(211px, 34vh, 365px);
+  }
+
+  body.intro-done #introScroll{
+    height: var(--intro-h);
   }
 
   body.intro-last .intro-track img.active{
@@ -760,10 +780,8 @@ body.intro-done .methodus{
 
   body.intro-last .methodus{
     margin-top: calc(var(--pyramid-overlap-mobile) * -1);
-    padding-top: var(--pyramid-overlap-mobile);
-    z-index: 50 !important;
+    z-index: 50;
   }
-
 
  .consultants-heading {
     margin-bottom: 56px;
@@ -834,7 +852,7 @@ body.intro-done .methodus{
     content: "";
     position: absolute;
     height: 2px;
-    width: 200%;
+    width: 250%;
     background: #f2c94c;
     bottom: -14px;
   }
@@ -928,24 +946,341 @@ body.intro-done .methodus{
     content: "";
     position: absolute;
     height: 2px;
-    width: 140%;
+    width: 250%;
     background: #f2c94c;
     bottom: -14px;
   }
 
   .invited-card:nth-of-type(odd) .invited-text h3::after {
-    left: -40%;
+    left: 40%;
   }
 
   /* PARES → barra puxa para DIREITA */
   .invited-card:nth-of-type(even) .invited-text h3::after {
-    right: -40%;
+    right: 40%;
   }
 
   .invited-text p {
     font-size: 12px;
     line-height: 1.7;
     text-align: left;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 430px) {
+
+  :root{
+    --intro-h: clamp(119px, 82vh, 234px);
+    --pyramid-h: calc(var(--intro-h) + clamp(143px, 55vh, 319px));
+    --pyramid-overlap-mobile: clamp(226px, 34vh, 362px);
+  }
+
+  body.intro-done #introScroll{
+    height: var(--intro-h);
+  }
+
+  body.intro-last .intro-track img.active{
+    object-position: center top !important;
+    background: #000;
+  }
+
+  #introScroll {
+    height: var(--intro-h);
+    background: #000;
+    overflow: hidden;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .intro-track{
+    position: relative;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .methodus {
+    position: relative !important;
+    z-index: 50 !important;
+    overflow: visible !important;
+  }
+
+  .intro-track img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: contain !important;
+    object-position: top !important;
+    background: #000;
+  }
+
+  .methodus-inner{
+    padding: 0 16px !important;
+  }
+
+  /* IMAGEM DA MULHER */
+  .pyramid-extend{
+    overflow: v !important;
+    height: var(--pyramid-h);
+  }
+
+  .pyramid-extend img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    -webkit-mask-image: linear-gradient(to top, transparent 2%, black 50%);
+  }
+
+  /* FEIXE ESCURO POR CIMA DA IMAGEM */
+  .pyramid-extend::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 35%,
+      rgba(0,0,0,0.6) 55%,
+      rgba(0,0,0,0.85) 75%,
+      #000 100%
+    );
+    z-index: 2;
+  }
+
+  /* BLOCO DE TEXTO DENTRO DO FEIXE */
+  .pyramid-content {
+    left: 51%;
+    top: 46%;
+    bottom: clamp(170px, 20vh, 260px);
+    transform: translate(-50%, -50%) !important;
+    width: min(92vw, 560px);
+    text-align: center;
+  }
+
+  .pyramid-layer{
+    margin-bottom: 22px !important;
+  }
+
+  .pyramid-layer h3{
+    font-size: 13px !important;
+    letter-spacing: 0.28em !important;
+  }
+
+  .pyramid-layer p{
+    font-size: 11px !important;
+    line-height: 1.6 !important;
+  }
+
+
+  .methodus-footer {
+    position: relative;
+    bottom: auto;
+    padding: 44px 0 80px;
+  }
+
+  .methodus-footer h2{
+    font-size: 18px !important;
+    letter-spacing: 0.32em !important;
+  }
+
+  .methodus-footer p{
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+  }
+
+  body {
+    overflow: auto;
+  }
+
+  body.intro-last .methodus{
+    margin-top: calc(var(--pyramid-overlap-mobile) * -1);
+    z-index: 50;
+  }
+
+ .consultants-heading {
+    margin-bottom: 56px;
+  }
+
+  .consultants-heading h3 {
+    font-size: 15px;
+    letter-spacing: 0.32em;
+    text-align: center;
+    position: relative;
+    padding-bottom: 14px;
+  }
+
+  .consultants-heading h3::after {
+    content: "";
+    display: block;
+    width: 325px;
+    height: 2px;
+    background: #f2c94c; /* amarelo */
+    margin: 12px auto 0;
+  }
+
+  .consultants-heading hr {
+    display: none;
+  }
+
+  .consultants-list {
+    gap: 72px;
+  }
+
+  .consultant {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .consultant-photo {
+    max-width: 240px;
+  }
+
+  .consultant-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+  }
+
+  .consultant:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .consultant-text,
+  .consultant-photo {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .consultant-text h4 {
+    position: relative;
+    display: inline-block; /* CRÍTICO */
+    font-size: 20px;
+    letter-spacing: 0.32em;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .consultant-text h4::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 250%;
+    background: #f2c94c;
+    bottom: -14px;
+  }
+
+  .consultant:nth-of-type(odd) .consultant-text h4::after {
+    left: 40%;
+  }
+
+  /* PARES → barra começa mais à DIREITA */
+  .consultant:nth-of-type(even) .consultant-text h4::after {
+    right: 40%;
+  }
+
+  .consultant-text {
+    max-width: 320px;
+  }
+
+  .consultant-text p {
+    font-size: 12px;
+    line-height: 1.75;
+    color: #d9d9d9;
+    text-align: left;
+  }
+
+  .consultant:nth-of-type(1) .consultant-text h4{
+    text-align: center;
+    font-size: 20px;
+  }
+  .consultant:nth-of-type(1) .consultant-text p {
+    text-align: left;
+  }
+
+  .consultants--bottom .consultant:nth-of-type(3) .consultant-text h4, .consultants--bottom .consultant:nth-of-type(3) .consultant-text p {
+    text-align: left; /* mantém padrão mobile */
+  }
+
+  .consultant:nth-of-type(4) .consultant-text h4,
+  .consultant:nth-of-type(4) .consultant-text p {
+    text-align: center;
+  }
+
+  .invited-card:nth-of-type(1) .invited-text h3{
+    text-align: center;
+    font-size: 20px;
+  
+  }
+  .invited-card:nth-of-type(1) .invited-text p {
+    text-align: left;
+  }
+
+  /* ===== ESPECIALISTAS ===== */
+
+  .invited {
+    padding: 80px 16px;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .invited-title {
+    font-size: 18px;
+    letter-spacing: 0.28em;
+    margin-bottom: 48px;
+  }
+
+  .invited-card {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 72px;
+  }
+
+
+  .invited-card:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .invited-text,
+  .invited-photo {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .invited-text h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    letter-spacing: 0.32em;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .invited-text h3::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 250%;
+    background: #f2c94c;
+    bottom: -14px;
+  }
+
+  .invited-card:nth-of-type(odd) .invited-text h3::after {
+    left: 40%;
+  }
+
+  /* PARES → barra puxa para DIREITA */
+  .invited-card:nth-of-type(even) .invited-text h3::after {
+    right: 40%;
+  }
+
+  .invited-text p {
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: left;
+    max-width: 320px;
   }
 }
 
