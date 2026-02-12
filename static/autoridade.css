@@ -136,19 +136,7 @@ a, a:visited, a:hover, a:focus, a:active {
   width: 320px;
 }
 
-.authority-intro-text {
-  text-align: center;
-  margin-bottom: 56px;
-}
 
-.authority-intro-text p {
-  max-width: 56ch;
-  margin: 0 auto;
-  font-size: clamp(18px, 1.4vw, 22px);
-  line-height: 1.6;
-  color: #000000;
-  text-wrap: balance;
-}
 
 .authority-grid {
   display: grid;
@@ -355,8 +343,10 @@ a, a:visited, a:hover, a:focus, a:active {
 .events-panel-inner{
   width: 100%;
   margin: 0;
-  padding: 64px clamp(40px, 6vw, 96px) 54px;
-  justify-items: center;
+  --pad-l: clamp(20px, 3vw, 56px); 
+  --pad-r: clamp(60px, 7vw, 120px);
+  padding: 64px var(--pad-r) 54px var(--pad-l);
+  justify-items: stretch;
 
   display: grid;
   grid-template-columns: minmax(520px, 1fr) minmax(360px, 520px);
@@ -374,13 +364,14 @@ a, a:visited, a:hover, a:focus, a:active {
   max-width: 700px;
 
   padding-top: clamp(200px, 10vh, 200px);
-  margin-left: clamp(120px, 10vw, 220px);
+  margin-left: clamp(260px, 18vw, 460px);
 }
 
 .events-panel-text p{
   font-size: clamp(22px, 2vw, 28px);
   line-height: 1.7;
-  max-width: 620px;
+  max-width: 34ch;
+  text-wrap: balance;
 }
 
 .events-panel-photo::before{
@@ -406,12 +397,20 @@ a, a:visited, a:hover, a:focus, a:active {
 }
 
 .events-panel-photo{
+  grid-area: photo;
   position: relative;
+
   height: min(700px, 78vh);
-  justify-self: end;
   align-self: stretch;
+
   overflow: hidden;
-  transform: translateX(-8px);
+  min-width: 0;
+
+  margin-right: calc(-1 * var(--pad-r));
+  width: calc(100% + var(--pad-r));
+
+  margin-left: 0;
+  transform: none;
 }
 
 .events-panel-photo img{
@@ -672,8 +671,11 @@ a, a:visited, a:hover, a:focus, a:active {
 .final-quote-text{
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 14px;
   max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .final-quote-mark{
@@ -691,7 +693,10 @@ a, a:visited, a:hover, a:focus, a:active {
   line-height: 1.9;
   color: #000000;
   max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
 }
+
 
 .final-quote-body p + p{
   margin-top: 12px;
@@ -701,6 +706,7 @@ a, a:visited, a:hover, a:focus, a:active {
   margin-top: 14px;
   font-size: 14px;
   color: #555555;
+  text-align: center;
 }
 
 .authority-quote{
@@ -744,8 +750,11 @@ a, a:visited, a:hover, a:focus, a:active {
 .authority-quote-content{
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 14px;
   max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .authority-quote-mark{
@@ -763,12 +772,15 @@ a, a:visited, a:hover, a:focus, a:active {
   line-height: 1.9;
   color: #000000;
   max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .authority-quote-author{
   margin-top: 14px;
   font-size: 14px;
   color: #555555;
+  text-align: center;
 }
 
 .trend-band{
@@ -946,6 +958,10 @@ a, a:visited, a:hover, a:focus, a:active {
   background: transparent;
 
   aspect-ratio: 1 / 1;
+}
+
+.case-card--living-jardim-sul img{
+  object-position: 50% 5%;
 }
 
 .case-card img{
@@ -1770,15 +1786,6 @@ a, a:visited, a:hover, a:focus, a:active {
   text-align: center;
 }
 
-.authority-intro-inner p{
-  max-width: 56ch;
-  margin: 0 auto;
-  font-size: clamp(18px, 1.4vw, 22px);
-  line-height: 1.6;
-  color: #000;
-  text-wrap: balance;
-}
-
 .authority-card{
   position: relative;
   overflow: hidden;
@@ -2247,4 +2254,50 @@ a, a:visited, a:hover, a:focus, a:active {
     line-height: 1.75;
     max-width: 560px;
   }
+}
+
+.authority-intro{
+  background: #e7e6e6;
+  padding: 80px 40px 60px;
+}
+
+.authority-intro-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+  color: #000;
+}
+
+.authority-intro-text{
+  margin: 0 auto;
+  font-size: clamp(20px, 1.6vw, 24px);
+  line-height: 1.6;
+  color: #000;
+  max-width: 1200px;
+  text-wrap: balance;
+}
+
+.authority-intro-text .line1,
+.authority-intro-text .line2{
+  display: block;
+}
+
+@media (min-width: 900px){
+  .authority-intro-text .line1{
+    white-space: nowrap;
+  }
+
+  .authority-intro-text .line2{
+    margin-top: 6px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 899px){
+  .authority-intro-inner{ max-width: 980px; }
+  .authority-intro-text .line1{ white-space: normal; }
+  .authority-intro-text .line2{ max-width: 920px; margin: 6px auto 0; }
 }

@@ -39,13 +39,30 @@
           Seu navegador não suporta vídeo HTML5.
         </video>
 
+        <audio id="bg-music" loop preload="auto">
+          <source src="videos/jazz.mp3" type="audio/mpeg">
+        </audio>
+
+        <button id="audio-cta" type="button" style="
+          position:absolute; left:16px; bottom:16px; z-index:5;
+          padding:10px 14px; border:0; border-radius:999px;
+          background:rgba(0,0,0,.65); color:#fff; cursor:pointer;
+          display:none;
+        ">
+          Ativar som
+        </button>
+
+
         <div class="hero-mobile-extra">
           <img class="hero-mobile-line hero-mobile-line--top" src="images/linha-amarela.png" alt="">
-          <p>
-            Somos uma empresa ativa no processo de transformação e qualificação do
-            varejo nacional. Compartilhar o nosso conhecimento e ponto de vista se
-            tornou um diferencial em nossos processos junto às empresas.
-          </p>
+          <section class="authority-intro">
+            <div class="authority-intro-inner">
+              <p class="authority-intro-text">
+                <span class="line1">Somos uma empresa ativa no processo de transformação e qualificação do varejo nacional.</span>
+                <span class="line2">Compartilhar o nosso conhecimento e ponto de vista se tornou um diferencial em nossos processos junto às empresas.</span>
+              </p>
+            </div>
+          </section>
           <img class="hero-mobile-line" src="images/linha-amarela.png" alt="">
         </div>
 
@@ -81,7 +98,7 @@
               <div class="authority-callout">
                 <p>
                   Calibrar a visão de negócios com cultura, consumo e comportamento
-                  é o que nos move. Esse repertório está traduzido em conteúdos,
+                  é o que nos move. Esse repertório se transforma em conteúdos,
                   cursos e vivências.
                 </p>
               </div>
@@ -760,7 +777,7 @@
 
       <section class="cases-section stack-section stack-9">
         <div class="cases-inner">
-          <h3 class="cases-title">Conheça alguns cases que nos orgulhamos muito:</h3>
+          <h3 class="cases-title">Conheça alguns cases:</h3>
 
           <div class="cases-grid">
             <a class="case-card" href="cases-singular.html">
@@ -771,7 +788,7 @@
               </div>
             </a>
 
-            <a class="case-card case-card--living" href="cases-living-jardim-sul.html">
+            <a class="case-card case-card--living-jardim-sul" href="cases-living-jardim-sul.html">
               <img src="images/case-2.png" alt="" />
               <div class="case-label">
                 <p class="case-name">LIVING JARDIM SUL</p>
@@ -830,7 +847,7 @@
         </div>
       </section>
 
-    </div><!-- /stack-scroll -->
+    </div>
 
   </main>
 
@@ -893,6 +910,40 @@
   <script src="menu.js"></script>
   <script src="hover.js"></script>
   <script src="autoridade.js"></script>
+
+  <script>
+    (function () {
+      const audio = document.getElementById("bg-music");
+      const btn = document.getElementById("audio-cta");
+
+      if (!audio || !btn) return;
+
+      audio.volume = 0.35;
+
+      async function tryPlay() {
+        try {
+          await audio.play();
+          btn.style.display = "none";
+        } catch (e) {
+          btn.style.display = "inline-flex";
+        }
+      }
+
+      window.addEventListener("load", tryPlay);
+
+      btn.addEventListener("click", async () => {
+        try {
+          await audio.play();
+          btn.style.display = "none";
+        } catch (e) {
+          btn.style.display = "inline-flex";
+        }
+      });
+
+      document.addEventListener("pointerdown", tryPlay, { once: true });
+    })();
+  </script>
+
 
 </body>
 </html>

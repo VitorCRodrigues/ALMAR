@@ -229,13 +229,13 @@
 			<div class="contact-form-background">
 				<img src="images/img-carteira-contato.jpg" alt="Contato" class="contact-bg-image">
 				<div class="contact-form-container">
-					<form class="contact-form" action="https://formsubmit.co/atendimento@almarvm.com.br" method="POST">
+					<form id="contactForm" class="contact-form" action="https://formsubmit.co/vcid@empresajunior.com.br" method="POST">
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
 						
 						<select name="busca" required>
-							<option value="" disabled selected>O que você busca?</option>
+							<option value="" disabled selected>O que você busca?</option>	
 							<option value="programa-relacionamento">Programa de relacionamento</option>
 							<option value="pesquisa-customizada">Pesquisa customizada</option>
 							<option value="dados-crm">Dados e CRM</option>
@@ -335,5 +335,16 @@
 	<script src="carrossel.js"></script>
 	<script src="popup.js"></script>
 	<script src="mute.js"></script>
+
+	<script>
+		document.getElementById("contactForm").addEventListener("submit", function(e) {
+			const robotCheck = document.getElementById("robotCheck");
+
+			if (!robotCheck.checked) {
+				e.preventDefault(); 
+				alert("Por favor confirme que você não é um robô.");
+			}
+		});
+	</script>
 </body>
 </html>
