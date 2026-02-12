@@ -46,10 +46,10 @@ html, body {
 
 
 #intro {
-  position: fixed;
-  inset: 0;
+  position: relative;   /* era fixed */
+  inset: auto;          /* remove efeito do inset */
   background: #E7E6E6;
-  z-index: 9000;
+  z-index: 1;           /* não precisa 9000 */
   overflow: hidden;
 }
 
@@ -571,17 +571,6 @@ html, body {
 
 }
 
-body.lock-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
-
-body.lock-scroll .intro-track{
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-}
 
 body.intro-last .methodus{
   margin-top: calc(var(--pyramid-overlap) * -1);
@@ -612,11 +601,10 @@ body.intro-done .intro-track{
 
 
 .intro-track {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;   /* era fixed */
+  inset: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #e7e7e9;
   z-index: 2;
 }
@@ -647,10 +635,7 @@ body.intro-done .intro-track{
 }
 
 
-.lock-scroll {
-  overflow: hidden;
-  height: 100vh;
-}
+
 
 @media (max-width: 1024px) {
 
@@ -968,7 +953,20 @@ body.intro-done .intro-track{
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 1900px) {
+  .intro-track {
+  position: absolute;   /* era fixed */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 2;
+  }
+}
+
+
+
+@media (max-width: 431px) {
 
   :root{
     --intro-h: clamp(119px, 82vh, 234px);
@@ -1295,3 +1293,4 @@ body.intro-done .intro-track{
   opacity: var(--reveal-opacity, 0);
   transition: opacity 0.1s linear;
 }
+
