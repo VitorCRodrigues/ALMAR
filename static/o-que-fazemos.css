@@ -85,7 +85,7 @@ button, input, optgroup, select, textarea {
     bottom: 0;         
     left: 0;
     width: 100%;
-    padding: 40px 5%; 
+    padding: 120px 5%; 
     z-index: 2;
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
     display: flex;
@@ -121,42 +121,32 @@ button, input, optgroup, select, textarea {
    ========================================= */
 #introScroll {
   position: relative;
-  height: 110vh; /* Altura padrão para telas grandes */
   width: 100%;
+  height: auto;
   overflow: hidden;
   background: #000;
 }
 
 .intro-track {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: block;
   background: #000;
 }
 
 .intro-track img {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: cover;     /* se quiser sem cortar: contain */
   object-position: center;
-  opacity: 0;
-  transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
-}
-
-.intro-track img.active {
   opacity: 1;
-  z-index: 2;
+  transition: none;
 }
 
-.intro-track img.fading-out {
-  opacity: 0;
-  z-index: 1;
-}
+
 
 /* =========================================
    NOSSOS SERVIÇOS
@@ -480,7 +470,7 @@ button, input, optgroup, select, textarea {
     }
 
     .intro-track img {
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0;
         width: 100%;
@@ -488,16 +478,6 @@ button, input, optgroup, select, textarea {
         object-fit: contain;
     }
 
-    /* A imagem ativa define a altura */
-    .intro-track img.active {
-        position: relative !important;
-        z-index: 10;
-        opacity: 1;
-    }
-
-    .intro-track img:not(.active) {
-        opacity: 0;
-    }
 
     /* Ajustes das seções de conteúdo */
     .solucoes-cta {
@@ -562,7 +542,6 @@ button, input, optgroup, select, textarea {
 
     .oqf-hero {
         height: auto; 
-        min-height: 400px;
         background: #000;
         display: flex;
         align-items: center;
