@@ -1,10 +1,20 @@
-.contact-intro-section {
-	background: #d3d3d3;
-	padding: 60px 4vw;
-	text-align: center;
-	position: relative;
-	z-index: 4;
-	margin-top: 0;
+.contact .socials{
+  margin-top: 12px;
+  justify-content: flex-start;
+}
+
+.contact-intro-section{
+  background: #d3d3d3;
+  padding: 60px 4vw;
+  text-align: center;
+  position: relative;
+  z-index: 4;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
 }
 
 .contact-intro-section h2 {
@@ -16,7 +26,7 @@
 }
 
 .contact-intro-section p {
-	font-size: 23px;
+	font-size: 18px;
 	margin: 0;
 	color: #000;
 }
@@ -101,7 +111,6 @@
 	font-size: 16px;
 	font-family: inherit;
 	color: #000;
-	text-align: left;
 }
 
 .contact-form input::placeholder,
@@ -175,7 +184,7 @@
 	margin: 0;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
     .contact-intro-section {
         background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../images/img-carteira-contato.jpg');
         background-size: cover;
@@ -290,4 +299,25 @@
         justify-content: center;
         padding: 15px 0;
     }
+}
+.contact{margin-top:0}
+.contact h4{margin:0 0 10px 0;font-weight:600;color:var(--text)}
+.contact-item{display:flex;align-items:center;gap:10px;color:var(--muted);margin:6px 0}
+.contact-item a{color:var(--muted);text-decoration:underline}
+.ic{width:24px;height:24px;color:var(--gold)}
+.mail-icon{width:24px;height:24px;display:block;object-fit:contain}
+.phone-icon{width:24px;height:24px;display:block;object-fit:contain}
+
+.contact .contact-item,
+.contact .phone-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.contact .contact-item span,
+.contact .phone-item span,
+.contact .contact-item a{
+    font-size:14px;
+    color:var(--muted);
 }

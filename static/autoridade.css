@@ -975,7 +975,7 @@ a, a:visited, a:hover, a:focus, a:active {
 }
 
 #Bright{
-  filter: brightness(0.3git) !important;
+  filter: brightness(0.3) !important;
 }
 
 .case-card::after{
