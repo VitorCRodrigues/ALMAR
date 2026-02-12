@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* =========================
      CONFIG
   ========================== */
-  const tempoPorSlide = 2500;   // ms
+  const tempoPorSlide = 1500;   // ms
   const OVERLAP_PCT = 0.30;     // 30% (mude aqui pra 0.25, 0.35 etc)
 
   /* =========================
@@ -35,11 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // atualiza variável CSS usada no margin-top negativo
     document.documentElement.style.setProperty("--pyramid-overlap-mobile", overlapPx + "px");
   }
-
-  /* =========================
-     INTRO: inicia travado
-  ========================== */
-  body.classList.add("lock-scroll");
 
   if (images.length > 0) {
     images[0].classList.add("active");
@@ -82,36 +77,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* =========================
-     FINALIZA INTRO / LIBERA SCROLL
-  ========================== */
-  function unlockScroll() {
-    body.classList.remove("lock-scroll");
-    body.classList.add("intro-last");
-    body.classList.add("intro-done");
-
-    // mantém a última imagem no fluxo do introScroll
-    if (track) {
-      track.style.position = "absolute";
-      track.style.top = "0";
-      track.style.left = "0";
-      track.style.width = "100%";
-      track.style.height = "100%";
-    }
-
-    // garante o overlap certo na hora que “gruda”
-    setOverlapFromIntro();
-    setTimeout(setOverlapFromIntro, 80);
-  }
-
-  /* =========================
      SLIDESHOW POR TEMPO
+     - não bloqueia scroll
   ========================== */
   const slideshowInterval = setInterval(() => {
     if (index < lastIndex) {
       changeImage(index + 1);
     } else {
       clearInterval(slideshowInterval);
-      unlockScroll();
+
+      // marca que terminou (opcional)
+      body.classList.add("intro-last");
+      body.classList.add("intro-done");
+
+      // garante overlap certo no final
+      setOverlapFromIntro();
+      setTimeout(setOverlapFromIntro, 80);
     }
   }, tempoPorSlide);
 
