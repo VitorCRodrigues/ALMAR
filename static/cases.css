@@ -367,6 +367,7 @@ button, input, optgroup, select, textarea {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 14px;
 
   width: fit-content;
   margin-left: 0;
@@ -375,7 +376,8 @@ button, input, optgroup, select, textarea {
   margin-top: -80px;
   margin-bottom: 25px;
 
-  gap: 14px; /* garante o espaçamento */
+  position: relative;
+  z-index: 20;
 }
 
 .site-footer .socials.socials-left.socials-top .social-icon{
@@ -383,10 +385,18 @@ button, input, optgroup, select, textarea {
   align-items: center;
   justify-content: center;
 
-  padding: 6px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+
   background: transparent;
   border: none;
   text-decoration: none;
+
+  cursor: pointer;
+  position: relative;
+  z-index: 21;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .site-footer .socials.socials-left.socials-top .social-img{
@@ -394,13 +404,29 @@ button, input, optgroup, select, textarea {
   height: 40px;
   display: block;
   object-fit: contain;
-  max-width: none; /* evita max-width:100% deformar em alguns contextos */
+  max-width: none;
+  pointer-events: none;
 }
 
-/* Mobile: opcional (se quiser manter igual ou ajustar) */
+/* evita pseudo-elementos decorativos bloquearem clique */
+.site-footer::before,
+.site-footer::after{
+  pointer-events: none;
+}
+
 @media (max-width: 900px){
   .site-footer .socials.socials-left.socials-top{
-    margin-top: 14px;   /* no mobile geralmente não precisa negativo */
+    margin-top: 14px;
     margin-bottom: 20px;
+  }
+
+  .site-footer .socials.socials-left.socials-top .social-icon{
+    width: 58px;
+    height: 58px;
+  }
+
+  .site-footer .socials.socials-left.socials-top .social-img{
+    width: 42px;
+    height: 42px;
   }
 }
