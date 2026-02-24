@@ -31,7 +31,8 @@
 		</div>
 	</header>
     <main>
-        		<section class="contact-intro-section" data-header-theme="dark">
+		</section>
+		<section class="contact-intro-section" data-header-theme="dark">
 			<h2>CONTATO</h2>
 			<p>Estratégia, criatividade e relacionamento: o início de uma boa parceria começa aqui.</p>
 		</section>
@@ -43,9 +44,9 @@
 						<input type="text" name="nome" placeholder="Nome" required>
 						<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 						<input type="email" name="email" placeholder="Email" required>
-
+						
 						<select name="busca" required>
-							<option value="" disabled selected>O que você busca?</option>
+							<option value="" disabled selected>O que você busca?</option>	
 							<option value="programa-relacionamento">Programa de relacionamento</option>
 							<option value="pesquisa-customizada">Pesquisa customizada</option>
 							<option value="dados-crm">Dados e CRM</option>
@@ -57,22 +58,19 @@
 
 						<input type="text" name="empresa" placeholder="Empresa">
 						<textarea name="mensagem" placeholder="Como podemos ajudar?" rows="4"></textarea>
-
 						<div class="recaptcha-container">
 							<label class="recaptcha-label">
-							<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
-							<span>Não sou um robô</span>
+								<input type="checkbox" id="robotCheck" class="recaptcha-checkbox">
+								<span>Não sou um robô</span>
 							</label>
 						</div>
-
-						<input type="hidden" name="_next" value="http://127.0.0.1:5501/contato.html?enviado=1">
+						<input type="hidden" name="_next" value="http://localhost:5501/index.html?enviado=1">
 						<input type="hidden" name="_subject" value="Contato pelo site - ALMAR">
 						<input type="hidden" name="_template" value="table">
 						<input type="hidden" name="_captcha" value="false">
 						<input type="text" name="_honey" style="display:none">
-
 						<button type="submit" class="submit-btn">Enviar</button>
-						</form>
+					</form>
 					<div class="contact-message">
 						<p>Entre em contato com nossos<br>especialistas e vamos<br>transformar ideias em resultados.</p>
 					</div>
@@ -80,6 +78,7 @@
 			</div>
 		</section> 
 
+		
 		<div id="popup-overlay" class="popup-overlay" aria-hidden="true">
 			<div class="popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
 				<h3 id="popup-title">Mensagem enviada!</h3>
