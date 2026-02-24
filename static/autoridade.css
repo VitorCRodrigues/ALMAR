@@ -2371,3 +2371,63 @@ a, a:visited, a:hover, a:focus, a:active {
     height: 42px;
   }
 }
+
+.audio-toast{
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  padding: 10px 14px;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  font-size: 14px;
+  line-height: 1;
+  max-width: calc(100vw - 32px);
+  white-space: nowrap;
+}
+
+.audio-toast-btn{
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.audio-toast-close{
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 6px;
+  opacity: .85;
+}
+
+.audio-toast-close:hover{ opacity: 1; }
+
+@media (max-width: 900px){
+  .audio-toast{ bottom: 18px; font-size: 13px; }
+}
+
+.audio-toast { pointer-events: auto; }
+.audio-toast * { pointer-events: auto; }
+
+.audio-toast[hidden]{
+  display: none !important;
+}
