@@ -117,7 +117,7 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: calc(var(--methodus-hero-h) + clamp(140px, 18vh, 240px));
+  height: calc(var(--methodus-hero-h) + clamp(160px, 18vh, 240px));
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -698,7 +698,7 @@ body.intro-done .intro-track{
 
   /* IMAGEM DA MULHER */
   .pyramid-extend{
-    overflow: v !important;
+    overflow: visible !important;
     height: var(--pyramid-h);
   }
 
