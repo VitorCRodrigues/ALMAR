@@ -117,13 +117,15 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: calc(var(--methodus-hero-h) + clamp(160px, 18vh, 240px));
+  height: clamp(760px, 118vh, 1440px);
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   pointer-events: none;
+  
 }
+
 
 .pyramid-extend::after {
   content:"";
@@ -1368,3 +1370,4 @@ body.intro-done .intro-track{
     height: 42px;
   }
 }
+
