@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let index = 0;
   let animating = false;
+  let introFinalizada = false;
+  let touchStartY = 0;
+
   const lastIndex = images.length - 1;
 
   /* =========================
@@ -54,15 +57,22 @@ document.addEventListener("DOMContentLoaded", function () {
      TROCA DE IMAGEM
   ========================== */
   function changeImage(newIndex) {
-    if (animating || newIndex === index) return;
+    if (animating || newIndex === index || introFinalizada) return;
+    if (!images.length) return;
+
     animating = true;
 
     const current = images[index];
     const next = images[newIndex];
 
-    current.classList.remove("active");
-    current.classList.add("fading-out");
-    next.classList.add("active");
+    if (current) {
+      current.classList.remove("active");
+      current.classList.add("fading-out");
+    }
+
+    if (next) {
+      next.classList.add("active");
+    }
 
     if (newIndex === lastIndex) {
       body.classList.add("intro-last");
@@ -72,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setTimeout(() => {
-      current.classList.remove("fading-out");
+      if (current) current.classList.remove("fading-out");
       index = newIndex;
       animating = false;
 
@@ -81,10 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 550);
   }
 
-  /* =========================
-     FINALIZA INTRO / LIBERA SCROLL
-  ========================== */
+
   function unlockScroll() {
+    if (introFinalizada) return;
+    introFinalizada = true;
+
     body.classList.remove("lock-scroll");
     body.classList.add("intro-last");
     body.classList.add("intro-done");
@@ -101,12 +112,101 @@ document.addEventListener("DOMContentLoaded", function () {
     // garante o overlap certo na hora que “gruda”
     setOverlapFromIntro();
     setTimeout(setOverlapFromIntro, 80);
+
+    // remove listeners de "pular intro"
+    removeSkipListeners();
   }
+
+  /* =========================
+     PULA INTRO PARA O FINAL
+  ========================== */
+  function jumpIntroToEnd() {
+    if (introFinalizada) return;
+
+    clearInterval(slideshowInterval);
+    animating = false;
+
+    // limpa classes de todas as imagens
+    images.forEach(function (img) {
+      img.classList.remove("active");
+      img.classList.remove("fading-out");
+    });
+
+    // ativa última imagem
+    if (images.length > 0) {
+      images[lastIndex].classList.add("active");
+      index = lastIndex;
+    }
+
+    unlockScroll();
+  }
+
+  /* =========================
+     DETECÇÃO DE SCROLL PARA BAIXO
+     (wheel / touch / teclado)
+  ========================== */
+  function onWheelSkip(e) {
+    if (introFinalizada) return;
+
+    // deltaY > 0 = scroll para baixo
+    if (e.deltaY > 0) {
+      e.preventDefault();
+      jumpIntroToEnd();
+    }
+  }
+
+  function onKeySkip(e) {
+    if (introFinalizada) return;
+
+    // teclas que normalmente descem a página
+    const keysDown = ["ArrowDown", "PageDown", " ", "Spacebar", "End"];
+    if (keysDown.indexOf(e.key) !== -1) {
+      e.preventDefault();
+      jumpIntroToEnd();
+    }
+  }
+
+  function onTouchStart(e) {
+    if (!e.touches || !e.touches.length) return;
+    touchStartY = e.touches[0].clientY;
+  }
+
+  function onTouchMove(e) {
+    if (introFinalizada) return;
+    if (!e.touches || !e.touches.length) return;
+
+    const currentY = e.touches[0].clientY;
+    const diff = touchStartY - currentY;
+
+    // diff > 0 = gesto de subir dedo (tentando descer a página)
+    if (diff > 8) {
+      e.preventDefault();
+      jumpIntroToEnd();
+    }
+  }
+
+  function removeSkipListeners() {
+    window.removeEventListener("wheel", onWheelSkip, { passive: false });
+    window.removeEventListener("keydown", onKeySkip);
+    window.removeEventListener("touchstart", onTouchStart, { passive: true });
+    window.removeEventListener("touchmove", onTouchMove, { passive: false });
+  }
+
+  // adiciona listeners enquanto intro está travada
+  window.addEventListener("wheel", onWheelSkip, { passive: false });
+  window.addEventListener("keydown", onKeySkip);
+  window.addEventListener("touchstart", onTouchStart, { passive: true });
+  window.addEventListener("touchmove", onTouchMove, { passive: false });
 
   /* =========================
      SLIDESHOW POR TEMPO
   ========================== */
   const slideshowInterval = setInterval(() => {
+    if (introFinalizada) {
+      clearInterval(slideshowInterval);
+      return;
+    }
+
     if (index < lastIndex) {
       changeImage(index + 1);
     } else {
