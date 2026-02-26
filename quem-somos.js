@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const tempoPorSlide = 2500; 
   const OVERLAP_PCT = 0.30;
   const BALL_DURATION = 1600;
-  const BALL_START = { x: 18, y: 78 };
   const BALL_TARGET = { x: 50, y: 85 };
 
   const introScroll = document.getElementById("introScroll");
@@ -41,6 +40,24 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(setOverlapFromIntro, 80);
   setTimeout(setOverlapFromIntro, 200);
 
+  function setBallFromImagePercent(img, px, py) {
+  if (!img || !introBall) return;
+
+  const rect = img.getBoundingClientRect();
+
+  const realX = rect.left + (rect.width * (px / 100));
+  const realY = rect.top + (rect.height * (py / 100));
+
+  const ballRect = introBall.getBoundingClientRect();
+
+  introBall.style.opacity = "1";
+  introBall.style.transform = `translate3d(
+    ${realX - ballRect.width / 2}px,
+    ${realY - ballRect.height / 2}px,
+    0
+  )`;
+}
+
   function setBallToViewportPercent(px, py) {
     if (!introBall) return;
 
@@ -67,14 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (ballSequenceStarted || introFinalizada) return;
     ballSequenceStarted = true;
 
-    // garante que a classe intro-last está aplicada (pra pirâmide já “subir” pelo overlap)
     body.classList.add("intro-last");
     setOverlapFromIntro();
-
-    // mostra a bola em uma posição inicial (ajuste em BALL_START)
+  
     if (introBall) {
       introBall.style.transition = "none";
-      setBallToViewportPercent(BALL_START.x, BALL_START.y);
+      const lastImage = images[lastIndex];
+      setBallFromImagePercent(lastImage, 32, 85); 
 
       introBall.getBoundingClientRect();
 
