@@ -1,30 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const tempoPorSlide = 2500; 
+  const OVERLAP_PCT = 0.30;
+  const BALL_DURATION = 1600;
+  const BALL_START = { x: 18, y: 78 };
+  const BALL_TARGET = { x: 50, y: 85 };
 
-  /* =========================
-     CONFIG
-  ========================== */
-  const tempoPorSlide = 2500;   // ms
-  const OVERLAP_PCT = 0.30;     // 30% (mude aqui pra 0.25, 0.35 etc)
-
-  /* =========================
-     ELEMENTOS
-  ========================== */
   const introScroll = document.getElementById("introScroll");
   const track = document.querySelector(".intro-track");
   const images = document.querySelectorAll(".intro-track img");
   const body = document.body;
 
+  const introBall = document.getElementById("introBall");
+  const pyramidAnchor = document.querySelector(".pyramid-ball-anchor");
+
   let index = 0;
   let animating = false;
   let introFinalizada = false;
   let touchStartY = 0;
+  let ballSequenceStarted = false;
 
   const lastIndex = images.length - 1;
 
-  /* =========================
-     FUNÇÃO: calcula overlap (px)
-     - 30% da altura da intro
-  ========================== */
   function setOverlapFromIntro() {
     if (!introScroll) return;
 
@@ -34,28 +30,70 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!introH || introH < 10) return;
 
     const overlapPx = Math.round(introH * OVERLAP_PCT);
-
-    // atualiza variável CSS usada no margin-top negativo
     document.documentElement.style.setProperty("--pyramid-overlap-mobile", overlapPx + "px");
   }
 
-  /* =========================
-     INTRO: inicia travado
-  ========================== */
   body.classList.add("lock-scroll");
 
-  if (images.length > 0) {
-    images[0].classList.add("active");
-  }
+  if (images.length > 0) images[0].classList.add("active");
 
-  // calcula assim que carregar (e depois do layout estabilizar)
   setOverlapFromIntro();
   setTimeout(setOverlapFromIntro, 80);
   setTimeout(setOverlapFromIntro, 200);
 
-  /* =========================
-     TROCA DE IMAGEM
-  ========================== */
+  function setBallToViewportPercent(px, py) {
+    if (!introBall) return;
+
+    const r = introBall.getBoundingClientRect();
+    const x = (window.innerWidth * (px / 100)) - (r.width / 2);
+    const y = (window.innerHeight * (py / 100)) - (r.height / 2);
+
+    introBall.style.opacity = "1";
+    introBall.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
+  }
+
+  function setBallToViewportPercent(px, py) {
+    if (!introBall) return;
+
+    const r = introBall.getBoundingClientRect();
+    const x = (window.innerWidth * (px / 100)) - (r.width / 2);
+    const y = (window.innerHeight * (py / 100)) - (r.height / 2);
+
+    introBall.style.opacity = "1";
+    introBall.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
+  }
+
+  function startBallSequence() {
+    if (ballSequenceStarted || introFinalizada) return;
+    ballSequenceStarted = true;
+
+    // garante que a classe intro-last está aplicada (pra pirâmide já “subir” pelo overlap)
+    body.classList.add("intro-last");
+    setOverlapFromIntro();
+
+    // mostra a bola em uma posição inicial (ajuste em BALL_START)
+    if (introBall) {
+      introBall.style.transition = "none";
+      setBallToViewportPercent(BALL_START.x, BALL_START.y);
+
+      introBall.getBoundingClientRect();
+
+      introBall.style.transition =
+        `transform ${BALL_DURATION}ms cubic-bezier(.22,1,.36,1), opacity 200ms ease`;
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setBallToViewportPercent(BALL_TARGET.x, BALL_TARGET.y);
+
+        window.setTimeout(() => {
+          unlockScroll();
+          if (introBall) introBall.style.opacity = "0";
+        }, BALL_DURATION + 60);
+      });
+    });
+  }
+
   function changeImage(newIndex) {
     if (animating || newIndex === index || introFinalizada) return;
     if (!images.length) return;
@@ -70,13 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
       current.classList.add("fading-out");
     }
 
-    if (next) {
-      next.classList.add("active");
-    }
+    if (next) next.classList.add("active");
 
     if (newIndex === lastIndex) {
       body.classList.add("intro-last");
-      // recalcula overlap quando chega na última
       setOverlapFromIntro();
       setTimeout(setOverlapFromIntro, 80);
     }
@@ -85,12 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
       if (current) current.classList.remove("fading-out");
       index = newIndex;
       animating = false;
-
-      // recalcula depois da transição (layout pode variar)
       setOverlapFromIntro();
+
+      // NOVO: se chegou na mulher (último slide), para e roda a sequência da bola
+      if (index === lastIndex && !introFinalizada) {
+        clearInterval(slideshowInterval);
+        startBallSequence();
+      }
     }, 550);
   }
-
 
   function unlockScroll() {
     if (introFinalizada) return;
@@ -100,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
     body.classList.add("intro-last");
     body.classList.add("intro-done");
 
-    // mantém a última imagem no fluxo do introScroll
     if (track) {
       track.style.position = "absolute";
       track.style.top = "0";
@@ -109,30 +146,23 @@ document.addEventListener("DOMContentLoaded", function () {
       track.style.height = "100%";
     }
 
-    // garante o overlap certo na hora que “gruda”
     setOverlapFromIntro();
     setTimeout(setOverlapFromIntro, 80);
 
-    // remove listeners de "pular intro"
     removeSkipListeners();
   }
 
-  /* =========================
-     PULA INTRO PARA O FINAL
-  ========================== */
   function jumpIntroToEnd() {
     if (introFinalizada) return;
 
     clearInterval(slideshowInterval);
     animating = false;
 
-    // limpa classes de todas as imagens
     images.forEach(function (img) {
       img.classList.remove("active");
       img.classList.remove("fading-out");
     });
 
-    // ativa última imagem
     if (images.length > 0) {
       images[lastIndex].classList.add("active");
       index = lastIndex;
@@ -141,14 +171,8 @@ document.addEventListener("DOMContentLoaded", function () {
     unlockScroll();
   }
 
-  /* =========================
-     DETECÇÃO DE SCROLL PARA BAIXO
-     (wheel / touch / teclado)
-  ========================== */
   function onWheelSkip(e) {
     if (introFinalizada) return;
-
-    // deltaY > 0 = scroll para baixo
     if (e.deltaY > 0) {
       e.preventDefault();
       jumpIntroToEnd();
@@ -157,8 +181,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function onKeySkip(e) {
     if (introFinalizada) return;
-
-    // teclas que normalmente descem a página
     const keysDown = ["ArrowDown", "PageDown", " ", "Spacebar", "End"];
     if (keysDown.indexOf(e.key) !== -1) {
       e.preventDefault();
@@ -178,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentY = e.touches[0].clientY;
     const diff = touchStartY - currentY;
 
-    // diff > 0 = gesto de subir dedo (tentando descer a página)
     if (diff > 8) {
       e.preventDefault();
       jumpIntroToEnd();
@@ -192,15 +213,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.removeEventListener("touchmove", onTouchMove, { passive: false });
   }
 
-  // adiciona listeners enquanto intro está travada
   window.addEventListener("wheel", onWheelSkip, { passive: false });
   window.addEventListener("keydown", onKeySkip);
   window.addEventListener("touchstart", onTouchStart, { passive: true });
   window.addEventListener("touchmove", onTouchMove, { passive: false });
 
-  /* =========================
-     SLIDESHOW POR TEMPO
-  ========================== */
   const slideshowInterval = setInterval(() => {
     if (introFinalizada) {
       clearInterval(slideshowInterval);
@@ -210,14 +227,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index < lastIndex) {
       changeImage(index + 1);
     } else {
+      // Antes você liberava aqui; agora quem libera é a sequência da bola
       clearInterval(slideshowInterval);
-      unlockScroll();
+      startBallSequence();
     }
   }, tempoPorSlide);
 
-  /* =========================
-     RESPONSIVO
-  ========================== */
   window.addEventListener("resize", function () {
     setOverlapFromIntro();
   });

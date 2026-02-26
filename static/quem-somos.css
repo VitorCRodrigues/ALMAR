@@ -117,15 +117,13 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: clamp(760px, 118vh, 1440px);
+  height: calc(var(--methodus-hero-h) + clamp(160px, 18vh, 240px));
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   pointer-events: none;
-  
 }
-
 
 .pyramid-extend::after {
   content:"";
@@ -1348,7 +1346,6 @@ body.intro-done .intro-track{
   pointer-events: none;
 }
 
-/* evita pseudo-elementos decorativos bloquearem clique */
 .site-footer::before,
 .site-footer::after{
   pointer-events: none;
@@ -1371,3 +1368,45 @@ body.intro-done .intro-track{
   }
 }
 
+.intro-ball{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 140px;
+  height: 140px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-9999px, -9999px, 0); 
+  transition:
+    transform 1600ms cubic-bezier(.22,1,.36,1),
+    opacity 200ms ease;
+  will-change: transform;
+}
+
+.intro-ball img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px){
+  .intro-ball{ width: 96px; height: 96px; }
+}
+
+.pyramid-extend{
+  --ball-x: 50%;
+  --ball-y: 45%;
+}
+
+.pyramid-ball-anchor{
+  position: absolute;
+  left: var(--ball-x);
+  top: var(--ball-y);
+  width: 2px;
+  height: 2px;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none;
+}
