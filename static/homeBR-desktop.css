@@ -1448,3 +1448,73 @@ button, input, optgroup, select, textarea {
 .audio-toast[hidden]{
   display: none !important;
 }
+
+/* ========= SOCIALS TOP (replicar igual em todas as páginas) ========= */
+
+.site-footer .socials.socials-left.socials-top{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+
+  width: fit-content;
+  margin-left: 0;
+  padding-left: 0;
+
+  margin-top: -80px;
+  margin-bottom: 25px;
+
+  position: relative;
+  z-index: 20;
+}
+
+.site-footer .socials.socials-left.socials-top .social-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  text-decoration: none;
+
+  cursor: pointer;
+  position: relative;
+  z-index: 21;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-footer .socials.socials-left.socials-top .social-img{
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+  max-width: none;
+  pointer-events: none;
+}
+
+/* evita pseudo-elementos decorativos bloquearem clique */
+.site-footer::before,
+.site-footer::after{
+  pointer-events: none;
+}
+
+@media (max-width: 900px){
+  .site-footer .socials.socials-left.socials-top{
+    margin-top: 14px;
+    margin-bottom: 20px;
+  }
+
+  .site-footer .socials.socials-left.socials-top .social-icon{
+    width: 58px;
+    height: 58px;
+  }
+
+  .site-footer .socials.socials-left.socials-top .social-img{
+    width: 42px;
+    height: 42px;
+  }
+}
