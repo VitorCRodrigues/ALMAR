@@ -1437,23 +1437,11 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 }
 
-.stack-2{
-  position: relative;
-  top: auto;
-  min-height: auto;
-}
-
-.stack-4{
-  position: relative !important;
-  top: auto !important;
-  min-height: auto !important;
-}
-
-.stack-9{
-  position: relative !important;
-  top: auto !important;
-  min-height: auto !important;
-}
+    .stack-2{
+      position: relative;
+      top: auto;
+      min-height: auto;
+    }
 
 .hero-video-mobile-intro{
   display: none;
@@ -2438,4 +2426,43 @@ a, a:visited, a:hover, a:focus, a:active {
 
 .audio-toast[hidden]{
   display: none !important;
+}
+
+.authority-intro{
+  position: relative;
+  z-index: 50;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.hero-video{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.events-panel-inner > .cursos-grid{
+  margin-top: -140px !important;
+  position: relative;
+  z-index: 50;
+}
+
+.stack-section:has(.cursos-grid .curso-card.is-open){
+  z-index: 9999 !important;
+}
+
+.stack-section:has(.cursos-grid .curso-card.is-open){
+  position: relative !important;
+  top: auto !important;
+}
+
+.events-panel-inner:has(.curso-card.is-open){
+  padding-bottom: 240px !important;
+}
+
+.events-stage,
+.events-panel,
+.events-panel-inner{
+  overflow: visible !important;
 }
