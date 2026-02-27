@@ -222,9 +222,6 @@ a, a:visited, a:hover, a:focus, a:active {
   transform: translateZ(0);
 }
 
-#NRF:hover img{
-  object-position:  right top;
-}
 
 .authority-card img{
   width: 100%;
