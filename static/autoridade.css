@@ -1429,23 +1429,23 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 }
 
-.stack-2{
-  position: relative;
-  top: auto;
-  min-height: auto;
-}
+    .stack-2{
+      position: relative;
+      top: auto;
+      min-height: auto;
+    }
 
-.stack-4{
-  position: relative !important;
-  top: auto !important;
-  min-height: auto !important;
-}
+    .stack-4{
+      position: relative !important;
+      top: auto !important;
+      min-height: auto !important;
+    }
 
-.stack-9{
-  position: relative !important;
-  top: auto !important;
-  min-height: auto !important;
-}
+    .stack-9{
+      position: relative !important;
+      top: auto !important;
+      min-height: auto !important;
+    }
 
 .hero-video-mobile-intro{
   display: none;
