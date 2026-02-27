@@ -205,6 +205,8 @@ html, body {
     margin-right: calc(50% - 50vw);
     border-radius: 0;
     background: #E7E6E6;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .methodus-footer h2 {
@@ -224,8 +226,6 @@ html, body {
   font-size: 14px;
   line-height: 1.9;
   color: #000;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 
