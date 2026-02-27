@@ -194,15 +194,21 @@ html, body {
 }
 
 .methodus-footer{
-  position: relative;
-  text-align: center;
-  padding: clamp(44px, 6vh, 86px) 0 clamp(52px, 7vh, 120px);
-  z-index: 5;
-  overflow: visible
+    position: relative;
+    text-align: center;
+    padding: clamp(44px, 6vh, 86px) 0 clamp(52px, 7vh, 120px);
+    z-index: 5;
+    overflow: visible;
+    background: #cfcfcf;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    background: #E7E6E6;
 }
 
 .methodus-footer h2 {
-  color: #E7E6E6;
+  color: #000;
   font-size: clamp(18px, 2vw, 26px);
   letter-spacing: 0.32em;
   margin-bottom: 20px;
@@ -217,7 +223,7 @@ html, body {
   padding: 0 12px;
   font-size: 14px;
   line-height: 1.9;
-  color: #cfcfcf;
+  color: #000;
 }
 
 
@@ -612,7 +618,7 @@ body.intro-done .intro-track{
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(90deg, #e7e7e9 20%, #fff 50%);;
+  background-image: linear-gradient(90deg, #e7e7e9 20%, #f3f5f6 50%);;
   z-index: 2;
 }
 
