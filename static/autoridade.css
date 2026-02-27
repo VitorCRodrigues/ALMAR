@@ -5,6 +5,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Avenir Next Bold";
+  src: url("../styles/fonts/AvenirNext-Bold.ttf");
+  font-weight: bold;
+}
+
 :root{
   --bg: #000;
   --text: #fff;
@@ -78,6 +84,7 @@ a, a:visited, a:hover, a:focus, a:active {
   object-fit: cover;
   display: block;
   background: #000;
+  filter: contrast(1.2) brightness(0.6) saturate(0.6) sepia(0.25);
 }
 
 .hero-video-overlay{
@@ -213,6 +220,10 @@ a, a:visited, a:hover, a:focus, a:active {
 
   transition: transform .35s ease, box-shadow .35s ease;
   transform: translateZ(0);
+}
+
+#NRF:hover img{
+  object-position:  right top;
 }
 
 .authority-card img{

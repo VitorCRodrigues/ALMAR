@@ -91,11 +91,13 @@ button, input, optgroup, select, textarea {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: end;
+    text-align: right;
 }
 
 .oqf-hero-content p {
-    max-width: 600px;
-    font-size: 24px; 
+    max-width: 440px;
+    font-size: 19px;
     color: #fff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
@@ -200,7 +202,7 @@ button, input, optgroup, select, textarea {
 }
 
 .servico-card h3 {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 20px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -393,6 +395,20 @@ button, input, optgroup, select, textarea {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 10%;
+}
+
+.solucoes-video video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 10%;  /* mais pra cima */
 }
 
 .solucoes-pratica {
@@ -559,7 +575,7 @@ button, input, optgroup, select, textarea {
     }
 
     .section-title {
-        font-size: 30px; 
+        font-size: 25px; 
         letter-spacing: 2px;
         margin-bottom: 9px;
         color: #000;
@@ -614,35 +630,15 @@ button, input, optgroup, select, textarea {
 }
 
 /* Telas minúsculas (< 600px) */
-@media (max-width:600px){
-	.servico-card.active .close-btn {
-		right:40px
-    }
-
-    .servico-card.active h3 {
-        font-size: 20px;
-    }
-    
-    .servico-card.active p{
-        font-size: 14px;
-    }
-
-    .servico-card.active .specs-list li {
-        font-size: 16px;
-    }
-    
-    .oqf-hero{
+@media (max-width: 914px) {
+    .oqf-hero,
+    .solucoes-pratica {
         position: sticky;
         top: 0;
+        height: auto;
     }
-    .solucoes-pratica {
-        position: relative;
-        top: 0;
-        height: 120vh;
-    }
-
     .banner-solucoes{
-        position: relative;
+        position: sticky;
         top: 0;
         height: auto;
     }
@@ -655,7 +651,7 @@ button, input, optgroup, select, textarea {
 
     .servico-card.active{
         position: relative;
-        height: auto;  
+        height: auto;    
         overflow: visible;
     }
 
@@ -668,10 +664,15 @@ button, input, optgroup, select, textarea {
     .content {
         position: relative;
     }
+
+    .solucoes-video {
+        width: auto;
+        -webkit-mask-image: linear-gradient(to right, transparent 2%, black 50%);
+    }
 }
 
 /* Sticky Logic para Telas Grandes (> 1500px) */
-@media (min-width: 1500px) {
+@media (min-width: 915px) {
     .oqf-hero,
     .solucoes-pratica {
         position: sticky;
