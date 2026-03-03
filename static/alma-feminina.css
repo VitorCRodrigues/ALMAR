@@ -1139,9 +1139,16 @@ background: linear-gradient(
 }
 @media (max-width: 640px){
   .alma-topics-carousel--below .topics-viewport{ padding: 0 16px; }
+  .alma-section-inner{
+    padding-top: 0 !important; 
+  }
+
+  .alma-section{
+    padding: 44px 0 56px;
+  }
+
 }
 
-  /* desce o conteúdo dessa seção */
 .alma-section-inner{
-  padding-top: 80px;   /* ajusta: 40, 60, 100... */
+  padding-top: 80px;
 }
