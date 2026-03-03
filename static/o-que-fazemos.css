@@ -552,6 +552,24 @@ button, input, optgroup, select, textarea {
 
 /* Mobile / Tablet Portrait (< 1000px) */
 @media (max-width: 1000px) {
+    .servico-card.active .close-btn {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    }
+
+    .servico-card.active h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    }
+
     .oqf-hero-content {
         display: none; 
     }
@@ -614,7 +632,7 @@ button, input, optgroup, select, textarea {
     }
 
     .plus-btn {
-        font-size: 38px; 
+        font-size: 31px; 
         color: var(--gold);
         font-weight: 300;
         line-height: 0.8;
