@@ -2460,10 +2460,6 @@ a, a:visited, a:hover, a:focus, a:active {
   top: auto !important;
 }
 
-.events-panel-inner:has(.curso-card.is-open){
-  padding-bottom: 240px !important;
-}
-
 .events-stage,
 .events-panel,
 .events-panel-inner{
