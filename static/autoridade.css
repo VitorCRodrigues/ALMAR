@@ -1127,7 +1127,7 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .events-stage-inner{
-    padding: 28px 20px 44px;
+    padding: 28px 0px 44px;
   }
 
   .events-panel-text{
@@ -1963,7 +1963,16 @@ a, a:visited, a:hover, a:focus, a:active {
 
 @media (max-width: 960px){
   .events-panel-photo{ height: 340px; }
-  .events-panel-photo img{ object-position: 50% 12%; }
+  .events-panel-photo img{ 
+    object-position: 50% 12%;
+    width: 89%;
+    height: 95%;
+    margin: auto;
+    display: block;
+    object-fit: cover;
+    margin-left: 20%;
+    margin-top: -21px;
+  }
 }
 
 .cursos-grid{
@@ -1987,7 +1996,7 @@ a, a:visited, a:hover, a:focus, a:active {
   border-radius: 8px;
 
   padding: 18px 18px 16px;
-  min-height: 120px;
+  min-height: auto;
 
   display: flex;
   flex-direction: column;
@@ -2484,7 +2493,134 @@ a, a:visited, a:hover, a:focus, a:active {
 
   .events-panel-inner { padding-bottom: 48px !important; }
 
-  .events-panel-inner > .cursos-grid{
-    margin-top: 18px !important;
+}
+
+/* ===== iPhone SE / telas pequenas e BAIXAS ===== */
+/* SE 2/3: 375x667. Também cobre 360x640 e parecidos */
+@media (max-height: 960px){
+
+  /* HERO: no SE 100dvh fica exagerado e mata a proporção */
+  .hero-video-inner{
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .hero-video-player{
+    /* em vez de 100dvh */
+    height: 72vh !important;
+    min-height: 420px;        /* segura proporção sem esmagar */
+    max-height: 520px;        /* evita virar “paredão” */
+    aspect-ratio: 9 / 16;     /* mantém o look do Pro Max */
+    object-fit: cover;
+  }
+
+  .hero-video-overlay{
+    padding: 44px 16px 36px !important;
+  }
+
+  .hero-video-overlay .hero-text-main{
+    font-size: 18px !important;
+    line-height: 1.55 !important;
+    max-width: 34ch;
+  }
+
+  .hero-video-overlay .hero-mobile-extra{
+    margin-top: 34px !important;
+  }
+
+  .hero-video-overlay .hero-mobile-extra p{
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+
+  /* EVENTS: corta “respiros” verticais que no SE viram buraco */
+  .authority-events{
+    padding: 110px 0 86px !important;
+  }
+
+  .events-logos-strip{
+    margin-top: 26px !important;
+    padding: 18px 0 22px !important;
+    gap: 10px !important;
+  }
+
+  .events-intro p{
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+
+  .events-panel-inner{
+    padding: 0px 0 0 !important;
+    row-gap: 0px !important;
+  }
+
+  .events-panel-photo{
+    height: 260px !important;
+  }
+
+  .events-panel-text p{
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+  }
+
+  .events-panel-buttons{
+    gap: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+
+  /* TREND: reduz altura e espaçamento */
+  .trend-band{
+    padding: 44px 0 70px !important;
+    margin-top: 0 !important;
+  }
+
+  .trend-right{
+    margin-top: 20px !important;
+    gap: 14px !important;
+  }
+
+  .trend-item{
+    grid-template-columns: 76px 1fr !important;
+    gap: 14px !important;
+  }
+
+  .trend-badge{
+    width: 76px !important;
+    height: 76px !important;
+  }
+
+  .trend-badge-number{
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
+
+  .trend-item p{
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+
+  /* CASES: no SE 2 colunas fica mais “Pro Max-like” (menos miúdo) */
+  .cases-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 0 16px !important;
+  }
+
+
+  /* QUOTES / STATS: corta padding vertical */
+  .stats-band{
+    padding: 24px 0 !important;
+  }
+
+  .final-quote-inner{
+    padding: 36px 16px 46px !important;
+  }
+
+  .authority-quote{
+    padding: 36px 0 46px !important;
   }
 }
+
