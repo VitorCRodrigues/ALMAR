@@ -2460,6 +2460,10 @@ a, a:visited, a:hover, a:focus, a:active {
   top: auto !important;
 }
 
+.events-panel-inner:has(.curso-card.is-open){
+  padding-bottom: 240px !important;
+}
+
 .events-stage,
 .events-panel,
 .events-panel-inner{
@@ -2479,7 +2483,7 @@ a, a:visited, a:hover, a:focus, a:active {
 
 /* ===== iPhone SE / telas pequenas e BAIXAS ===== */
 /* SE 2/3: 375x667. Também cobre 360x640 e parecidos */
-@media (max-height: 960px){
+@media (max-width: 760px){
 
   /* HERO: no SE 100dvh fica exagerado e mata a proporção */
   .hero-video-inner{
