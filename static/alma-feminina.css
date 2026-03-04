@@ -1152,3 +1152,75 @@ background: linear-gradient(
 .alma-section-inner{
   padding-top: 80px;
 }
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+  /* a seção inteira vira “container” que centraliza vertical */
+  .alma-section.stack-2{
+    min-height: 100vh;            /* mantém a tela cheia */
+    display: flex;
+    align-items: center;          /* centraliza vertical */
+  }
+
+  /* empurra um pouco pra baixo (ajuste aqui) */
+  .alma-section.stack-2 .alma-section-inner{
+    width: 100%;
+    padding-top: 90px !important; /* DESCE o conteúdo (aumente/diminua) */
+    padding-bottom: 60px !important;
+  }
+
+  /* tipografia maior */
+  .alma-section.stack-2 .alma-title{
+    font-size: 34px !important;
+    letter-spacing: .12em;
+  }
+
+  .alma-section.stack-2 .alma-content{
+    font-size: 20px !important;
+    line-height: 2.05 !important;
+    max-width: 980px;
+  }
+
+  .alma-section.stack-2 .alma-block{
+    gap: 34px !important;
+  }
+
+  .alma-section.stack-2 .alma-vline{
+    min-height: 170px !important; /* alonga a linha pra acompanhar o texto */
+  }
+
+  .alma-partner.stack-5{
+    min-height: 100vh;        /* ocupa a tela toda */
+    display: flex;
+    align-items: center;      /* centraliza vertical */
+  }
+
+  .alma-partner.stack-5 .alma-partner-inner{
+    width: 100%;
+    padding-top: 90px !important;   /* DESCE (ajuste aqui) */
+    padding-bottom: 70px !important;
+    gap: 46px !important;
+  }
+
+  /* mídia um pouco maior */
+  .alma-partner.stack-5 .alma-partner-media{
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* tipografia maior */
+  .alma-partner.stack-5 .alma-partner-text{
+    max-width: 720px;
+  }
+
+  .alma-partner.stack-5 .alma-partner-text p{
+    font-size: 20px !important;
+    line-height: 2.0 !important;
+  }
+
+  .alma-partner.stack-5 .alma-btn{
+    font-size: 15px !important;
+    padding: 16px 22px !important;
+    min-height: 52px !important;
+  }
+}

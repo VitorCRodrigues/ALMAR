@@ -1518,3 +1518,24 @@ button, input, optgroup, select, textarea {
     height: 42px;
   }
 }
+
+/* ===== iPad / Tablets (corrige espaço preto + sticky bug) ===== */
+@media (min-width: 768px) and (max-width: 1366px){
+
+  .hero-section{ min-height: 100vh !important; }
+  .numbers-section{ min-height: 0 !important; }
+
+  .hero-right{
+    padding: 80px 40px 60px 70px !important;
+  }
+
+  .stats-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  .pillar-image-container,
+  .pillar{
+    width: 100% !important;
+  }
+}
