@@ -150,10 +150,13 @@ html, body {
   display: block;
 }
 
+.pyramid-layer--almar h3{
+  transform: translateX(-0.06em);
+}
 
 .pyramid-content{
   position: absolute;
-  left: 51%;
+  left: 50.4%;
   top: 36%; /* importante */
   bottom: clamp(210px, 22vh, 320px); /* sobe/ desce automático conforme altura da tela */
   transform: translateX(-50%); /* sem translateY */
@@ -1022,7 +1025,7 @@ body.intro-done .intro-track{
 
   /* IMAGEM DA MULHER */
   .pyramid-extend{
-    overflow: v !important;
+    overflow: visible !important;
     height: var(--pyramid-h);
   }
 
@@ -1406,3 +1409,40 @@ body.intro-done .intro-track{
   pointer-events: none;
 }
 
+@media (max-width: 1024px){
+
+  /* mantém o topo */
+  #introScroll{
+    display: block !important;
+    height: var(--intro-h, 70vh) !important;
+    overflow: hidden !important;
+    background: #000 !important;
+  }
+
+  .intro-track{
+    position: relative !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #000 !important; /* tira aquele branco */
+  }
+
+  /* desliga animação e esconde todas */
+  .intro-track img{
+    transition: none !important;
+    opacity: 0 !important;
+  }
+
+  /* mostra SEM JS a última imagem (ultima_foto.jpg) */
+  .intro-track img:last-child{
+    opacity: 1 !important;
+    z-index: 2 !important;
+  }
+
+  /* bola nunca aparece */
+  #introBall{ display: none !important; }
+
+  /* não sobe por cima do topo */
+  body.intro-last .methodus{ margin-top: 0 !important; }
+  .methodus{ opacity: 1 !important; transform: none !important; }
+}

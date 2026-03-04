@@ -2181,12 +2181,6 @@ a, a:visited, a:hover, a:focus, a:active {
     padding-bottom: 140px;
   }
 
-  .stack-8{
-    position: relative !important;
-    top: auto !important;
-    min-height: auto !important;
-  }
-
   .trend-band{
     overflow: visible !important;
     padding-bottom: 240px !important;
@@ -2465,4 +2459,10 @@ a, a:visited, a:hover, a:focus, a:active {
 .events-panel,
 .events-panel-inner{
   overflow: visible !important;
+}
+
+@media (max-width: 1024px){
+    .hero-mobile-line{
+    display: none !important;
+  }
 }
