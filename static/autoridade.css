@@ -2466,3 +2466,25 @@ a, a:visited, a:hover, a:focus, a:active {
     display: none !important;
   }
 }
+
+@supports (height: 100svh){
+  .hero-video-inner { height: 100svh; }
+}
+
+@media (max-width: 430px){
+  .events-stage.stack-section,
+  .authority-quote.stack-section,
+  .stats-band.stack-section,
+  .final-quote.stack-section,
+  .trend-band.stack-section,
+  .cases-section.stack-section{
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .events-panel-inner { padding-bottom: 48px !important; }
+
+  .events-panel-inner > .cursos-grid{
+    margin-top: 18px !important;
+  }
+}

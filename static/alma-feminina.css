@@ -1202,13 +1202,11 @@ background: linear-gradient(
     gap: 46px !important;
   }
 
-  /* mídia um pouco maior */
   .alma-partner.stack-5 .alma-partner-media{
     max-width: 480px;
     margin: 0 auto;
   }
 
-  /* tipografia maior */
   .alma-partner.stack-5 .alma-partner-text{
     max-width: 720px;
   }
@@ -1222,5 +1220,121 @@ background: linear-gradient(
     font-size: 15px !important;
     padding: 16px 22px !important;
     min-height: 52px !important;
+  }
+}
+
+/* ===== FIX 2: iPhones com viewport “encolhido” pelo Safari (corte intermitente) ===== */
+@media (max-width: 430px) and (max-height: 860px){
+
+  /* estabiliza a altura em iOS moderno */
+  .stack-section{
+    min-height: 100svh;
+  }
+
+  /* comprime um pouco menos agressivo que o SE */
+  .alma-section.stack-2{
+    padding: 28px 0 30px;
+  }
+
+  .alma-section.stack-2 .alma-section-inner{
+    padding-top: 0 !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .alma-section.stack-2 .alma-block{
+    gap: 18px;
+  }
+
+  .alma-section.stack-2 .alma-block + .alma-block{
+    margin-top: 32px;
+  }
+
+  .alma-section.stack-2 .alma-title{
+    font-size: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 0.09em;
+  }
+
+  .alma-section.stack-2 .alma-content{
+    font-size: 14.5px;
+    line-height: 1.82;
+    margin-top: 12px;
+  }
+
+  .alma-section.stack-2 .alma-content p + p{
+    margin-top: 12px;
+  }
+
+  .alma-section.stack-2 .alma-vline{
+    min-height: 90px;
+  }
+}
+
+@media (max-width: 430px){
+
+  .alma-section.stack-2{
+    display: flex;
+    align-items: center;
+  }
+
+  .alma-section.stack-2 .alma-section-inner{
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) and (max-height: 760px){
+  .alma-section.stack-2{
+    align-items: flex-start;
+  }
+}
+
+.alma-dark-inner{
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.alma-dark-title,
+.alma-dark-text{
+  width: min(920px, 100%); 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alma-card-thumb{
+  min-height: 320px;
+}
+
+@media (max-width: 960px){
+  .alma-card-thumb{ min-height: 260px; }
+}
+@media (max-width: 640px){
+  .alma-card-thumb{ min-height: 220px; }
+}
+
+.alma-card-photo{ z-index: 1; opacity: 1; }
+.alma-card-frame{ z-index: 2; opacity: 1; }
+.alma-card-caption{ z-index: 3; }
+
+@media (max-width: 640px){
+  .alma-dark-title{
+    font-size: 24px !important;
+    letter-spacing: 0.07em;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .alma-dark-text{
+    display: block !important;
+    max-width: 38ch;
+    margin: 12px auto 0;
+    font-size: 16.5px;
+    line-height: 1.85;
+    text-wrap: balance;
+  }
+
+  .alma-dark-line{
+    display: contents !important;
   }
 }
