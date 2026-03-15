@@ -1172,7 +1172,7 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .authority-main{
-    padding: 80px 20px 84px;
+    padding: 0px 20px 84px;
   }
 
   .authority-intro-text{
@@ -2487,7 +2487,6 @@ a, a:visited, a:hover, a:focus, a:active {
 
   /* HERO: no SE 100dvh fica exagerado e mata a proporção */
   .hero-video-inner{
-    height: auto !important;
     min-height: 0 !important;
   }
 
