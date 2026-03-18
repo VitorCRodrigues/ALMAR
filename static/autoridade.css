@@ -1248,7 +1248,7 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .trend-band-inner{
-    padding: 0 20px;
+    padding: 15px 20px;
   }
 
   .trend-item{
@@ -2558,7 +2558,8 @@ a, a:visited, a:hover, a:focus, a:active {
   /* TREND: reduz altura e espaçamento */
   .trend-band{
     padding: 44px 0 70px !important;
-    margin-top: 0 !important;
+    margin-top: -35px !important;
+    z-index: 4;
   }
 
   .trend-right{
