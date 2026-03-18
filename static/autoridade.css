@@ -285,7 +285,7 @@ a, a:visited, a:hover, a:focus, a:active {
   width: min(760px, 100%);
   margin: 0 auto;
 
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
 
   scroll-behavior: smooth;
