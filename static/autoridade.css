@@ -40,6 +40,7 @@ html{
 
 html, body{
   background: #000;
+  overflow-x: clip; 
 }
 
 .stack-scroll{
@@ -57,6 +58,12 @@ a, a:visited, a:hover, a:focus, a:active {
 
 .page {
   background: #e5e5e5;
+}
+
+.page,
+.stack-scroll {
+  overflow-x: clip;
+  position: relative;
 }
 
 .hero-video{
@@ -633,19 +640,17 @@ a, a:visited, a:hover, a:focus, a:active {
   background: #e7e6e6;
   color: #000;
 
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 
   position: relative;
-  left: auto;
-  transform: none; 
+  z-index: 20;
 
   margin-top: 0;
   border-radius: 0 0 110px 110px;
 
-  overflow: visible;
-  z-index: 5;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -2610,3 +2615,25 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 }
 
+.final-quote {
+  margin-bottom: -90px;
+  padding-bottom: calc(20px + 10px); 
+  z-index: 20;
+}
+
+@media (max-width: 960px) {
+  .final-quote {
+    margin-bottom: -44px;
+    padding-bottom: calc(56px + 44px);
+  }
+}
+
+.trend-band {
+  padding-top: 140px;
+}
+
+@media (max-width: 960px) {
+  .trend-band {
+    padding-top: 100px;
+  }
+}
