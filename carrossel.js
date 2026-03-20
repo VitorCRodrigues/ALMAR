@@ -45,29 +45,28 @@
   }
 
   function goTo(i, { animate = true } = {}) {
-    // ✅ loop: quando passar do último, volta pro 0; quando antes do 0, vai pro último
-    if (i > items.length - 1) i = 0;
-    if (i < 0) i = items.length - 1;
+    const isMobile = window.innerWidth <= 640;
+    const step = isMobile ? 2 : 1;
+    const total = items.length;
+
+    // snap para múltiplo de step no mobile
+    if (isMobile) i = Math.round(i / step) * step;
+
+    if (i >= total) i = 0;
+    if (i < 0) i = total - step < 0 ? 0 : total - step;
 
     index = i;
 
     const { containerW, minX, maxX } = measure();
 
     const itemLeft = positions[index];
-    const itemW = widths[index];
-
-    // deixa sempre o item inteiro visível
-    const margin = Math.max(12, Math.round(containerW * 0.06));
-
-    let x;
-    if (itemW > containerW - margin * 2) {
-      // se o logo é "grande", alinha à esquerda com margem
-      x = -(itemLeft - margin);
-    } else {
-      // senão, centraliza
-      const centerOffset = (containerW - itemW) / 2;
-      x = -(itemLeft - centerOffset);
-    }
+    // no mobile mostra 2 itens: alinha à esquerda sem centralizar
+    let x = isMobile ? -itemLeft : (() => {
+      const itemW = widths[index];
+      const margin = Math.max(12, Math.round(containerW * 0.06));
+      if (itemW > containerW - margin * 2) return -(itemLeft - margin);
+      return -(itemLeft - (containerW - itemW) / 2);
+    })();
 
     x = clamp(x, minX, maxX);
 
@@ -76,7 +75,8 @@
   }
 
   function next() {
-    goTo(index + 1);
+    const step = window.innerWidth <= 640 ? 2 : 1;
+    goTo(index + step);
   }
 
   function stopAuto() {
