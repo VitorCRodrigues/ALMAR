@@ -1526,7 +1526,7 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .hero-video-overlay{
-    position: static;
+    position: absolute;
     order: 1;
     background: #000;
     padding: 44px 18px 34px;
@@ -2110,7 +2110,7 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .hero-video-overlay{
-    position: static;
+    position: absolute;
     order: 1;
     background: #000;
   }
