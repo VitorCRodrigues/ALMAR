@@ -166,6 +166,21 @@ html, body {
   z-index: 5;
 }
 
+@media (min-width: 1200px) and (max-height: 820px) {
+  .pyramid-content{
+    top: 31%;
+    bottom: 120px;
+  }
+
+  .pyramid-layer{
+    margin-bottom: 14px;
+  }
+
+  .pyramid-layer p{
+    line-height: 1.45;
+  }
+}
+
 .pyramid-layer h3 {
   font-size: clamp(12px, 1.5vw, 24px);
   font-weight: 400;
