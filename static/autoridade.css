@@ -5,12 +5,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "Avenir Next Bold";
-  src: url("../styles/fonts/AvenirNext-Bold.ttf");
-  font-weight: bold;
-}
-
 :root{
   --bg: #000;
   --text: #fff;

@@ -877,22 +877,54 @@
 
     @media (min-width: 768px) and (max-width: 1366px){
 
-    /* garante que a hero não crie altura sobrando */
-    .oqf-hero,
-    #introScroll,
-    .intro-track{
-        height: auto !important;
-        min-height: 0 !important;
+        /* garante que a hero não crie altura sobrando */
+        .oqf-hero,
+        #introScroll,
+        .intro-track{
+            height: auto !important;
+            min-height: 0 !important;
+        }
+
+        /* sobe o texto */
+        .oqf-hero-content{
+            padding: 36px 5% 28px !important; /* antes era 120px... */
+        }
+
+        /* opcional: reduz um pouco o texto pra caber melhor */
+        .oqf-hero-content p{
+            font-size: 16px;
+            max-width: 520px;
+        }
     }
 
-    /* sobe o texto */
-    .oqf-hero-content{
-        padding: 36px 5% 28px !important; /* antes era 120px... */
-    }
+.nossos-servicos{
+  margin-top: -40px;
+  z-index: 3;
+}
 
-    /* opcional: reduz um pouco o texto pra caber melhor */
-    .oqf-hero-content p{
-        font-size: 16px;
-        max-width: 520px;
-    }
-    }
+.nossos-servicos .container{
+  position: relative;
+  top: -40px;
+  padding-top: 30px;
+}
+
+@media (max-width: 900px){
+  .nossos-servicos{
+    margin-top: 0 !important;
+  }
+
+  .nossos-servicos .container{
+    top: 0 !important;
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 1025px){
+  .nossos-servicos{
+    margin-top: 0;
+  }
+
+  .nossos-servicos .container{
+    top: 0;
+  }
+}

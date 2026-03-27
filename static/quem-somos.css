@@ -1465,3 +1465,22 @@ body.intro-done .intro-track{
   body.intro-last .methodus{ margin-top: 0 !important; }
   .methodus{ opacity: 1 !important; transform: none !important; }
 }
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+  .consultants.consultants--top{
+    padding-top: 0 !important;
+    margin-top: -160px !important;
+  }
+
+  .consultants.consultants--top .consultants-inner{
+    padding-top: 0 !important;
+  }
+
+  .consultants.consultants--top .consultants-heading{
+    margin-top: 0 !important;
+    margin-bottom: 40px !important;
+  }
+
+}

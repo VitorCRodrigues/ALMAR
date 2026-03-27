@@ -428,3 +428,16 @@ button, input, optgroup, select, textarea {
     height: 42px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+  .hero-cases-content h1{
+    top: 550px; 
+  }
+
+}
+
+.cases-intro p{
+  position: relative;
+  top: -30px;
+}
