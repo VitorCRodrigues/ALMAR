@@ -1,7 +1,7 @@
 (() => {
   const container = document.querySelector(".carousel-container");
   const track = document.querySelector(".carousel-track");
-  const firstSet = track?.querySelector(".carousel-logos"); // 1º bloco
+  const firstSet = track?.querySelector(".carousel-logos");
 
   if (!container || !track || !firstSet) return;
 
@@ -9,86 +9,77 @@
   if (!items.length) return;
 
   let index = 0;
-  let positions = [];
-  let widths = [];
-
-  // autoplay
   let timer = null;
-  const INTERVAL = 2200;          // tempo entre itens
+  const INTERVAL = 2200;
   const RESUME_AFTER_CLICK = 2500;
 
-  function numStyle(el, prop) {
-    const v = parseFloat(getComputedStyle(el)[prop] || "0");
-    return Number.isFinite(v) ? v : 0;
+  function isMobile() {
+    return window.innerWidth <= 900;
   }
 
-  function measure() {
-    const padLeft = numStyle(firstSet, "paddingLeft");
-    const padRight = numStyle(firstSet, "paddingRight");
-
-    const containerW = container.clientWidth;
-
-    positions = items.map(img => firstSet.offsetLeft + img.offsetLeft - padLeft);
-    widths = items.map(img => img.getBoundingClientRect().width || img.offsetWidth || 0);
-
-    const firstSetW = firstSet.getBoundingClientRect().width;
-
-    // limites para não "passar" demais
-    const minX = -(firstSet.offsetLeft + firstSetW - padRight - containerW);
-    const maxX = 0;
-
-    return { containerW, minX, maxX };
+  /* ─── MOBILE: cada img vira um "slide" de 100% do container ─── */
+  function applyMobileLayout() {
+    const w = container.clientWidth;
+    items.forEach(img => {
+      img.style.width      = w + "px";
+      img.style.maxWidth   = w + "px";
+      img.style.height     = "80px";
+      img.style.objectFit  = "contain";
+      img.style.flexShrink = "0";
+    });
+    firstSet.style.gap     = "0";
+    firstSet.style.padding = "0";
   }
 
-  function clamp(v, min, max) {
-    return Math.max(min, Math.min(max, v));
+  function resetMobileLayout() {
+    items.forEach(img => {
+      img.style.width      = "";
+      img.style.maxWidth   = "";
+      img.style.height     = "";
+      img.style.objectFit  = "";
+      img.style.flexShrink = "";
+    });
+    firstSet.style.gap     = "";
+    firstSet.style.padding = "";
   }
 
+  /* ─── goTo ─── */
   function goTo(i, { animate = true } = {}) {
-    const isMobile = window.innerWidth <= 640;
-    const step = isMobile ? 2 : 1;
     const total = items.length;
-
-    // snap para múltiplo de step no mobile
-    if (isMobile) i = Math.round(i / step) * step;
-
     if (i >= total) i = 0;
-    if (i < 0) i = total - step < 0 ? 0 : total - step;
-
+    if (i < 0)      i = total - 1;
     index = i;
 
-    const { containerW, minX, maxX } = measure();
+    let x;
 
-    const itemLeft = positions[index];
-    // no mobile mostra 2 itens: alinha à esquerda sem centralizar
-    let x = isMobile ? -itemLeft : (() => {
-      const itemW = widths[index];
-      const margin = Math.max(12, Math.round(containerW * 0.06));
-      if (itemW > containerW - margin * 2) return -(itemLeft - margin);
-      return -(itemLeft - (containerW - itemW) / 2);
-    })();
+    if (isMobile()) {
+      applyMobileLayout();
+      // cada slide ocupa exatamente container.clientWidth
+      x = -(index * container.clientWidth);
+    } else {
+      resetMobileLayout();
+      const containerW = container.clientWidth;
+      const imgLeft    = items[index].offsetLeft + firstSet.offsetLeft;
+      const imgW       = items[index].getBoundingClientRect().width || items[index].offsetWidth || 0;
+      const margin     = Math.max(12, Math.round(containerW * 0.06));
+      x = imgW > containerW - margin * 2
+        ? -(imgLeft - margin)
+        : -(imgLeft - (containerW - imgW) / 2);
 
-    x = clamp(x, minX, maxX);
+      const trackW = firstSet.getBoundingClientRect().width;
+      const minX   = -(trackW - containerW);
+      x = Math.max(minX, Math.min(0, x));
+    }
 
     track.style.transition = animate ? "transform 420ms ease" : "none";
-    track.style.transform = `translateX(${x}px)`;
+    track.style.transform  = `translateX(${x}px)`;
   }
 
-  function next() {
-    const step = window.innerWidth <= 640 ? 2 : 1;
-    goTo(index + step);
-  }
+  function next() { goTo(index + 1); }
 
-  function stopAuto() {
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
+  function stopAuto()  { if (timer) clearInterval(timer); timer = null; }
+  function startAuto() { stopAuto(); timer = setInterval(next, INTERVAL); }
 
-  function startAuto() {
-    stopAuto();
-    timer = setInterval(next, INTERVAL);
-  }
-  
   window.moveCarousel = function (dir) {
     stopAuto();
     goTo(index + dir);
@@ -98,29 +89,27 @@
   function waitImagesThenInit() {
     const pending = items.filter(img => !img.complete);
     if (pending.length) {
-      pending.forEach(img => img.addEventListener("load", waitImagesThenInit, { once: true }));
+      pending.forEach(img =>
+        img.addEventListener("load", waitImagesThenInit, { once: true })
+      );
       return;
     }
-
     goTo(0, { animate: false });
     startAuto();
   }
 
   window.addEventListener("load", waitImagesThenInit);
-
   window.addEventListener("resize", () => goTo(index, { animate: false }));
 
   const section = document.querySelector(".carousel-section");
   if (section) {
     section.addEventListener("mouseenter", stopAuto);
     section.addEventListener("mouseleave", startAuto);
-
-    section.addEventListener("touchstart", stopAuto, { passive: true });
-    section.addEventListener("touchend", () => setTimeout(startAuto, 800), { passive: true });
+    section.addEventListener("touchstart", stopAuto,                         { passive: true });
+    section.addEventListener("touchend",   () => setTimeout(startAuto, 800), { passive: true });
   }
 
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) stopAuto();
-    else startAuto();
+    if (document.hidden) stopAuto(); else startAuto();
   });
 })();
