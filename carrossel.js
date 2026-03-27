@@ -23,24 +23,32 @@
     items.forEach(img => {
       img.style.width      = w + "px";
       img.style.maxWidth   = w + "px";
-      img.style.height     = "80px";
+      img.style.height     = "120px";
       img.style.objectFit  = "contain";
+      img.style.objectPosition = "center";
       img.style.flexShrink = "0";
+      img.style.padding    = "0 40px";
+      img.style.boxSizing  = "border-box";
     });
     firstSet.style.gap     = "0";
     firstSet.style.padding = "0";
+    firstSet.style.alignItems = "center";
   }
 
   function resetMobileLayout() {
     items.forEach(img => {
-      img.style.width      = "";
-      img.style.maxWidth   = "";
-      img.style.height     = "";
-      img.style.objectFit  = "";
-      img.style.flexShrink = "";
+      img.style.width          = "";
+      img.style.maxWidth       = "";
+      img.style.height         = "";
+      img.style.objectFit      = "";
+      img.style.objectPosition = "";
+      img.style.flexShrink     = "";
+      img.style.padding        = "";
+      img.style.boxSizing      = "";
     });
-    firstSet.style.gap     = "";
-    firstSet.style.padding = "";
+    firstSet.style.gap        = "";
+    firstSet.style.padding    = "";
+    firstSet.style.alignItems = "";
   }
 
   /* ─── goTo ─── */
