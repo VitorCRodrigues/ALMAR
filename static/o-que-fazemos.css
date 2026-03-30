@@ -96,9 +96,10 @@
     }
 
     .oqf-hero-content p {
-        max-width: 2440px;
+        max-width: 440px;
         font-size: 19px;
         color: #fff;
+        text-align: left;
         text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
@@ -592,7 +593,7 @@
         }
 
         .oqf-hero-content p {
-        max-width: 2440px;
+        max-width: 640px;
         font-size: 7px;
         color: #fff;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -893,6 +894,6 @@
     /* opcional: reduz um pouco o texto pra caber melhor */
     .oqf-hero-content p{
         font-size: 16px;
-        max-width: 2520px;
+        max-width: 420px;
     }
     }
