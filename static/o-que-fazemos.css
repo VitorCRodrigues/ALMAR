@@ -96,7 +96,7 @@
     }
 
     .oqf-hero-content p {
-        max-width: 440px;
+        max-width: 2440px;
         font-size: 19px;
         color: #fff;
         text-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -592,8 +592,8 @@
         }
 
         .oqf-hero-content p {
-        max-width: 440px;
-        font-size: 9px;
+        max-width: 2440px;
+        font-size: 7px;
         color: #fff;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -877,54 +877,22 @@
 
     @media (min-width: 768px) and (max-width: 1366px){
 
-        /* garante que a hero não crie altura sobrando */
-        .oqf-hero,
-        #introScroll,
-        .intro-track{
-            height: auto !important;
-            min-height: 0 !important;
-        }
-
-        /* sobe o texto */
-        .oqf-hero-content{
-            padding: 36px 5% 28px !important; /* antes era 120px... */
-        }
-
-        /* opcional: reduz um pouco o texto pra caber melhor */
-        .oqf-hero-content p{
-            font-size: 16px;
-            max-width: 520px;
-        }
+    /* garante que a hero não crie altura sobrando */
+    .oqf-hero,
+    #introScroll,
+    .intro-track{
+        height: auto !important;
+        min-height: 0 !important;
     }
 
-.nossos-servicos{
-  margin-top: -40px;
-  z-index: 3;
-}
+    /* sobe o texto */
+    .oqf-hero-content{
+        padding: 36px 5% 28px !important; /* antes era 120px... */
+    }
 
-.nossos-servicos .container{
-  position: relative;
-  top: -40px;
-  padding-top: 30px;
-}
-
-@media (max-width: 900px){
-  .nossos-servicos{
-    margin-top: 0 !important;
-  }
-
-  .nossos-servicos .container{
-    top: 0 !important;
-    padding-top: 30px;
-  }
-}
-
-@media (min-width: 1025px){
-  .nossos-servicos{
-    margin-top: 0;
-  }
-
-  .nossos-servicos .container{
-    top: 0;
-  }
-}
+    /* opcional: reduz um pouco o texto pra caber melhor */
+    .oqf-hero-content p{
+        font-size: 16px;
+        max-width: 2520px;
+    }
+    }
