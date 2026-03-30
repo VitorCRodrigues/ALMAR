@@ -2437,9 +2437,6 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 }
 
-@supports (height: 100svh){
-  .hero-video-inner { height: 100svh; }
-}
 
 
 /* ===== iPhone SE / telas pequenas e BAIXAS ===== */
