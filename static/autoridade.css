@@ -176,6 +176,7 @@ a, a:visited, a:hover, a:focus, a:active {
   color: #ffffff;
   font-size: 15px;
   line-height: 1.9;
+    padding-top: 40px;
 }
 
 .authority-description p + p {
@@ -1176,6 +1177,7 @@ a, a:visited, a:hover, a:focus, a:active {
   .authority-callout{
     min-height: auto;
     padding: 34px 22px;
+    display: none;
   }
 
   .authority-cards{
