@@ -72,16 +72,17 @@ body{
 }
 
 .alma-hero-inner{
-  position: relative;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+
   z-index: 2;
-
   max-width: 1100px;
-  margin: 0 auto;
   width: 100%;
-
-  padding: 140px 40px 0;
-
+  padding: 0 0px 24px;
   color: var(--white);
+
 }
 
 .alma-hero-kicker{
@@ -123,7 +124,7 @@ body{
 
 .alma-section{
   background: #E7E6E6;
-  padding: 84px 0 92px;
+  padding: 100px 0 100px;
 }
 
 .alma-section-inner{
@@ -652,7 +653,8 @@ background: linear-gradient(
 
 @media (max-width: 960px){
   .alma-hero-inner{
-    padding: 120px 20px 0;
+    padding-left: 26px;
+    bottom: 50px;
   }
 
   .alma-hero-kicker{
@@ -1233,7 +1235,7 @@ background: linear-gradient(
 
   /* comprime um pouco menos agressivo que o SE */
   .alma-section.stack-2{
-    padding: 28px 0 30px;
+    padding: 15px 0 0;
   }
 
   .alma-section.stack-2 .alma-section-inner{
@@ -1319,7 +1321,7 @@ background: linear-gradient(
 
 @media (max-width: 640px){
   .alma-dark-title{
-    font-size: 24px !important;
+    font-size: 21px !important;
     letter-spacing: 0.07em;
     line-height: 1.25;
     margin-bottom: 14px;
