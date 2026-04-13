@@ -13,25 +13,26 @@
   const INTERVAL = 2200;
   const RESUME_AFTER_CLICK = 2500;
 
+  // ← MUDANÇA PRINCIPAL: era <= 900, agora <= 600
+  // Tablets (820px+) usam o layout desktop de múltiplos logos
   function isMobile() {
-    return window.innerWidth <= 900;
+    return window.innerWidth <= 600;
   }
 
-  /* ─── MOBILE: cada img vira um "slide" de 100% do container ─── */
   function applyMobileLayout() {
     const w = container.clientWidth;
     items.forEach(img => {
-      img.style.width      = w + "px";
-      img.style.maxWidth   = w + "px";
-      img.style.height     = "120px";
-      img.style.objectFit  = "contain";
+      img.style.width          = w + "px";
+      img.style.maxWidth       = w + "px";
+      img.style.height         = "120px";
+      img.style.objectFit      = "contain";
       img.style.objectPosition = "center";
-      img.style.flexShrink = "0";
-      img.style.padding    = "0 40px";
-      img.style.boxSizing  = "border-box";
+      img.style.flexShrink     = "0";
+      img.style.padding        = "0 40px";
+      img.style.boxSizing      = "border-box";
     });
-    firstSet.style.gap     = "0";
-    firstSet.style.padding = "0";
+    firstSet.style.gap        = "0";
+    firstSet.style.padding    = "0";
     firstSet.style.alignItems = "center";
   }
 
@@ -51,7 +52,6 @@
     firstSet.style.alignItems = "";
   }
 
-  /* ─── goTo ─── */
   function goTo(i, { animate = true } = {}) {
     const total = items.length;
     if (i >= total) i = 0;
@@ -62,7 +62,6 @@
 
     if (isMobile()) {
       applyMobileLayout();
-      // cada slide ocupa exatamente container.clientWidth
       x = -(index * container.clientWidth);
     } else {
       resetMobileLayout();
