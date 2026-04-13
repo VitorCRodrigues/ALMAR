@@ -1100,7 +1100,7 @@ a, a:visited, a:hover, a:focus, a:active {
   }
 
   .authority-grid {
-    grid-template-columns: 1fr;
+    padding-top: 60px;
   }
 
   .authority-cards {
